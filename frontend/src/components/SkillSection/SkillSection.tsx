@@ -1,4 +1,5 @@
 import SectionHeader from "../SectionHeader/SectionHeader.tsx";
+import SkillDiagram from "../SkillDiagram/SkillDiagram.tsx";
 import styles from "./SkillSection.module.css";
 import type { SkillSectionProps } from "./SkillSection.types.ts";
 
@@ -23,6 +24,7 @@ const SkillSection = ({ theme = "light", className, ...sectionProps }: SkillSect
                         </>
                     }
                 />
+                <SkillDiagram theme={theme} className={styles.diagram} />
             </div>
         </section>
     );

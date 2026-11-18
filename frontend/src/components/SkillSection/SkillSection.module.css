@@ -9,3 +9,8 @@
     margin: 0 auto;
     padding: 44px 16px;
 }
+
+/* 64px from header text to the top of the diagram's connector labels (labels start 15px into the diagram) */
+.diagram {
+    margin: 49px auto 0;
+}
