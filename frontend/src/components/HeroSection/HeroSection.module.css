@@ -1,0 +1,153 @@
+/* Values from Figma (Personal Site / Hero, light 61:45959, dark 61:45958).
+   Section is full width; content is centered (horizontally and vertically) in a 1120px column.
+   The section's height is set by the page (e.g. min-height); content stays vertically centered in it.
+   Desktop: text column (680px) left, QuestionDiagram right; the dashed divider
+   runs from the text into the diagram's "Why build?" callout.
+   Below 1024px it stacks: headline, description, diagram, then buttons
+   (.content becomes display: contents so its children can be reordered around the diagram). */
+
+.hero {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--font-family-primary);
+    color: var(--hero-text);
+}
+
+.inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1120px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 44px 16px;
+}
+
+.content {
+    display: contents;
+}
+
+.headline {
+    margin: 0;
+    font-size: var(--font-size-40);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-48);
+}
+
+.headline strong,
+.accent {
+    font-weight: var(--font-weight-700);
+}
+
+.accent {
+    color: var(--hero-accent);
+}
+
+/* Dashed line: 780×1 Figma SVG tiled horizontally; hidden when the layout stacks.
+   Shifting the background by one tile (780px) loops seamlessly. */
+.divider {
+    display: none;
+    flex-shrink: 0;
+    width: 780px;
+    height: 1px;
+    margin: 27px 0 19px;
+    background-repeat: repeat-x;
+    background-size: 780px 1px;
+    animation: flow 30s linear infinite;
+}
+
+@keyframes flow {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: 780px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .divider {
+        animation: none;
+    }
+}
+
+.subheadline {
+    max-width: 600px;
+    margin: 24px 0 0;
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-32);
+}
+
+.subheadline strong {
+    font-weight: var(--font-weight-700);
+}
+
+.actions {
+    order: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 48px;
+}
+
+.diagram {
+    order: 1;
+    flex-shrink: 0;
+    align-self: center;
+    margin-top: 48px;
+}
+
+@media (min-width: 1024px) {
+    .inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 44px 53px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        max-width: 680px;
+    }
+
+    .actions {
+        margin-top: 40px;
+    }
+
+    .headline {
+        font-size: var(--font-size-56);
+        line-height: var(--font-line-height-64);
+    }
+
+    .divider {
+        display: block;
+    }
+
+    .subheadline {
+        margin-top: 0;
+    }
+
+    /* Sits above the divider so the line ends behind the "Why build?" callout */
+    .diagram {
+        position: relative;
+        z-index: 1;
+        align-self: flex-start;
+        margin-top: 6px;
+    }
+}
+
+/* Themes */
+
+.light {
+    --hero-text: var(--light-text-primary);
+    --hero-accent: #b07300; /* Figma value; no matching token */
+}
+
+.dark {
+    --hero-text: var(--dark-text-primary);
+    --hero-accent: var(--light-accent-fill);
+}
