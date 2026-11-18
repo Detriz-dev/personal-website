@@ -1,7 +1,7 @@
 ## Planing
 #### Project setup
 - [x] **Repository**
-- [ ] **Agent set-up** 
+- [x] **Agent set-up** 
 
 #### Information design 
 - [ ] **Main message**  what is my value proposition? 
