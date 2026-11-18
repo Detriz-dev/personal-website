@@ -14,14 +14,14 @@
 - [x] **Copy evaluation**
 
 #### Page structure 
-- [ ] **Inspirations**
-- [ ] **lo-fi** Web, mobile behavior 
+- [x] **Inspirations**
+- [x] **lo-fi** Web, mobile behavior 
 
 #### Visual design
-- [ ] **Inspirations**
-- [ ] **Design tokens**
-- [ ] **Hi-fi**
-- [ ] **Hand off preparation** - Clen up, component decomposition 
+- [x] **Inspirations**
+- [x] **Design tokens**
+- [x] **Hi-fi**
+- [x] **Hand off preparation** - Clen up, component decomposition 
 
 #### Implementation
 - [ ] **Environment and structure** What technology I will use?

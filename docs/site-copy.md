@@ -14,8 +14,7 @@
 **Product value** starts with the **right questions.**
 
 ## Subheadline
-Hi, I’m Dawid — an **AI-native Product Designer** and educator. I lead the **end-to-end product process**: defining the problem, designing the solution, and validating it with **code-based prototypes**.
-
+I'm Dawid — a Product Designer leading end-to-end product design, combining technical understanding with AI-assisted workflows and code-based prototyping (React).
 ## Primary & Secondary CTAs
 - **See the answers in action ↓** *(Anchors to Selected Work)*
 - **How I find answers ↓** *(Anchors to End-to-End Design Process)*
@@ -80,8 +79,7 @@ Working in unfamiliar, high-complexity environments taught me how to **learn a n
 # End-to-End Design Process
 
 ## Intro Copy
-Turning the right questions into shippable product value requires both **ownership and alignment**. While I can **independently drive a feature from initial discovery to a coded prototype**, I treat product design as a **team sport**—actively bringing in engineers, PMs, and domain experts whenever deep context or technical alignment is needed.
-
+Turning the right questions into shippable product value requires ownership and alignment. I independently drive the process from initial discovery to working prototypes, while collaborating with engineers, PMs and domain experts to bring the right context into product decisions.
 ## Process Framework
 
 ### 1. Problem definition *(Why?)*
