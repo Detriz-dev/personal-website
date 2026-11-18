@@ -1,0 +1,178 @@
+/* Values from Figma (Personal Site / hero diagram, light 61:29926, dark 61:29901).
+   Fixed 380×292 canvas: the circle and callouts keep Figma's absolute positions. */
+
+.diagram {
+    position: relative;
+    width: 380px;
+    height: 292px;
+    font-family: var(--font-family-primary);
+}
+
+/* Dashed circle — rotates clockwise */
+.circle {
+    position: absolute;
+    left: 84px;
+    top: 19px;
+    width: 254px;
+    height: 254px;
+    animation: spin 40s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .circle {
+        animation: none;
+    }
+}
+
+/* Center node */
+.core {
+    position: absolute;
+    left: 159px;
+    top: 94px;
+    width: 104px;
+    height: 104px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    color: var(--diagram-core-text);
+}
+
+.coreIcon {
+    font-size: 32px;
+    line-height: 32px;
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.coreLabel {
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-20);
+}
+
+/* Question callout */
+.question {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    min-height: 41px;
+    box-sizing: border-box;
+    padding: 4px 16px 4px 4px;
+    border: 1px solid var(--diagram-border);
+    border-radius: 10px;
+    background-color: var(--diagram-surface);
+    color: var(--diagram-text);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+    cursor: default;
+    transition: box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.question:hover,
+.question:focus-visible {
+    z-index: 2;
+    outline: none;
+    border-color: var(--diagram-border-active);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+}
+
+.what {
+    left: 194px;
+    top: 0;
+}
+
+.why {
+    left: 9px;
+    top: 125px;
+}
+
+.how {
+    left: 211px;
+    top: 251px;
+}
+
+.iconBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: rgba(255, 191, 43, 0.25);
+}
+
+.icon {
+    font-size: var(--font-size-20);
+    line-height: var(--font-line-height-20);
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    padding-top: 4px;
+}
+
+.label {
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-24);
+    white-space: nowrap;
+}
+
+/* Expanding description: grid row animates 0fr → 1fr */
+.descriptionWrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 250ms ease, opacity 200ms ease;
+}
+
+.description {
+    overflow: hidden;
+    color: var(--diagram-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-20);
+    white-space: nowrap;
+}
+
+.question:hover .descriptionWrap,
+.question:focus-visible .descriptionWrap {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.question:hover .description,
+.question:focus-visible .description {
+    padding-bottom: 4px;
+}
+
+/* Themes */
+
+.light {
+    --diagram-surface: var(--light-surface-cards);
+    --diagram-border: var(--light-border-subtle);
+    --diagram-border-active: var(--light-border-strong);
+    --diagram-text: var(--light-text-primary);
+    --diagram-text-secondary: var(--light-text-secondary);
+    --diagram-core-text: var(--light-text-primary);
+}
+
+.dark {
+    --diagram-surface: var(--dark-surface-cards);
+    --diagram-border: var(--dark-border-subtle);
+    --diagram-border-active: var(--dark-border-strong);
+    --diagram-text: var(--dark-text-primary);
+    --diagram-text-secondary: var(--dark-text-secondary);
+    --diagram-core-text: #ffffff;
+}

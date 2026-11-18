@@ -2,6 +2,7 @@ import { useState } from "react";
 import style from "./LandingPage.module.css";
 import Button from "../../components/Button/Button.tsx";
 import TopNav from "../../components/TopNav/TopNav.tsx";
+import QuestionDiagram from "../../components/QuestionDiagram/QuestionDiagram.tsx";
 import type { TopNavLink, TopNavTheme } from "../../components/TopNav/TopNav.types.ts";
 
 // Labels from docs/site-copy.md; icons from Figma (TopNav, node 42:29568)
@@ -26,6 +27,15 @@ const LandingPage = () => {
             onThemeToggle={() => setTheme(theme === "light" ? "dark" : "light")}
             menuOpen={menuOpen}
             onMenuToggle={() => setMenuOpen(!menuOpen)}
+        />
+
+        {/* Copy from docs/site-copy.md — Hero Visual Callouts */}
+        <QuestionDiagram
+            theme={theme}
+            why={{ label: "Why build?", description: "Discovery & validation", icon: "manage_search" }}
+            what={{ label: "What to build?", description: "Product strategy & UI", icon: "widgets" }}
+            how={{ label: "How to build?", description: "Coded prototypes & specs", icon: "data_object" }}
+            coreLabel="Feature"
         />
 
         <Button
