@@ -16,7 +16,7 @@ const LandingPage = () => {
     const [theme, setTheme] = useState<TopNavTheme>("light");
     const [menuOpen, setMenuOpen] = useState(false);
 
-    return (<>
+    return (<div className={`${style.page} ${style[theme]}`}>
         <TopNav
             theme={theme}
             homeHref="#"
@@ -36,6 +36,6 @@ const LandingPage = () => {
             label={"Selected work"}
             icon={"south"}
             variant="secondary"/>
-        <h1 className={style.label}>Landing Page</h1></>)}
+        <h1 className={style.label}>Landing Page</h1></div>)}
 
 export default LandingPage;
