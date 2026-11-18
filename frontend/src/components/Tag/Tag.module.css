@@ -1,0 +1,37 @@
+/* Values from Figma (Personal Site / Tag, dark 65:46067, light 65:46076). */
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 4px;
+    border: 1px solid var(--tag-border);
+    border-radius: 5px;
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-24);
+    letter-spacing: var(--font-letter-spacing-default);
+    white-space: nowrap;
+}
+
+.icon {
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Themes */
+
+.light {
+    --tag-bg: var(--light-raised-controls);
+    --tag-border: var(--light-border-subtle);
+    --tag-text: var(--light-text-primary);
+}
+
+.dark {
+    --tag-bg: var(--dark-raised-controls);
+    --tag-border: var(--dark-border-subtle);
+    --tag-text: var(--dark-text-primary);
+}
