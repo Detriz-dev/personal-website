@@ -1,0 +1,82 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: var(--btn-border-width) solid var(--btn-border);
+    border-radius: 8px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.button:has(.icon) {
+    padding-right: 16px;
+}
+
+.button:hover {
+    background-color: var(--btn-bg-hover);
+    border-color: var(--btn-border-hover);
+}
+
+.button:focus-visible {
+    outline: 2px solid var(--btn-focus);
+    outline-offset: 2px;
+}
+
+.icon {
+    font-size: var(--font-size-18);
+    line-height: var(--font-line-height-24);
+    font-variation-settings: "FILL" 0, "wght" 600, "GRAD" 0, "opsz" 20;
+}
+
+/* Variant × theme — values from Figma (Personal Site / Button) */
+
+.primary.light {
+    --btn-border-width: 1px;
+    --btn-bg: var(--light-accent-fill);
+    --btn-border: #bd850d;
+    --btn-text: var(--light-on-accent);
+    --btn-bg-hover: #e8aa14;
+    --btn-border-hover: #bd850d;
+    --btn-focus: var(--light-text-primary);
+}
+
+.secondary.light {
+    --btn-border-width: 1.5px;
+    --btn-bg: var(--light-surface-cards);
+    --btn-border: var(--light-text-primary);
+    --btn-text: var(--light-text-primary);
+    --btn-bg-hover: #f0f2f6;
+    --btn-border-hover: var(--light-text-primary);
+    --btn-focus: var(--light-text-primary);
+}
+
+.primary.dark {
+    --btn-border-width: 1px;
+    --btn-bg: var(--light-accent-fill);
+    --btn-border: #e0a51a;
+    --btn-text: var(--light-on-accent);
+    --btn-bg-hover: #ffd166;
+    --btn-border-hover: #ffd166;
+    --btn-focus: var(--light-accent-fill);
+}
+
+.secondary.dark {
+    --btn-border-width: 1.5px;
+    --btn-bg: #202632;
+    --btn-border: #a6b0c0;
+    --btn-text: #f6f7fb;
+    --btn-bg-hover: #323b4b;
+    --btn-border-hover: #dfe5ef;
+    --btn-focus: #f6f7fb;
+}
