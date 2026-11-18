@@ -2,8 +2,11 @@
    Figma "Screen": web = 1120px wide, mobile = 360px wide; both 56px tall.
    Web/mobile switch at 768px. */
 
+/* Sticks to the top of the viewport, keeping the 8px offset from the browser bar */
 .topNav {
-    position: relative;
+    position: sticky;
+    top: 8px;
+    z-index: 10;
     width: 100%;
     max-width: 1120px;
     border: 1px solid var(--top-nav-border);

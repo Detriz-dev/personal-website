@@ -37,8 +37,7 @@ const FooterSection = ({ theme = "light", linkedinHref, githubHref, className, .
                 <div className={styles.content}>
                     <h2 className={styles.headline}>Thanks for stopping by.</h2>
                     <p className={styles.subheadline}>
-                        Looking for an <strong>AI-native Senior/Lead Product Designer</strong> or help building a{" "}
-                        <strong>code-backed design system</strong>? Let’s talk about your product.
+                        Have a question or just want to chat? Feel free to reach out here:.
                     </p>
 
                     <ul className={styles.contacts}>
