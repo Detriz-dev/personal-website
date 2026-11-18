@@ -1,0 +1,136 @@
+/* Values from Figma (Personal Site / TopNav, node 42:29568).
+   Figma "Screen": web = 1120px wide, mobile = 360px wide; both 56px tall.
+   Web/mobile switch at 768px. */
+
+.topNav {
+    position: relative;
+    width: 100%;
+    max-width: 1120px;
+    border: 1px solid var(--top-nav-border);
+    border-radius: 8px;
+    background-color: var(--top-nav-bg);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+    font-family: var(--font-family-primary);
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    height: 54px; /* 56px outer minus 1px border on each side */
+    padding: 0 16px 0 8px;
+}
+
+.links,
+.menuLinks {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.links {
+    display: none;
+    align-items: center;
+    gap: 2px;
+}
+
+.actions {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+}
+
+/* Figma uses a 24px icon for the logo; NavItem's icon is 20px. */
+.logo :global(.material-symbols-rounded) {
+    font-size: 24px;
+}
+
+/* Icon-only button/link matching NavItem "Icon only" (38×34). */
+.iconButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--top-nav-text);
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.iconButton :global(.material-symbols-rounded) {
+    font-size: var(--font-size-20);
+    line-height: var(--font-line-height-24);
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
+}
+
+/* Figma: dark_mode uses Regular weight */
+.themeToggle :global(.material-symbols-rounded) {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+}
+
+.iconButton img {
+    display: block;
+}
+
+/* Amber hover is the same in both themes (matches NavItem) */
+.iconButton:hover {
+    background-color: var(--light-accent-fill);
+    color: var(--light-text-primary);
+}
+
+.iconButton:focus-visible {
+    outline: none;
+    border-color: var(--top-nav-text);
+}
+
+.menuButton {
+    margin-left: auto;
+}
+
+/* Mobile dropdown — not in Figma yet; built from existing tokens */
+.menu {
+    padding: 8px;
+    border-top: 1px solid var(--top-nav-divider);
+}
+
+.menuLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.menuLinks a {
+    display: flex;
+    justify-content: flex-start;
+}
+
+@media (min-width: 768px) {
+    .links,
+    .actions {
+        display: flex;
+    }
+
+    .menuButton,
+    .menu {
+        display: none;
+    }
+}
+
+/* Themes */
+
+.light {
+    --top-nav-bg: var(--light-surface-cards);
+    --top-nav-border: transparent;
+    --top-nav-text: var(--light-text-primary);
+    --top-nav-divider: var(--light-border-subtle);
+}
+
+.dark {
+    --top-nav-bg: var(--light-text-primary);
+    --top-nav-border: var(--dark-border-subtle);
+    --top-nav-text: var(--light-surface-cards);
+    --top-nav-divider: var(--dark-border-subtle);
+}

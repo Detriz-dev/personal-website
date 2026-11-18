@@ -49,6 +49,12 @@
   --dark-border-strong: #6b7280;
   --dark-accent-subtle: #241e12;
 
+  /* Background dot grid — from Figma (Dot Grid, nodes 61:35201 / 61:29953) */
+  --light-dot-grid: #d9dde3;
+  --dark-dot-grid: #2a2e36;
+  --dot-grid-size: 2px;
+  --dot-grid-gap: 27px;
+
   --status-success: #4eca7a;
   --status-information: #00b5fa;
   --status-warning: #ff9e4a;
@@ -88,5 +94,6 @@
 }
 
 body {
+  margin: 0;
   font-family: var(--font-family-primary);
 }

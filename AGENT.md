@@ -18,7 +18,19 @@ Current phase: see `docs/planing.md` (unchecked items = not started). Don't work
 - Ignore: `.idea/`
 
 ## Stack & commands
-TBD — fill in after the "Environment and structure" step.
+React 19 + TypeScript + Vite, in `frontend/`. Run all commands from `frontend/`.
+
+### Run locally
+```sh
+cd frontend
+npm install      # first time, or after package.json changes
+npm run dev      # dev server with hot reload → http://localhost:5173
+```
+
+### Other commands
+- `npm run build` — type-check and build to `frontend/dist/`
+- `npm run preview` — serve the production build locally
+- `npm run lint` — run ESLint
 
 ## Definition of done
 TBD — fill in once the stack exists (e.g. build + lint pass, checked on mobile and desktop).

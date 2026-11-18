@@ -1,3 +1,33 @@
-.label {
-    font-size: var(--font-size-56);
+/* Page background — Figma "Dot Grid": 2px dots on a 27px grid over the canvas */
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--page-canvas);
+    background-image: radial-gradient(
+        circle at calc(var(--dot-grid-size) / 2) calc(var(--dot-grid-size) / 2),
+        var(--page-dot) calc(var(--dot-grid-size) / 2),
+        transparent calc(var(--dot-grid-size) / 2)
+    );
+    background-size: var(--dot-grid-gap) var(--dot-grid-gap);
+}
+
+.light {
+    --page-canvas: var(--light-canvas);
+    --page-dot: var(--light-dot-grid);
+}
+
+.dark {
+    --page-canvas: var(--dark-canvas);
+    --page-dot: var(--dark-dot-grid);
+}
+
+.nav {
+    align-self: center;
+    margin-top: 8px; /* gap between TopNav and the browser bar */
+}
+
+/* Hero fills the first screen below the 56px TopNav and its 8px top offset */
+.hero {
+    min-height: calc(100svh - 64px);
 }
