@@ -36,3 +36,8 @@
 .experience {
     margin-top: 64px;
 }
+
+/* Space between Experience and the footer */
+.footer {
+    margin-top: 64px;
+}
