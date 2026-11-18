@@ -4,14 +4,14 @@
 - [x] **Agent set-up** 
 
 #### Information design 
-- [ ] **Main message and content scope**  
+- [x] **Main message and content scope**  
   - Who is audience?
   - What content need to be on site to support my message. (experience, about me etc )
   -  What is my value proposition?     
-- [ ] **Tone ov voice** Who am I? How I want to be perceived?  
-- [ ] **Content scope**
-- [ ] **Copywriting**
-- [ ] **Copy evaluation**
+- [x] **Tone ov voice** Who am I? How I want to be perceived?  
+- [x] **Content scope**
+- [x] **Copywriting**
+- [x] **Copy evaluation**
 
 #### Page structure 
 - [ ] **Inspirations**
