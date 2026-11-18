@@ -1,7 +1,7 @@
 # Navigation
 - Home
 - Skills
-- Career path
+- Experience
 - Selected Work
 - About me
 - [GitHub] | [LinkedIn] | [Theme Toggle]

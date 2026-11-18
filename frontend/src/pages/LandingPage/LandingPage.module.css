@@ -31,3 +31,8 @@
 .hero {
     min-height: calc(100svh - 64px);
 }
+
+/* Extra space between Skills and Experience (on top of each section's 44px padding → 152px total) */
+.experience {
+    margin-top: 64px;
+}
