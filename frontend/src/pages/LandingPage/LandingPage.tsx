@@ -2,6 +2,7 @@ import { useState } from "react";
 import style from "./LandingPage.module.css";
 import TopNav from "../../components/TopNav/TopNav.tsx";
 import HeroSection from "../../components/HeroSection/HeroSection.tsx";
+import SkillSection from "../../components/SkillSection/SkillSection.tsx";
 import type { TopNavLink, TopNavTheme } from "../../components/TopNav/TopNav.types.ts";
 
 // Labels from docs/site-copy.md; icons from Figma (TopNav, node 42:29568)
@@ -29,7 +30,9 @@ const LandingPage = () => {
             onMenuToggle={() => setMenuOpen(!menuOpen)}
         />
 
-        <HeroSection className={style.hero} theme={theme} />
+        <HeroSection className={style.hero} theme={theme} processHref="#skills" />
+
+        <SkillSection id="skills" theme={theme} />
     </div>)}
 
 export default LandingPage;
