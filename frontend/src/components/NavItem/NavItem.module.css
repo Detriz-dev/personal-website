@@ -1,0 +1,68 @@
+/* Values from Figma (Personal Site / NavItem, node 45:1200).
+   A transparent 1px border is always present so the Focus border doesn't shift layout;
+   padding is reduced by 1px to keep Figma's outer size (7px / 18px, icon-only 9px). */
+
+.navItem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 17px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: var(--nav-bg);
+    color: var(--nav-text);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-24);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.iconOnly {
+    padding: 6px 8px;
+}
+
+.icon {
+    font-size: var(--font-size-20);
+    line-height: var(--font-line-height-24);
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
+}
+
+.navItem.selected {
+    --nav-bg: var(--nav-bg-selected);
+    --nav-text: var(--nav-text-selected);
+    font-weight: var(--font-weight-600);
+}
+
+/* Amber hover is the same in both themes */
+.navItem:hover {
+    --nav-bg: var(--light-accent-fill);
+    --nav-text: var(--light-text-primary);
+}
+
+.navItem:focus-visible {
+    outline: none;
+    border-color: var(--nav-focus-border);
+}
+
+/* Themes */
+
+.light {
+    --nav-bg: var(--light-surface-cards);
+    --nav-text: var(--light-text-primary);
+    --nav-bg-selected: var(--light-text-primary);
+    --nav-text-selected: var(--light-surface-cards);
+    --nav-focus-border: var(--light-text-primary);
+}
+
+.dark {
+    --nav-bg: var(--light-text-primary);
+    --nav-text: var(--light-surface-cards);
+    --nav-bg-selected: var(--light-surface-cards);
+    --nav-text-selected: var(--light-text-primary);
+    --nav-focus-border: var(--light-surface-cards);
+}
