@@ -24,9 +24,10 @@
 
 .nav {
     align-self: center;
+    margin-top: 8px; /* gap between TopNav and the browser bar */
 }
 
-/* Hero fills the first screen below the 56px TopNav */
+/* Hero fills the first screen below the 56px TopNav and its 8px top offset */
 .hero {
-    min-height: calc(100svh - 56px);
+    min-height: calc(100svh - 64px);
 }
