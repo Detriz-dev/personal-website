@@ -129,12 +129,14 @@
     white-space: nowrap;
 }
 
-/* Expanding description: grid row animates 0fr → 1fr */
+/* Expanding description: grid row and column animate 0fr → 1fr.
+   Collapsing the column too keeps the callout as wide as its label while closed. */
 .descriptionWrap {
     display: grid;
     grid-template-rows: 0fr;
+    grid-template-columns: 0fr;
     opacity: 0;
-    transition: grid-template-rows 250ms ease, opacity 200ms ease;
+    transition: grid-template-rows 250ms ease, grid-template-columns 250ms ease, opacity 200ms ease;
 }
 
 .description {
@@ -149,6 +151,7 @@
 .question:hover .descriptionWrap,
 .question:focus-visible .descriptionWrap {
     grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
     opacity: 1;
 }
 
