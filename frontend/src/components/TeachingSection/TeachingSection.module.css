@@ -1,6 +1,7 @@
-/* Values from Figma (Personal Site / Teaching proposal v3 — desktop 111:2991, mobile 111:7614, TeachingCard 111:2972).
-   Desktop (≥1024px): three cards in a row, equal height, tags pinned to the bottom.
-   Below 1024px: cards stacked. */
+/* Values from Figma (Personal Site / Teaching proposal v4 rows — desktop 115:3101, mobile 116:3191,
+   TeachingRow 116:3190).
+   Desktop (≥1024px): one full-width row per workshop — identity | divider | What we do | What you'll learn.
+   Below 1024px: the same parts stacked, divider horizontal. */
 
 .teachingSection {
     width: 100%;
@@ -13,25 +14,20 @@
 }
 
 .workshops {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 16px;
     margin: 56px 0 0;
     padding: 0;
     list-style: none;
 }
 
-@media (min-width: 1024px) {
-    .workshops {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 24px;
-    }
-}
-
-.card {
+/* Mobile: stacked */
+.row {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    gap: 16px;
+    padding: 20px;
     border: 1px solid var(--teaching-border);
     border-radius: 8px;
     background-color: var(--teaching-card-bg);
@@ -41,48 +37,45 @@
     letter-spacing: var(--font-letter-spacing-default);
 }
 
-.cardHeader {
+.identity {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 14px 18px;
-    border-bottom: 1px solid var(--teaching-border);
-    background-color: var(--teaching-header-bg);
+    gap: 16px;
 }
 
-.cardIcon {
+.iconTile {
+    display: flex;
     flex-shrink: 0;
-    font-size: 24px;
-    line-height: 24px;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: var(--teaching-accent-subtle);
+}
+
+.icon {
+    font-size: 28px;
+    line-height: 28px;
     color: var(--teaching-accent);
 }
 
-.cardTitle {
+.title {
     margin: 0;
     font-size: var(--font-size-20);
     font-weight: var(--font-weight-700);
     line-height: var(--font-line-height-24);
 }
 
-/* Grows so the tags sit at the bottom of equal-height cards */
-.cardBody {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 16px;
-    padding: 20px 18px 4px;
+.divider {
+    height: 1px;
+    background-color: var(--teaching-border);
 }
 
 .block {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-}
-
-/* Divider between "What we do" and "What you'll learn" */
-.outcome {
-    padding-top: 16px;
-    border-top: 1px solid var(--teaching-border);
+    gap: 8px;
 }
 
 .label {
@@ -91,6 +84,10 @@
     font-weight: var(--font-weight-500);
     line-height: var(--font-line-height-24);
     color: var(--teaching-text-secondary);
+}
+
+.labelAccent {
+    color: var(--teaching-accent);
 }
 
 .copy {
@@ -104,16 +101,28 @@
     font-weight: var(--font-weight-700);
 }
 
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 16px 18px 18px;
-}
+/* Desktop: one row per workshop */
+@media (min-width: 1024px) {
+    .row {
+        flex-direction: row;
+        gap: 40px;
+        padding: 32px;
+    }
 
-/* Figma TeachingCard tags use 6px side padding (Tag default is 4px) */
-.tags .tag {
-    padding: 0 6px;
+    .identity {
+        flex: 0 0 352px;
+    }
+
+    .divider {
+        width: 1px;
+        height: auto;
+        align-self: stretch;
+    }
+
+    .block {
+        flex: 1 1 0;
+        min-width: 0;
+    }
 }
 
 /* Themes */
@@ -123,7 +132,7 @@
     --teaching-border: var(--light-border-subtle);
     --teaching-text: var(--light-text-primary);
     --teaching-text-secondary: var(--light-text-secondary);
-    --teaching-header-bg: var(--light-accent-subtle);
+    --teaching-accent-subtle: var(--light-accent-subtle);
     --teaching-accent: var(--light-accent-text);
 }
 
@@ -132,6 +141,6 @@
     --teaching-border: var(--dark-border-subtle);
     --teaching-text: var(--dark-text-primary);
     --teaching-text-secondary: var(--dark-text-secondary);
-    --teaching-header-bg: var(--dark-accent-subtle);
+    --teaching-accent-subtle: var(--dark-accent-subtle);
     --teaching-accent: var(--light-accent-fill);
 }

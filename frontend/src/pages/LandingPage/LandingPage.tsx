@@ -6,7 +6,7 @@ import SkillSection from "../../components/SkillSection/SkillSection.tsx";
 import ExperienceSection from "../../components/ExperienceSection/ExperienceSection.tsx";
 import ProjectSection from "../../components/ProjectSection/ProjectSection.tsx";
 import TeachingSection from "../../components/TeachingSection/TeachingSection.tsx";
-import FooterSection from "../../components/FooterSection/FooterSection.tsx";
+import ContactSection from "../../components/ContactSection/ContactSection.tsx";
 import type { TopNavLink, TopNavTheme } from "../../components/TopNav/TopNav.types.ts";
 
 // Labels from docs/site-copy.md; icons from Figma (TopNav, node 42:29568)
@@ -15,7 +15,7 @@ const NAV_LINKS: TopNavLink[] = [
     { label: "Experience", icon: "directions", href: "#experience" },
     { label: "Projects", icon: "folder_copy", href: "#projects" },
     { label: "Teaching", icon: "school", href: "#teaching" },
-    { label: "About me", icon: "account_box", href: "#contact" },
+    { label: "Contact me", icon: "account_box", href: "#contact" },
 ];
 
 // Matches html scroll-padding-top in index.css: a section counts as current once its top passes under the TopNav
@@ -107,7 +107,7 @@ const LandingPage = () => {
 
         <TeachingSection id="teaching" className={style.teaching} theme={theme} />
 
-        <FooterSection
+        <ContactSection
             id="contact"
             theme={theme}
             linkedinHref="#" // TODO: LinkedIn profile URL

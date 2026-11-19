@@ -3,11 +3,11 @@
    Desktop: 167px round portrait left, text 64px to its right.
    Below 768px: portrait stacked above the text. */
 
-.footer {
+.section {
     width: 100%;
-    border-top: 1px solid var(--footer-border);
-    background-color: var(--footer-bg);
-    color: var(--footer-text);
+    border-top: 1px solid var(--contact-border);
+    background-color: var(--contact-bg);
+    color: var(--contact-text);
     font-family: var(--font-family-primary);
     letter-spacing: var(--font-letter-spacing-default);
 }
@@ -43,7 +43,7 @@
 
 .headline {
     margin: 0;
-    color: var(--footer-accent);
+    color: var(--contact-accent);
     font-size: var(--font-size-40);
     font-weight: var(--font-weight-700);
     line-height: var(--font-line-height-48);
@@ -156,7 +156,7 @@
 
 .contact:hover,
 .social:hover {
-    color: var(--footer-accent);
+    color: var(--contact-accent);
 }
 
 @media (min-width: 768px) {
@@ -176,15 +176,15 @@
 /* Themes */
 
 .light {
-    --footer-bg: var(--light-surface-cards);
-    --footer-border: var(--light-border-subtle);
-    --footer-text: var(--light-text-primary);
-    --footer-accent: #b07300; /* Figma value; no matching token (same as SectionHeader) */
+    --contact-bg: var(--light-surface-cards);
+    --contact-border: var(--light-border-subtle);
+    --contact-text: var(--light-text-primary);
+    --contact-accent: #b07300; /* Figma value; no matching token (same as SectionHeader) */
 }
 
 .dark {
-    --footer-bg: var(--dark-surface-cards);
-    --footer-border: var(--dark-border-subtle);
-    --footer-text: var(--dark-text-primary);
-    --footer-accent: var(--light-accent-fill);
+    --contact-bg: var(--dark-surface-cards);
+    --contact-border: var(--dark-border-subtle);
+    --contact-text: var(--dark-text-primary);
+    --contact-accent: var(--light-accent-fill);
 }

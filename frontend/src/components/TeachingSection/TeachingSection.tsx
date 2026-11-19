@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import SectionHeader from "../SectionHeader/SectionHeader.tsx";
-import Tag from "../Tag/Tag.tsx";
 import styles from "./TeachingSection.module.css";
 import type { TeachingSectionProps } from "./TeachingSection.types.ts";
 
@@ -10,10 +9,9 @@ type Workshop = {
     title: string;
     activity: ReactNode;
     outcome: ReactNode;
-    tags: string[];
 };
 
-// Copy from docs/site-copy.md — Teaching; layout from Figma (TeachingCard 111:2972, section 111:2991)
+// Copy from docs/site-copy.md — Teaching; layout from Figma (TeachingRow 116:3190, sections 115:3101 / 116:3191)
 const WORKSHOPS: Workshop[] = [
     {
         icon: "stacks",
@@ -30,7 +28,6 @@ const WORKSHOPS: Workshop[] = [
                 Product design as <strong>one connected system</strong>, where every element shapes the final outcome.
             </>
         ),
-        tags: ["Product strategy", "User research", "Interface design"],
     },
     {
         icon: "brick",
@@ -47,7 +44,6 @@ const WORKSHOPS: Workshop[] = [
                 <strong>adaptation</strong> — in practice.
             </>
         ),
-        tags: ["Scrum", "Sprints", "LEGO"],
     },
     {
         icon: "stylus_note",
@@ -64,7 +60,6 @@ const WORKSHOPS: Workshop[] = [
                 works in action.
             </>
         ),
-        tags: ["Divergent thinking", "Sketching", "Paper & pencil"],
     },
 ];
 
@@ -89,29 +84,23 @@ const TeachingSection = ({ theme = "light", className, ...sectionProps }: Teachi
 
                 <ul className={styles.workshops}>
                     {WORKSHOPS.map((workshop) => (
-                        <li key={workshop.title} className={styles.card}>
-                            <header className={styles.cardHeader}>
-                                <span className={`material-symbols-rounded ${styles.cardIcon}`} aria-hidden="true">
-                                    {workshop.icon}
+                        <li key={workshop.title} className={styles.row}>
+                            <header className={styles.identity}>
+                                <span className={styles.iconTile} aria-hidden="true">
+                                    <span className={`material-symbols-rounded ${styles.icon}`}>{workshop.icon}</span>
                                 </span>
-                                <h3 className={styles.cardTitle}>{workshop.title}</h3>
+                                <h3 className={styles.title}>{workshop.title}</h3>
                             </header>
 
-                            <div className={styles.cardBody}>
-                                <div className={styles.block}>
-                                    <p className={styles.label}>What we do</p>
-                                    <p className={styles.copy}>{workshop.activity}</p>
-                                </div>
-                                <div className={`${styles.block} ${styles.outcome}`}>
-                                    <p className={styles.label}>What you’ll learn</p>
-                                    <p className={styles.copy}>{workshop.outcome}</p>
-                                </div>
-                            </div>
+                            <div className={styles.divider} aria-hidden="true" />
 
-                            <div className={styles.tags}>
-                                {workshop.tags.map((tag) => (
-                                    <Tag key={tag} theme={theme} label={tag} className={styles.tag} />
-                                ))}
+                            <div className={styles.block}>
+                                <p className={styles.label}>What we do</p>
+                                <p className={styles.copy}>{workshop.activity}</p>
+                            </div>
+                            <div className={styles.block}>
+                                <p className={`${styles.label} ${styles.labelAccent}`}>What you’ll learn</p>
+                                <p className={styles.copy}>{workshop.outcome}</p>
                             </div>
                         </li>
                     ))}
