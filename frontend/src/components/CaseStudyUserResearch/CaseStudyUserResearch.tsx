@@ -2,7 +2,7 @@ import styles from "./CaseStudyUserResearch.module.css";
 import CaseStudySectionHeader from "../CaseStudySectionHeader/CaseStudySectionHeader.tsx";
 import QuestionCard from "../QuestionCard/QuestionCard.tsx";
 import InsightCard from "../InsightCard/InsightCard.tsx";
-import LongFormPageMock from "../LongFormPageMock/LongFormPageMock.tsx";
+import LongFormPageMock from "../case-study/LongFormPageMock/LongFormPageMock.tsx";
 import {
     CodeExamplesVisual,
     ContentTypesVisual,

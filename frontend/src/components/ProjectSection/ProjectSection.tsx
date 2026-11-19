@@ -9,8 +9,8 @@ const ProjectSection = ({ theme = "light", className, ...sectionProps }: Project
 
     return (
         <section {...sectionProps} className={classes} aria-label="Projects">
-            <SmartHomeKitWork theme={theme} projectHref="https://smart-home-kit.detriz.com/" />
             <PlatformDocumentationProject theme={theme} projectHref={ROUTES.platformDocumentation} />
+            <SmartHomeKitWork theme={theme} projectHref="https://smart-home-kit.detriz.com/" />
         </section>
     );
 };

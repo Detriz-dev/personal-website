@@ -1,6 +1,6 @@
 import styles from "./CaseStudyOverview.module.css";
 import CaseStudySectionHeader from "../CaseStudySectionHeader/CaseStudySectionHeader.tsx";
-import ScatterVisual from "../ScatterVisual/ScatterVisual.tsx";
+import ScatterVisual from "../case-study/ScatterVisual/ScatterVisual.tsx";
 import ProblemRow from "../ProblemRow/ProblemRow.tsx";
 import GoalCard from "../GoalCard/GoalCard.tsx";
 import { OnePlaceVisual, UsageDataVisual } from "../GoalCard/GoalVisuals.tsx";

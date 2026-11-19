@@ -57,10 +57,11 @@
     font-weight: var(--font-weight-700);
 }
 
+/* Inverse fill, matching NavItem "Selected" on the landing page */
 .step.selected {
-    background-color: var(--color-accent-subtle);
-    color: var(--color-text-primary);
-    font-weight: var(--font-weight-700);
+    background-color: var(--color-text-primary);
+    color: var(--color-surface-card);
+    font-weight: var(--font-weight-600);
 }
 
 /* Amber hover is the same in both themes (matches NavItem) */

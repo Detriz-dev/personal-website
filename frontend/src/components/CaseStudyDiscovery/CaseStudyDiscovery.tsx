@@ -1,6 +1,6 @@
 import styles from "./CaseStudyDiscovery.module.css";
 import CaseStudySectionHeader from "../CaseStudySectionHeader/CaseStudySectionHeader.tsx";
-import ArchaeologyStack from "../ArchaeologyStack/ArchaeologyStack.tsx";
+import ArchaeologyStack from "../case-study/ArchaeologyStack/ArchaeologyStack.tsx";
 import Callout from "../Callout/Callout.tsx";
 
 // Icons + band labels from Figma (134:38755).

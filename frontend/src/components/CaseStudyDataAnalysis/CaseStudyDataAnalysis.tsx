@@ -2,8 +2,8 @@ import styles from "./CaseStudyDataAnalysis.module.css";
 import CaseStudySectionHeader from "../CaseStudySectionHeader/CaseStudySectionHeader.tsx";
 import SignalCard from "../SignalCard/SignalCard.tsx";
 import { ContentTiersVisual, SearchQueriesVisual } from "../SignalCard/SignalVisuals.tsx";
-import SessionDepthVisual from "../SessionDepthVisual/SessionDepthVisual.tsx";
-import LoopDiagram from "../LoopDiagram/LoopDiagram.tsx";
+import SessionDepthVisual from "../case-study/SessionDepthVisual/SessionDepthVisual.tsx";
+import LoopDiagram from "../case-study/LoopDiagram/LoopDiagram.tsx";
 
 // Copy: Figma 134:39525. Chip and visual labels are Figma-only.
 
