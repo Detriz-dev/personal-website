@@ -10,6 +10,6 @@ export type HeroSectionProps = Omit<HTMLAttributes<HTMLElement>, "children"> & {
     theme?: HeroSectionTheme;
     /** Primary CTA "How I find answers" — anchors to the design process section. */
     processHref?: string;
-    /** Secondary CTA "See selected work" — anchors to the selected work section. */
+    /** Secondary CTA "See selected work" — anchors to the Project section. */
     workHref?: string;
 };

@@ -9,7 +9,7 @@ import type { HeroSectionProps } from "./HeroSection.types.ts";
 const HeroSection = ({
     theme = "light",
     processHref = "#design-process",
-    workHref = "#selected-work",
+    workHref = "#projects",
     className,
     ...sectionProps
 }: HeroSectionProps) => {

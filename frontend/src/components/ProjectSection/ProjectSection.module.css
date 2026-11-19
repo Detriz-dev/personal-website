@@ -1,6 +1,6 @@
 /* Project cards span the full width (content inside each card stays 1280px). */
 
-.selectedWorkSection {
+.projectSection {
     display: flex;
     flex-direction: column;
     gap: 64px;

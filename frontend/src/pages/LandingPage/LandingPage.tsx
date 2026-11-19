@@ -4,7 +4,7 @@ import TopNav from "../../components/TopNav/TopNav.tsx";
 import HeroSection from "../../components/HeroSection/HeroSection.tsx";
 import SkillSection from "../../components/SkillSection/SkillSection.tsx";
 import ExperienceSection from "../../components/ExperienceSection/ExperienceSection.tsx";
-import SelectedWorkSection from "../../components/SelectedWorkSection/SelectedWorkSection.tsx";
+import ProjectSection from "../../components/ProjectSection/ProjectSection.tsx";
 import FooterSection from "../../components/FooterSection/FooterSection.tsx";
 import type { TopNavLink, TopNavTheme } from "../../components/TopNav/TopNav.types.ts";
 
@@ -12,7 +12,7 @@ import type { TopNavLink, TopNavTheme } from "../../components/TopNav/TopNav.typ
 const NAV_LINKS: TopNavLink[] = [
     { label: "Skills", icon: "home_repair_service", href: "#skills" },
     { label: "Experience", icon: "directions", href: "#experience" },
-    { label: "Selected Work", icon: "folder_copy", href: "#selected-work" },
+    { label: "Projects", icon: "folder_copy", href: "#projects" },
     { label: "About me", icon: "account_box", href: "#contact" },
 ];
 
@@ -101,7 +101,7 @@ const LandingPage = () => {
 
         <ExperienceSection id="experience" className={style.experience} theme={theme} />
 
-        <SelectedWorkSection id="selected-work" className={style.selectedWork} theme={theme} />
+        <ProjectSection id="projects" className={style.projects} theme={theme} />
 
         <FooterSection
             id="contact"

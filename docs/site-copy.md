@@ -2,7 +2,7 @@
 - Home
 - Skills
 - Experience
-- Selected Work
+- Projects
 - About me
 - [GitHub] | [LinkedIn] | [Theme Toggle]
 
@@ -16,7 +16,7 @@
 ## Subheadline
 I'm Dawid — a Product Designer leading end-to-end product design, combining technical understanding with AI-assisted workflows and code-based prototyping (React).
 ## Primary & Secondary CTAs
-- **See the answers in action ↓** *(Anchors to Selected Work)*
+- **See the answers in action ↓** *(Anchors to Projects)*
 - **How I find answers ↓** *(Anchors to End-to-End Design Process)*
 
 ## Hero Visual Callouts
@@ -27,7 +27,7 @@ I'm Dawid — a Product Designer leading end-to-end product design, combining te
 
 ---
 
-# Selected Work
+# Projects
 *Answers in practice: complex problems turned into validated, shippable products.*
 
 ## Project 01: Smart home kit
