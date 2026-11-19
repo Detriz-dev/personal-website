@@ -97,3 +97,15 @@ body {
   margin: 0;
   font-family: var(--font-family-primary);
 }
+
+/* Keep in-page anchor targets clear of the sticky TopNav (56px + 8px offset + 8px gap) */
+html {
+  scroll-padding-top: 72px;
+}
+
+/* Smooth scrolling for in-page nav links, unless the user prefers reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

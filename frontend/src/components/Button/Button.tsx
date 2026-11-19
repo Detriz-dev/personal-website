@@ -21,9 +21,10 @@ const Button = (props: ButtonProps) => {
 
     if (props.href !== undefined) {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { label: _l, variant: _v, theme: _t, icon: _i, className: _c, ...anchorProps } = props;
+        const { label: _l, variant: _v, theme: _t, icon: _i, className: _c, openInNewTab, ...anchorProps } = props;
+        const newTabProps = openInNewTab ? { target: "_blank", rel: "noopener noreferrer" } : {};
         return (
-            <a {...anchorProps} className={classes}>
+            <a {...newTabProps} {...anchorProps} className={classes}>
                 {content}
             </a>
         );

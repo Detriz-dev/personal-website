@@ -1,0 +1,179 @@
+/* Values from Figma (Personal Site / SkillDiagram, light 66:46315, dark 66:46314).
+   Cards come from the Card component; Figma's card layout is outdated and ignored here.
+   Connectors are positioned in fractions of a card column, so they follow the cards as the grid shrinks. */
+
+.diagram {
+    --col: calc((100% - 2 * 32px) / 3); /* one card column */
+    --dash: 8px; /* dash + gap length */
+    --line: 2px;
+
+    position: relative;
+    width: 100%;
+    max-width: 1120px;
+    padding: 83px 0 84px;
+    font-family: var(--font-family-primary);
+}
+
+.cards {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+/* Equal-height cards with tags pinned to the bottom */
+.cards > .card {
+    width: 100%;
+}
+
+.cards > .card > ul {
+    flex-grow: 1;
+}
+
+/* Connectors: three dashed edges per bracket, dashes marching clockwise */
+
+.connector {
+    position: absolute;
+    background-repeat: repeat-y, repeat-x, repeat-y;
+    animation: march-top 0.6s linear infinite;
+}
+
+/* ⌐¬ above the cards: up the left edge, right along the top, down the right edge */
+.top {
+    top: 35px;
+    height: 48px;
+    background-image:
+        linear-gradient(to bottom, var(--diagram-line) 50%, transparent 0),
+        linear-gradient(to right, var(--diagram-line) 50%, transparent 0),
+        linear-gradient(to bottom, var(--diagram-line) 50%, transparent 0);
+    background-size: var(--line) var(--dash), var(--dash) var(--line), var(--line) var(--dash);
+    background-position: 0 0, 0 0, 100% 0;
+}
+
+@keyframes march-top {
+    to {
+        background-position: 0 calc(-1 * var(--dash)), var(--dash) 0, 100% var(--dash);
+    }
+}
+
+/* └┘ below the cards: down the right edge, left along the bottom, up the left edge */
+.bottom {
+    bottom: 30px;
+    height: 54px;
+    background-image:
+        linear-gradient(to bottom, var(--diagram-line) 50%, transparent 0),
+        linear-gradient(to right, var(--diagram-line) 50%, transparent 0),
+        linear-gradient(to bottom, var(--diagram-line) 50%, transparent 0);
+    background-size: var(--line) var(--dash), var(--dash) var(--line), var(--line) var(--dash);
+    background-position: 0 0, 0 100%, 100% 0;
+    animation-name: march-bottom;
+}
+
+@keyframes march-bottom {
+    to {
+        background-position: 0 calc(-1 * var(--dash)), calc(-1 * var(--dash)) 100%, 100% var(--dash);
+    }
+}
+
+/* Arrowheads at the receiving card */
+.connector::after {
+    content: "";
+    position: absolute;
+    border: 5px solid transparent;
+}
+
+.top::after {
+    right: calc(var(--line) / 2 - 5px);
+    bottom: 0;
+    border-top: 7px solid var(--diagram-line);
+    border-bottom-width: 0;
+}
+
+.bottom::after {
+    left: calc(var(--line) / 2 - 5px);
+    top: 0;
+    border-bottom: 7px solid var(--diagram-line);
+    border-top-width: 0;
+}
+
+/* Why → What */
+.insights {
+    left: calc(var(--col) * 0.37);
+    width: calc(var(--col) * 0.988 + 32px);
+}
+
+/* What → How */
+.specification {
+    left: calc(var(--col) * 1.418 + 32px);
+    width: calc(var(--col) * 0.94 + 32px);
+}
+
+/* How → Why */
+.validation {
+    left: calc(var(--col) * 0.398);
+    width: calc(var(--col) * 1.96 + 64px);
+}
+
+.label {
+    position: absolute;
+    left: 50%;
+    padding: 8px 16px;
+    border: 1px solid var(--diagram-border);
+    border-radius: 8px;
+    background-color: var(--diagram-surface);
+    color: var(--diagram-text);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-600);
+    line-height: 22px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+}
+
+.top .label {
+    top: 0;
+    transform: translate(-50%, -50%);
+}
+
+.bottom .label {
+    bottom: 0;
+    transform: translate(-50%, 50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .connector {
+        animation: none;
+    }
+}
+
+/* Mobile: cards stack, connectors hidden */
+@media (max-width: 767px) {
+    .diagram {
+        padding: 0;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .connector {
+        display: none;
+    }
+}
+
+/* Themes */
+
+.light {
+    --diagram-line: var(--light-accent-text);
+    --diagram-surface: var(--light-surface-cards);
+    --diagram-border: var(--light-border-subtle);
+    --diagram-text: var(--light-text-primary);
+}
+
+.dark {
+    --diagram-line: var(--light-accent-fill);
+    --diagram-surface: var(--dark-surface-cards);
+    --diagram-border: var(--dark-border-subtle);
+    --diagram-text: var(--dark-text-primary);
+}

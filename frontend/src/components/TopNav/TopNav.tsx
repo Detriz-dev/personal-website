@@ -18,11 +18,12 @@ const TopNav = ({
     onThemeToggle,
     menuOpen = false,
     onMenuToggle,
+    visible = true,
     className,
     ...navProps
 }: TopNavProps) => {
     const isDark = theme === "dark";
-    const classes = [styles.topNav, styles[theme], className].filter(Boolean).join(" ");
+    const classes = [styles.topNav, styles[theme], !visible && styles.hidden, className].filter(Boolean).join(" ");
 
     const renderLinks = (listClass: string) => (
         <ul className={listClass}>
@@ -43,13 +44,13 @@ const TopNav = ({
     return (
         <nav {...navProps} className={classes}>
             <div className={styles.bar}>
-                {/* Logo: Figma NavItem "Icon only / Selected" (inverse fill) */}
+                {/* Logo: Figma NavItem "Icon only"; Selected (inverse fill) when no section link is active */}
                 <NavItem
                     label="Home"
                     icon="home_app_logo"
                     href={homeHref}
                     content="iconOnly"
-                    selected
+                    selected={!links.some((link) => link.href === activeHref)}
                     theme={theme}
                     className={styles.logo}
                 />

@@ -1,0 +1,177 @@
+/* Figma "figma-cover": 1280 × 702 — light 73:13867, dark 76:2488. */
+
+.light {
+    --shk-canvas: #f3fafe;
+    --shk-brand: #007ba9;
+    --shk-on-brand: #f3fafe;
+    --shk-text-primary: var(--light-text-primary);
+    --shk-text-secondary: var(--light-text-secondary);
+    --shk-border: var(--light-border-subtle);
+}
+
+.dark {
+    --shk-canvas: #0f1820;
+    --shk-brand: #3fb4e8;
+    --shk-on-brand: #0f1820;
+    --shk-text-primary: var(--dark-text-primary);
+    --shk-text-secondary: var(--dark-text-secondary);
+    --shk-border: var(--dark-border-subtle);
+}
+
+.smartHomeKitWork {
+    display: grid;
+    grid-template-columns: minmax(0, 428px) auto;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+    /* Background spans the full width; content stays in the centered 1280px Figma frame */
+    /* Bottom: 14px from Figma + 64px that used to be the gap above the footer, now filled with the card background */
+    padding: 14px max(26px, calc((100% - 1280px) / 2 + 26px)) 78px max(86px, calc((100% - 1280px) / 2 + 86px));
+    overflow: hidden;
+    border-top: 1px solid var(--shk-border); /* same as the footer's top border */
+    background-color: var(--shk-canvas);
+    color: var(--shk-text-primary);
+}
+
+/* ---------- Intro ---------- */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.title {
+    margin: 0;
+    font-size: var(--font-size-40);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-48);
+}
+
+.accent {
+    color: var(--shk-brand);
+}
+
+.description {
+    margin: 18px 0 0;
+    color: var(--shk-text-secondary);
+    font-size: var(--font-size-18);
+    line-height: var(--font-line-height-28);
+}
+
+.deliverables {
+    width: 100%;
+    max-width: 357px;
+    margin-top: 21px;
+}
+
+.deliverablesHeading {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 36px;
+    margin: 0;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--shk-border);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+.headingIcon {
+    font-size: 24px;
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.list {
+    margin: 0;
+    padding: 8px 8px 0 16px;
+    list-style: none;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    font-size: var(--font-size-16);
+    line-height: var(--font-line-height-24);
+}
+
+.itemIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: var(--shk-brand);
+    color: var(--shk-on-brand);
+}
+
+.itemIcon > span {
+    font-size: 18px;
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
+}
+
+.cta {
+    margin: 29px 0 0 13px;
+}
+
+/* ---------- Tile columns (static images) ---------- */
+
+.columns {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.column {
+    display: block;
+    width: 222px;
+    max-width: 100%;
+    height: auto;
+    flex: 0 1 auto;
+}
+
+/* Column 2 sits 3px higher than columns 1 and 3 in Figma */
+.column:nth-child(2) {
+    margin-top: -3px;
+}
+
+/* ---------- Narrow screens: intro on top, tiles below and cropped ---------- */
+
+@media (max-width: 1100px) {
+    .smartHomeKitWork {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 40px;
+        padding: 40px 24px 0;
+    }
+
+    .columns {
+        justify-content: center;
+        max-height: 420px;
+    }
+
+    .column {
+        min-width: 0;
+        flex: 0 1 222px;
+    }
+}
+
+@media (max-width: 600px) {
+    .smartHomeKitWork {
+        padding: 32px 16px 0;
+    }
+
+    .title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .columns {
+        max-height: 320px;
+    }
+}

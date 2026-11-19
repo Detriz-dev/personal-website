@@ -11,7 +11,9 @@ const Question = ({ question, className }: { question: DiagramQuestion; classNam
         <span className={styles.text}>
             <span className={styles.label}>{question.label}</span>
             <span className={styles.descriptionWrap}>
-                <span className={styles.description}>{question.description}</span>
+                <span className={styles.description}>
+                    <span className={styles.descriptionText}>{question.description}</span>
+                </span>
             </span>
         </span>
     </div>

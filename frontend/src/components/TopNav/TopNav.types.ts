@@ -34,4 +34,6 @@ export type TopNavProps = Omit<HTMLAttributes<HTMLElement>, "children"> & {
     menuOpen?: boolean;
     /** Mobile only: called by the hamburger button. */
     onMenuToggle?: () => void;
+    /** Whether the nav is shown. When false it slides out of view. Defaults to true. */
+    visible?: boolean;
 };

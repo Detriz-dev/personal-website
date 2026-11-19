@@ -23,6 +23,8 @@ export type ButtonAsButtonProps = ButtonBaseProps &
 export type ButtonAsLinkProps = ButtonBaseProps &
     Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "children"> & {
         href: string;
+        /** Opens the link in a new browser tab (sets target="_blank" and a safe rel). */
+        openInNewTab?: boolean;
     };
 
 export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;

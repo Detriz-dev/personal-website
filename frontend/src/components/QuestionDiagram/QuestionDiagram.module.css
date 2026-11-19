@@ -85,7 +85,9 @@
 }
 
 .what {
-    left: 194px;
+    /* Anchored right so the hover description expands left, into the canvas
+       (≈ Figma left: 194px for the collapsed label). */
+    right: 21px;
     top: 0;
 }
 
@@ -95,8 +97,10 @@
 }
 
 .how {
-    left: 211px;
-    top: 251px;
+    /* Anchored right/bottom so it expands left and up, staying inside the canvas
+       (≈ Figma left: 211px, top: 251px for the collapsed label). */
+    right: 11px;
+    bottom: 0;
 }
 
 .iconBox {
@@ -145,7 +149,13 @@
     font-size: var(--font-size-14);
     font-weight: var(--font-weight-500);
     line-height: var(--font-line-height-20);
-    white-space: nowrap;
+}
+
+/* Fixed width so longer copy wraps instead of running off the canvas;
+   the text never reflows while the column animates open, it is only revealed. */
+.descriptionText {
+    display: block;
+    width: 220px;
 }
 
 .question:hover .descriptionWrap,

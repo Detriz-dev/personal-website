@@ -1,0 +1,105 @@
+/* Values from Figma (Personal Site / Card, light 47:29646, dark 47:29676). */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 352px;
+    max-width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    color: var(--card-text);
+    font-family: var(--font-family-primary);
+    letter-spacing: var(--font-letter-spacing-default);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 52px;
+    padding: 4px 18px;
+    border-bottom: 1px solid var(--card-border);
+    background-color: var(--card-header-bg);
+}
+
+.headerIcon {
+    flex-shrink: 0;
+    font-size: 24px;
+    line-height: 24px;
+    color: var(--card-header-icon);
+}
+
+.title {
+    margin: 0;
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+.subtitle {
+    font-weight: var(--font-weight-400);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 18px;
+    list-style: none;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 40px;
+    border-bottom: 1px solid var(--card-border);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-24);
+}
+
+.itemIcon {
+    flex-shrink: 0;
+    font-size: 18px;
+    line-height: 32px;
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
+}
+
+.emphasis {
+    font-weight: var(--font-weight-700);
+}
+
+.emphasis .itemIcon {
+    font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 20;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 0 18px 18px;
+}
+
+/* Themes */
+
+.light {
+    --card-bg: var(--light-surface-cards);
+    --card-border: var(--light-border-subtle);
+    --card-text: var(--light-text-primary);
+    --card-header-bg: var(--light-accent-subtle);
+    --card-header-icon: #b07300; /* no token yet */
+}
+
+.dark {
+    --card-bg: var(--dark-surface-cards);
+    --card-border: var(--dark-border-subtle);
+    --card-text: var(--dark-text-primary);
+    --card-header-bg: var(--dark-accent-subtle);
+    --card-header-icon: var(--light-accent-fill);
+}

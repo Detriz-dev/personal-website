@@ -46,9 +46,9 @@ const HeroSection = ({
                 <QuestionDiagram
                     className={styles.diagram}
                     theme={theme}
-                    why={{ label: "Why build?", description: "Discovery & validation", icon: "manage_search" }}
-                    what={{ label: "What to build?", description: "Product strategy & UI", icon: "widgets" }}
-                    how={{ label: "How to build?", description: "Coded prototypes & specs", icon: "data_object" }}
+                    why={{ label: "Why build?", description: "Defining the core user problem and the value created for user and business.", icon: "manage_search" }}
+                    what={{ label: "What to build?", description: "How do we design the right solution—and how will we measure its success?", icon: "widgets" }}
+                    how={{ label: "How to build?", description: "How do we prototype, test, and ship this fast without technical debt?", icon: "data_object" }}
                     coreLabel="Feature"
                 />
             </div>

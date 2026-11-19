@@ -1,0 +1,17 @@
+/* Section is full width; content sits in the same 1120px column as the SectionHeader divider. */
+
+.experienceSection {
+    width: 100%;
+    overflow-x: clip; /* TimeLine's dashed line spans the viewport; never cause page scroll */
+}
+
+.inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 44px 16px;
+}
+
+/* Spacing below the header: same 64px rhythm as SkillSection */
+.timeLine {
+    margin-top: 64px;
+}

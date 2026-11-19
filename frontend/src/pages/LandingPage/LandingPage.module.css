@@ -22,12 +22,17 @@
     --page-dot: var(--dark-dot-grid);
 }
 
-.nav {
-    align-self: center;
-    margin-top: 8px; /* gap between TopNav and the browser bar */
+/* TopNav is fixed and hidden over the hero, so the hero fills the whole first screen */
+.hero {
+    min-height: 100svh;
 }
 
-/* Hero fills the first screen below the 56px TopNav and its 8px top offset */
-.hero {
-    min-height: calc(100svh - 64px);
+/* Extra space between Skills and Experience (on top of each section's 44px padding → 152px total) */
+.experience {
+    margin-top: 64px;
+}
+
+/* Space between Experience and Selected Work */
+.selectedWork {
+    margin-top: 64px;
 }
