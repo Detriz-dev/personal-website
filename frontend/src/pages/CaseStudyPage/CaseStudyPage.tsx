@@ -11,6 +11,10 @@ import CaseStudyUserResearch from "../../components/CaseStudyUserResearch/CaseSt
 import CaseStudyInformationArchitecture from "../../components/CaseStudyInformationArchitecture/CaseStudyInformationArchitecture.tsx";
 import CaseStudyInterfaceDesign from "../../components/CaseStudyInterfaceDesign/CaseStudyInterfaceDesign.tsx";
 import CaseStudyUsabilityTests from "../../components/CaseStudyUsabilityTests/CaseStudyUsabilityTests.tsx";
+import CaseStudyDataAnalysis from "../../components/CaseStudyDataAnalysis/CaseStudyDataAnalysis.tsx";
+import CaseStudyLearnings from "../../components/CaseStudyLearnings/CaseStudyLearnings.tsx";
+import ContactSection from "../../components/ContactSection/ContactSection.tsx";
+import { useTheme } from "../../theme/ThemeContext.tsx";
 import useActiveSection from "../../hooks/useActiveSection.ts";
 import useDocumentTitle from "../../hooks/useDocumentTitle.ts";
 import { ROUTES } from "../../routes.ts";
@@ -40,7 +44,11 @@ const PHASE_CONTENT: Partial<Record<string, ReactNode>> = {
     "#information-architecture": <CaseStudyInformationArchitecture />,
     "#interface-design": <CaseStudyInterfaceDesign />,
     "#usability-tests": <CaseStudyUsabilityTests />,
+    "#data-analysis": <CaseStudyDataAnalysis />,
 };
+
+// From the copy file ("Get in touch")
+const LINKEDIN_HREF = "https://www.linkedin.com/in/kowalczykdawid/";
 
 // Matches the global `scroll-padding-top` (72px) on <html>; clears the sticky ProcessNav (8px + 50px)
 const NAV_OFFSET = 72;
@@ -48,6 +56,7 @@ const NAV_OFFSET = 72;
 const CaseStudyPage = () => {
     useDocumentTitle("OCADO Technology Platform Documentation — Dawid");
     const activeHref = useActiveSection(SECTIONS, NAV_OFFSET);
+    const { theme } = useTheme();
 
     return (
         <PageLayout className={styles.page}>
@@ -83,7 +92,18 @@ const CaseStudyPage = () => {
                         {PHASE_CONTENT[section.href]}
                     </section>
                 ))}
+
+                <section id="what-i-learned" aria-label="What I learned">
+                    <CaseStudyLearnings />
+                </section>
             </main>
+
+            <ContactSection
+                className={styles.contact}
+                theme={theme}
+                linkedinHref={LINKEDIN_HREF}
+                githubHref="#" // TODO: GitHub profile URL (same as the landing page)
+            />
         </PageLayout>
     );
 };

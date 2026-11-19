@@ -1,0 +1,132 @@
+/* Values from Figma (Personal Site / Session depth & retention visual 134:39610):
+   returning users at 24/20, cross-page sessions 56px to the right (left 300). Wraps on narrow panels. */
+
+.visual {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 32px 56px;
+    align-content: center;
+    padding: 20px 24px;
+    font-family: var(--font-family-primary);
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.title {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-22);
+}
+
+/* 5×5 grid of 24px squares, 8px across, 6px down */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 24px);
+    gap: 6px 8px;
+}
+
+.cell {
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 6px;
+    background-color: var(--color-surface-card);
+}
+
+.filled {
+    border: none;
+    background-color: var(--color-accent-fill);
+}
+
+/* Session paths: 48×36 pages joined by 24px connectors */
+
+.session {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.session + .session {
+    margin-top: 4px;
+}
+
+.path {
+    display: flex;
+    align-items: center;
+}
+
+.page {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 36px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 8px;
+    background-color: var(--color-surface-card);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-22);
+}
+
+/* Connector before every page but the first, and before the exit icon */
+.page + .page::before,
+.exit::before {
+    content: "";
+    position: relative;
+    width: 24px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+.page + .page {
+    margin-left: 24px;
+}
+
+.deep {
+    position: relative;
+    border: 2px solid var(--color-accent-fill);
+    background-color: var(--color-accent-subtle);
+    color: var(--color-accent-text);
+}
+
+.deep + .deep::before {
+    position: absolute;
+    top: calc(50% - 1px);
+    left: -26px;
+    background-color: var(--color-accent-fill);
+}
+
+.exit {
+    display: flex;
+    align-items: center;
+    color: var(--color-text-secondary);
+    font-size: 24px;
+    line-height: 24px;
+}
+
+/* 24px connector, then 8px gap to the icon */
+.exit::before {
+    margin-right: 8px;
+    background-color: var(--color-border-strong);
+}
+
+.caption {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-22);
+}
+
+.deepCaption {
+    color: var(--color-accent-text);
+}

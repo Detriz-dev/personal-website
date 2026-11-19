@@ -8,6 +8,7 @@ const CaseStudySectionHeader = ({
     title,
     description,
     tags,
+    aside,
     className,
 }: CaseStudySectionHeaderProps) => {
     const Heading = variant === "sub" ? "h3" : "h2";
@@ -50,6 +51,8 @@ const CaseStudySectionHeader = ({
                     ))}
                 </ul>
             )}
+
+            {aside && <div className={styles.aside}>{aside}</div>}
         </header>
     );
 };

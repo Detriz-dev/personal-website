@@ -1,0 +1,170 @@
+/* Values from Figma (Personal Site / Signal visuals 134:39551, 134:39582).
+   Built fluid (no fixed stage) so the text stays legible on narrow cards (no mobile frame, D7). */
+
+/* Chips (Figma "Chip / …"): 4/10/4/8 padding, 14/22 semibold, 16px icon */
+
+.chip {
+    display: inline-flex;
+    flex: none;
+    gap: 6px;
+    align-items: center;
+    padding: 4px 10px 4px 8px;
+    border-radius: 999px;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}
+
+.chipIcon {
+    font-size: 16px; /* Figma value; no token */
+    line-height: 16px;
+}
+
+.outline {
+    border: 1px solid var(--color-border-subtle);
+    background-color: var(--color-surface-card);
+    color: var(--color-text-secondary);
+}
+
+.raised {
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-secondary);
+}
+
+.error {
+    border: 1px solid var(--color-status-error);
+    background-color: var(--color-surface-card);
+    color: var(--color-status-error);
+}
+
+/* Search queries: 456px log at 20/20, Illustrative chip pinned to the bottom */
+
+.search {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.log {
+    width: 100%;
+    max-width: 456px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 12px;
+    background-color: var(--color-surface-card);
+    list-style: none;
+}
+
+.query {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 12px 12px 12px 14px;
+}
+
+.query + .query {
+    border-top: 1px solid var(--color-border-subtle);
+}
+
+.queryIcon {
+    flex: none;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 16px;
+}
+
+/* Figma: JetBrains Mono (not installed); system monospace stack as in BeforeAfter */
+.queryText {
+    flex: 1 1 0;
+    min-width: 0;
+    color: var(--color-text-primary);
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: var(--font-size-14);
+    line-height: var(--font-line-height-22);
+}
+
+.muted {
+    color: var(--color-text-secondary);
+}
+
+/* Content tiers: 14 bars (24px, 8px apart) on a baseline, tier underlines + labels below */
+
+.tiers {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px 20px;
+}
+
+.chart {
+    display: grid;
+    grid-template-columns: repeat(14, minmax(0, 24px));
+    grid-template-rows: 150px auto auto;
+    gap: 0 8px;
+    align-items: end;
+    align-self: stretch;
+    justify-content: start;
+}
+
+.bar {
+    grid-row: 1;
+    border-radius: 4px;
+    background-color: var(--color-border-strong);
+}
+
+.staple {
+    background-color: var(--color-accent-fill);
+}
+
+.ghost {
+    height: 14px;
+    box-sizing: border-box;
+    border: 1px dashed var(--color-border-strong);
+    background-color: transparent;
+}
+
+/* Baseline 2px below the bars, 4px wider than them on each side */
+.axis {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    height: 2px;
+    margin: 2px -4px 0;
+    border-radius: 1px;
+    background-color: var(--color-border-strong);
+}
+
+.tier {
+    grid-row: 3;
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 2px solid var(--color-border-strong);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-22);
+}
+
+.stapleTier {
+    grid-column: 1 / span 3;
+    border-top-color: var(--color-accent-fill);
+    color: var(--color-accent-text);
+}
+
+.lookupTier {
+    grid-column: 4 / span 5;
+}
+
+.ghostTier {
+    grid-column: 9 / span 6;
+}

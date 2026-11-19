@@ -112,9 +112,16 @@
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
 }
 
+/* Aside: free content 20px below the description, in the description column */
+.aside {
+    margin-top: 20px;
+}
+
 @media (min-width: 1024px) {
     .overview .tags,
-    .phase .tags {
+    .phase .tags,
+    .overview .aside,
+    .phase .aside {
         grid-column: 2;
     }
 }

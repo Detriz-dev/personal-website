@@ -13,6 +13,12 @@
     margin: 48px auto 0;
 }
 
+/* Footer: full-bleed band, 80px below the last section, flush with the page edges */
+.page > .contact {
+    width: auto;
+    margin: 80px -16px -80px;
+}
+
 .intro {
     display: flex;
     flex-direction: column;

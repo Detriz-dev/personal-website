@@ -1,0 +1,171 @@
+/* Values from Figma (Personal Site / 06 Data analysis 134:39525): 56px between blocks, 24px between signal cards. */
+
+.analysis {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-primary);
+}
+
+/* Header chips (Figma 134:39534): 8px apart, arrows between the timeline steps */
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.timeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.timelineStep {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.timelineStep + .timelineStep::before {
+    content: "arrow_forward";
+    color: var(--color-text-secondary);
+    font-family: "Material Symbols Rounded";
+    font-size: 18px; /* Figma value; no token */
+    line-height: 18px;
+}
+
+.chip {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    padding: 4px 10px 4px 8px;
+    border-radius: 999px;
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}
+
+.chipIcon {
+    font-size: 16px; /* Figma value; no token */
+    line-height: 16px;
+}
+
+.tool {
+    padding: 3px 9px 3px 7px; /* 1px border */
+    border: 1px solid var(--color-border-subtle);
+    background-color: var(--color-surface-card);
+    color: var(--color-text-primary);
+}
+
+.tool .chipIcon,
+.accent {
+    color: var(--color-accent-text);
+}
+
+.accent {
+    background-color: var(--color-accent-subtle);
+}
+
+/* Signal cards: 2 columns from 1024px, the wide card spans both */
+
+.signals {
+    display: grid;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (min-width: 1024px) {
+    .signals {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .wide {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Analytics → interviews loop (Figma 134:39657): accent card, text 400px, diagram 56px to its right */
+
+.loop {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 24px;
+    border: 2px solid var(--color-accent-fill);
+    border-radius: 24px;
+    background-color: var(--color-accent-subtle);
+}
+
+.loopText {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.loopIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: var(--color-accent-fill);
+    color: var(--color-text-on-accent);
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.loopTitle {
+    margin: 0;
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-32);
+}
+
+.loopBody {
+    margin: 0;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-24);
+}
+
+.loopBody strong {
+    font-weight: var(--font-weight-700);
+}
+
+@media (min-width: 768px) {
+    .loop {
+        padding: 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .loop {
+        flex-direction: row;
+        gap: 56px;
+        align-items: center;
+    }
+
+    .loopText {
+        flex: none;
+        width: 400px;
+    }
+
+    .loopDiagram {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}

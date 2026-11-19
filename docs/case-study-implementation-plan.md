@@ -39,7 +39,7 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 
 | Step | Session | Branch / PR | Status |
 |---|---|---|---|
-| D | Decisions (no code) | — | [ ] |
+| D | Decisions (no code) | — | [x] |
 | 1 | Routing | `19-routing-theme` | [x] |
 | 2 | Dark mode (app-wide) | `19-routing-theme` | [x] |
 | 3 | Shared hooks + page layout | `19-routing-theme` → **PR** | [x] |
@@ -50,7 +50,7 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | 6.3 | 03 Information architecture | `22-case-study-01-03` → **PR** | [x] |
 | 7.1 | 04 Interface design | `23-case-study-04-06` | [x] |
 | 7.2 | 05 Usability tests | `23-case-study-04-06` | [x] |
-| 7.3 | 06 Data analysis | `23-case-study-04-06` → **PR** | [ ] |
+| 7.3 | 06 Data analysis | `23-case-study-04-06` → **PR** | [x] |
 | 8 | Entry point (landing → case study) | `23-case-study-polish` | [ ] |
 | 9 | Polish and QA | `23-case-study-polish` → **PR** | [ ] |
 | 10 | Folder refactor (D8: `components/case-study/`) | own branch → **PR** | [ ] |
@@ -67,7 +67,7 @@ Branch names are suggestions. Rename them if needed.
 | D2 | Case study URL | `/projects/platform-documentation` | `/projects/platform-documentation` | [x] |
 | D3 | Theme mechanism | App-level `ThemeProvider` + `data-theme` on `<html>`. Existing components keep their `theme` prop; new ones use `--color-*` tokens. | As recommended | [x] |
 | D4 | Default theme | Saved choice → OS `prefers-color-scheme` → `dark` | As recommended | [x] |
-| D5 | Page footer | Figma ends after 06. Add "What I learned" + `ContactSection` (per the brief)? | | [ ] |
+| D5 | Page footer | Figma ends after 06. Add "What I learned" + `ContactSection` (per the brief)? | "What I learned" + `ContactSection` | [x] |
 | D6 | Copy drift | Figma text differs from the copy file ("only share a single screen", "(in first round)", "UI Design"). Update the copy file first. | Figma text wins. From 6.2 on, build from Figma text; earlier drift is fixed in Step 9. | [x] |
 | D7 | Missing designs | No dark or mobile frame in Figma. Build from tokens and landing-page patterns, or design first? | Build from existing tokens and landing-page patterns | [x] |
 | D8 | Folder structure | Put case-specific illustrations in `components/case-study/`, or keep `components/` flat? | Keep flat for now; refactor folders after Step 9 | [x] |
@@ -298,15 +298,18 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Phase header `06 Data analysis` | [ ] |
-| `SignalCard` × 2 (Search behavior, Content tiers) + "Illustrative" chip | [ ] |
-| `SessionDepthVisual` (wide card) | [ ] |
-| `LoopDiagram` (analytics → interviews → next iteration) | [ ] |
-| Footer per D5 ("What I learned" + `ContactSection`) | [ ] |
-| Light + dark, 375 / 1280 | [ ] |
-| **Open PR** for steps 7.1–7.3 | [ ] |
+| Phase header `06 Data analysis` | [x] |
+| `SignalCard` × 2 (Search behavior, Content tiers) + "Illustrative" chip | [x] |
+| `SessionDepthVisual` (wide card) | [x] |
+| `LoopDiagram` (analytics → interviews → next iteration) | [x] |
+| Footer per D5 ("What I learned" + `ContactSection`) | [x] |
+| Light + dark, 375 / 1280 | [x] |
+| **Open PR** for steps 7.1–7.3 | [x] |
 
 **Handoff notes:**
+- New: `SignalCard` (`<li>`, `layout="stacked" | "wide"`, InsightText as `<h3>`) + `SignalVisuals.tsx` (`SearchQueriesVisual`, `ContentTiersVisual`, Illustrative chip inside each), `SessionDepthVisual`, `LoopDiagram` (`<ol>`, 2×2 loop from a 520px container, vertical list below), `CaseStudyDataAnalysis`, `CaseStudyLearnings`. `CaseStudySectionHeader` got an `aside` slot (06's FullStory / Baseline → Launch → Shift chips). Signal visuals are fluid (no scaled stage), so text stays legible at 375.
+- D5: `#what-i-learned` section (not in ProcessNav) + `ContactSection` as a full-bleed footer (`.page > .contact` negative margins). No Figma for either; LinkedIn URL from the copy file, GitHub still `#` (TODO, same as landing). Copy: Figma bolds "what"/"why." (copy file: italics).
+- Legend node 134:39260 belongs to 04 (stack legend) and wasn't built. Header chips wrap at 375 with an arrow starting the second line.
 
 ---
 

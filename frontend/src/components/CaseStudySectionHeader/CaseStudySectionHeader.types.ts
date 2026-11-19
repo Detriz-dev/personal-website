@@ -21,5 +21,7 @@ export type CaseStudySectionHeaderProps = {
     description?: ReactNode;
     /** Chips under the description, e.g. the tech stack (Figma 134:39170). `icon` is a Material Symbols name. */
     tags?: readonly CaseStudySectionHeaderTag[];
+    /** Extra content under the description, in the description column (e.g. 06's before/after chips, Figma 134:39534). */
+    aside?: ReactNode;
     className?: string;
 };

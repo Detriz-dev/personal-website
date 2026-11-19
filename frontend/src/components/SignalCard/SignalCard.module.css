@@ -1,0 +1,49 @@
+/* Values from Figma (Personal Site / 06 Data analysis: Signal cards 134:39550, 134:39581, wide 134:39608). */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 24px 24px 32px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 24px;
+    background-color: var(--color-surface-card);
+    font-family: var(--font-family-primary);
+}
+
+.visual {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: var(--color-surface-raised);
+}
+
+/* wide: text 360px left, visual (240px tall) right, 48px apart */
+
+.wide .visual {
+    min-height: 240px;
+}
+
+@media (min-width: 1024px) {
+    .wide {
+        flex-direction: row-reverse;
+        gap: 48px;
+        align-items: center;
+        padding: 24px 24px 24px 32px;
+    }
+
+    .wide .visual {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .wide .text {
+        flex: none;
+        width: 360px;
+    }
+}
