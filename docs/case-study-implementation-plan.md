@@ -47,7 +47,7 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | 5 | Overview, problems, goal | `20-case-study-shell` → **PR** | [x] |
 | 6.1 | 01 Discovery | `22-case-study-01-03` | [x] |
 | 6.2 | 02 User research | `22-case-study-01-03` | [x] |
-| 6.3 | 03 Information architecture | `22-case-study-01-03` → **PR** | [ ] |
+| 6.3 | 03 Information architecture | `22-case-study-01-03` → **PR** | [x] |
 | 7.1 | 04 Interface design | `22-case-study-04-06` | [ ] |
 | 7.2 | 05 Usability tests | `22-case-study-04-06` | [ ] |
 | 7.3 | 06 Data analysis | `22-case-study-04-06` → **PR** | [ ] |
@@ -235,18 +235,20 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Phase header `03 Information architecture` | [ ] |
-| `DecisionText` | [ ] |
-| `DecisionBlock` (text + visual slot, `reverse` prop, stacks on mobile) | [ ] |
-| `SearchFirstVisual` (persona chips → search bar → results) | [ ] |
-| `CardSortVisual` (tool cards → experts → groups) | [ ] |
-| `DiataxisQuadrant` (2×2, hover/focus detail) | [ ] |
-| `BeforeAfter` (tool name → developer intent) | [ ] |
-| `GovernanceFlow` (team writes → review → published) | [ ] |
-| Light + dark, 375 / 1280 | [ ] |
+| Phase header `03 Information architecture` | [x] |
+| `DecisionText` | [x] |
+| `DecisionBlock` (text + visual slot, `reverse` prop, stacks on mobile) | [x] |
+| `SearchFirstVisual` (persona chips → search bar → results) | [x] |
+| `CardSortVisual` (tool cards → experts → groups) | [x] |
+| `DiataxisQuadrant` (2×2, hover/focus detail) | [x] |
+| `BeforeAfter` (tool name → developer intent) | [x] |
+| `GovernanceFlow` (team writes → review → published) | [x] |
+| Light + dark, 375 / 1280 | [x] |
 | **Open PR** for steps 6.1–6.3 | [ ] |
 
 **Handoff notes:**
+- New: `DecisionText` (eyebrow inside the `<h3>`; reuse in 04), `DecisionBlock` (`reverse`, `variant="split" | "card"`, `frame="stage" | "panel" | "none"`; stage = fixed 624×320 drawing scaled by container queries + `aria-hidden`, panel = fluid accessible content), `SearchFirstVisual`, `CardSortVisual`, `DiataxisQuadrant` (real `<table>`, row labels go vertical under 560px), `BeforeAfter` (`<del>` for the old title), `GovernanceFlow` (`<ol>`, stacks vertically under 560px), `CaseStudyInformationArchitecture`.
+- Deviations: Diátaxis has no hover/focus detail (no copy for it in Figma or the copy file; How-to highlighted as in Figma). BeforeAfter mono uses the system monospace stack (Figma: JetBrains Mono, not installed). Decision 04 body follows Figma (example sentence lives in the visual only). 72px between decisions (estimated from the screenshot), 56px below 1024px.
 
 ---
 
