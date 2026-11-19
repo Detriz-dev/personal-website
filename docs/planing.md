@@ -32,5 +32,5 @@
  
 
 #### Deployment
-- [ ] **Vercel settings** — add an SPA rewrite (`vercel.json`: all paths → `/index.html`), otherwise a direct visit to `/projects/platform-documentation` returns 404
+- [x] **Vercel settings** — add an SPA rewrite (`vercel.json`: all paths → `/index.html`), otherwise a direct visit to `/projects/platform-documentation` returns 404
 - [ ] **Release**

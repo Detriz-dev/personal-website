@@ -12,9 +12,7 @@
         try {
           theme = localStorage.getItem("theme");
         } catch (e) {}
-        if (theme !== "light" && theme !== "dark") {
-          theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-        }
+        if (theme !== "light" && theme !== "dark") theme = "dark";
         document.documentElement.dataset.theme = theme;
         document.documentElement.style.colorScheme = theme;
       })();

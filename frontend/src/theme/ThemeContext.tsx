@@ -12,7 +12,7 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-/** Saved choice → OS preference → dark. index.html applies the same rule before React mounts. */
+/** Saved choice → dark. index.html applies the same rule before React mounts. */
 const getInitialTheme = (): Theme => {
     const fromDom = document.documentElement.dataset.theme;
     if (fromDom === "light" || fromDom === "dark") return fromDom;
@@ -20,9 +20,9 @@ const getInitialTheme = (): Theme => {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved === "light" || saved === "dark") return saved;
     } catch {
-        // storage blocked: fall through to the OS preference
+        // storage blocked: fall through to the default
     }
-    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    return "dark";
 };
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
@@ -37,7 +37,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const toggleTheme = () => {
         const next = theme === "light" ? "dark" : "light";
         setTheme(next);
-        // Only an explicit choice is saved, so OS preference applies until the user picks
+        // Only an explicit choice is saved, so dark applies until the user picks
         try {
             localStorage.setItem(STORAGE_KEY, next);
         } catch {
