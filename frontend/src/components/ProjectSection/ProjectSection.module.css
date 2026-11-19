@@ -1,8 +1,8 @@
-/* Project cards span the full width (content inside each card stays 1280px). */
+/* Project cards span the full width (content inside each card stays 1280px) and stack with no gap. */
 
 .projectSection {
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 0;
     width: 100%;
 }

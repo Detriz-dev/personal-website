@@ -8,6 +8,7 @@ const SectionHeader = ({
     accent,
     title,
     description,
+    divider = true,
     className,
     ...headerProps
 }: SectionHeaderProps) => {
@@ -15,14 +16,16 @@ const SectionHeader = ({
 
     return (
         <header {...headerProps} className={classes}>
-            <img
-                className={styles.divider}
-                src={theme === "dark" ? dividerDark : dividerLight}
-                width={1120}
-                height={3}
-                alt=""
-                aria-hidden="true"
-            />
+            {divider && (
+                <img
+                    className={styles.divider}
+                    src={theme === "dark" ? dividerDark : dividerLight}
+                    width={1120}
+                    height={3}
+                    alt=""
+                    aria-hidden="true"
+                />
+            )}
 
             <h2 className={styles.heading}>
                 <span className={styles.accent}>{accent}</span>

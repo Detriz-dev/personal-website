@@ -4,10 +4,10 @@ import '@fontsource-variable/urbanist/wght.css'
 import 'material-symbols/rounded.css'
 import './index.css'
 
-import LandingPage from "./pages/LandingPage/LandingPage.tsx";
+import App from "./App.tsx";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <LandingPage />
+    <App />
   </StrictMode>,
 )

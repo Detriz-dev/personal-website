@@ -1,27 +1,3 @@
-/* Page background — Figma "Dot Grid": 2px dots on a 27px grid over the canvas */
-.page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: var(--page-canvas);
-    background-image: radial-gradient(
-        circle at calc(var(--dot-grid-size) / 2) calc(var(--dot-grid-size) / 2),
-        var(--page-dot) calc(var(--dot-grid-size) / 2),
-        transparent calc(var(--dot-grid-size) / 2)
-    );
-    background-size: var(--dot-grid-gap) var(--dot-grid-gap);
-}
-
-.light {
-    --page-canvas: var(--light-canvas);
-    --page-dot: var(--light-dot-grid);
-}
-
-.dark {
-    --page-canvas: var(--dark-canvas);
-    --page-dot: var(--dark-dot-grid);
-}
-
 /* TopNav is fixed and hidden over the hero, so the hero fills the whole first screen */
 .hero {
     min-height: 100svh;
@@ -34,10 +10,5 @@
 
 /* Space between Experience and Projects */
 .projects {
-    margin-top: 64px;
-}
-
-/* Space between Projects and Teaching */
-.teaching {
     margin-top: 64px;
 }

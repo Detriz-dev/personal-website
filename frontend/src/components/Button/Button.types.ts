@@ -17,6 +17,7 @@ interface ButtonBaseProps {
 export type ButtonAsButtonProps = ButtonBaseProps &
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {
         href?: never;
+        to?: never;
     };
 
 /** Renders an <a> when `href` is set (e.g. in-page anchor links). */
@@ -25,6 +26,15 @@ export type ButtonAsLinkProps = ButtonBaseProps &
         href: string;
         /** Opens the link in a new browser tab (sets target="_blank" and a safe rel). */
         openInNewTab?: boolean;
+        to?: never;
     };
 
-export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
+/** Renders a react-router <Link> when `to` is set — navigates between pages without a full reload. */
+export type ButtonAsRouterLinkProps = ButtonBaseProps &
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "children" | "href"> & {
+        /** App path, e.g. ROUTES.platformDocumentation from src/routes.ts. */
+        to: string;
+        href?: never;
+    };
+
+export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps | ButtonAsRouterLinkProps;

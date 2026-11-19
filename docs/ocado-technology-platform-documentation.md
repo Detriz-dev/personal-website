@@ -1,129 +1,181 @@
-> **Due to strict confidentiality agreements,** I can’t showcase the user interfaces for these projects. Instead, this case study pulls back the curtain on my practical process and a breakdown of what I did.
-
----
+> **Note on confidentiality:** Due to strict NDA agreements, I can’t showcase the user interfaces from this project. Instead, this case study pulls back the curtain on my practical process, research insights, and architectural decisions.
 
 # Project overview
 
-A developer platform doesn't fall apart all at once. It accumulates. Ocado Technology's internal platform had grown to 50+ tools, used by 100+ engineering teams. Documentation hadn't kept pace. What started as a nice-to-have became the difference between developers using the platform well or working around it.
+A developer platform doesn't fall apart all at once—it accumulates. Ocado Technology's internal platform had grown organically to **50+ tools** used by **100+ engineering teams**, and documentation simply hadn't kept pace. What started as a nice-to-have had become the dividing line between engineers using the platform effectively or working around it.
 
 ### My responsibilities
+
+* [Discovery](#discovery)
 * [User Research](#user-research)
 * [Information Architecture](#information-architecture)
-* [Interface Design](#ui-design)
+* [Interface Design](#interface-design)
 * [Usability Tests](#usability-tests)
 * [Data Analysis](#data-analysis)
 
 ### Problems
-Before we ran any research, the signals were already there:
+
+Before we even began formal research, the warning signs were already clear:
 
 * **Documentation was scattered across dozens of locations.**
-  Different file formats, different structures, no consistent ownership.
-* **Valuable tribal knowledge existed but was invisible.**
-  Written by developers themselves, but buried and hard for anyone else to find.
-* **Quality was inconsistent.**
-  Some pages were outdated, others were never good to begin with.
+  Different file formats, inconsistent structures, and no clear ownership made finding answers a chore.
+
+* **Valuable tribal knowledge existed, but remained invisible.**
+  Great guides had been written by developers themselves, yet they were buried so deep that nobody else could find them.
+
+* **Content quality was wildly inconsistent.**
+  Some pages were severely outdated, while others had never been clear to begin with.
+
 * **Developers defaulted to the wrong tools.**
-  Not out of habit, but because nobody had told them better ones existed.
-* **And we had no way of knowing any of this was happening.**
-  No usage data existed. No way to tell what was being read, ignored, or missing entirely.
+  Not out of stubborn habit, but because nobody had surfaced the better alternatives available to them.
+
+* **We had zero visibility into what was actually happening.**
+  Without usage analytics, there was no way to know which pages were helping, which were ignored, or what was missing altogether.
 
 ### Project goal
+
 Success meant developers spending less time searching and more time building.
 
 * **One place to look, not a dozen**
-  For developers, finding the right documentation should take seconds — not a searching session.
-* **Know what's actually happening**
-  For the platform team, we needed to finally see whether that was true, instead of assuming it.
+  Finding the right documentation should take seconds—not an investigative session across multiple repositories.
+
+* **Visibility over guesswork**
+  The platform team needed real behavioral data to see what worked, rather than relying on assumptions.
+
+---
+
+# Discovery
+
+Before jumping into user interviews or sketching solutions, we needed to do some organizational archaeology—mapping the existing legacy and understanding how the platform got to this state.
+
+* **Tracing the platform's history**
+  Examining how the platform scaled organically across 100+ engineering teams while documentation remained an afterthought.
+
+* **Mapping the fragmentation (and past attempts)**
+  Uncovering why documentation fractured across dozens of tools, and reviewing previous consolidation efforts that had stalled so we wouldn't repeat the same mistakes.
+
+* **Auditing legacy content and ownership**
+  Cataloging what already existed, identifying who actually maintained it (if anyone), and understanding the workflows engineers already used to write and deploy code.
+
+* **Aligning stakeholders and constraints**
+  Defining what success looked like for platform leadership while mapping real-world boundaries—including engineering bandwidth, security permissions, and long-term maintenance capacity.
+
+> *Discovery gave us a map of the system and its history—but only from the inside out. To understand what great documentation looked like inside an engineer's day-to-day workflow, we needed to talk directly to the people using it.*
 
 ---
 
 # User research
 
-To understand what good documentation looks like from a developer's perspective and what was concretely broken, we ran around 10 in-depth interviews with developers across different departments.
+We conducted roughly **10 in-depth interviews** with engineers across different departments to test our assumptions and uncover what was concretely broken.
 
 ### Research Questions
+
 * **What makes developer documentation genuinely useful?**
-  What works, what doesn't, and what good looks like outside Ocado.
-* **What's broken, missing, or confusing right now?**
-  Identifying concrete gaps in the current documentation.
-* **How do developers actually think about platform tools?**
-  Understanding whether the existing structure matched their mental models.
+  Exploring what works, what fails, and what best-in-class documentation looks like outside Ocado.
+
+* **What is broken, missing, or confusing right now?**
+  Pinpointing concrete friction points and gaps in the current ecosystem.
+
+* **How do developers actually conceptualize platform tools?**
+  Testing whether the existing folder and category structures matched engineers' mental models.
 
 ### Research Findings
-* **How-to guides were missing**
-  Practical, task-oriented content that helps you get something done.
-* **Examples were too scarce**
-  Examples were the primary way developers learned, and there weren't enough of them.
+
+* **Practical how-to guides were missing**
+  Engineers lacked task-oriented, step-by-step guides focused on helping them get a specific job done.
+
+* **Code examples were too scarce**
+  Concrete examples were the primary way developers learned new tools, yet the existing docs rarely provided enough of them.
+
 * **Ctrl+F was the real navigation**
-  Developers used Ctrl+F to jump straight to what they needed on a page, rather than scrolling through it. This was the clue that long-form pages with in-page (right-hand) navigation would serve developers better than splitting content across many short pages.
-* **Content types were mixed together**
-  Reference material, tutorials, and explanations weren't distinguished, making it hard to find what you actually needed.
+  Rather than clicking through nested menus, developers used `Ctrl+F` to jump straight to keywords on a page. This signaled that comprehensive, long-form pages with sticky in-page navigation would outperform fragmented micro-pages.
+
+* **Content types were tangled together**
+  Reference specs, step-by-step tutorials, and high-level explanations were mixed on the same pages, making it difficult to scan for the exact depth of information needed.
+
 * **No single taxonomy could fit everyone**
-  Developers, data scientists, and devops engineers had different mental models; one structure was never going to work for all of them.
+  Backend developers, data scientists, and DevOps engineers each held different mental models—meaning a single top-down category tree would never work for everyone.
 
 ---
 
 # Information architecture
 
-The research findings pointed to four separate problems that needed four separate solutions.
+Our research findings pointed to foundational structural issues that required deliberate architectural and governance solutions.
 
-* **Category structure**
-  Rather than imposing a user-facing taxonomy, we ran a card sorting session with three internal platform experts. The people with the deepest knowledge of how the platform was actually built. We gave them cards with tool names and asked them to group the tools and explain their reasoning. The categories came from the inside out, not from assumptions about how users might think.
-* **Search**
-  Because we couldn't find one taxonomy that worked well for all our products and tools, we invested in strong search instead. Developers were already using Ctrl+F. They searched for phrases, not categories. A strong search experience meets every mental model where it is, without requiring users to learn a taxonomy first.
-* **Documentation structure**
-  We adopted the Diátaxis framework, separating all documentation into four distinct types: tutorials, how-to guides, reference, and explanation. Each serves a different need; keeping them separate solved the mixed-content problem the research had surfaced.
-* **How to guides / Use cases**
-  Structured around jobs to be done, not tools. We named guides after developer intent, not implementation — "use the API Gateway wrapper" became "expose resources outside the account." Jobs don't change even when the tools underneath do.
+* **Search-first over upfront taxonomy**
+  Because no single taxonomy worked across every engineering discipline, we leaned heavily into search instead. Developers were already relying on `Ctrl+F` and searching by specific phrases rather than browsing categories. A strong search engine meets every mental model where it is, without forcing users to learn an internal hierarchy first.
 
----
+* **Bottom-up category mapping**
+  Rather than guessing at a user-facing taxonomy upfront, we ran a card-sorting session with three internal platform experts who knew the architecture inside out. Using cards representing individual tools, they grouped the ecosystem and explained their logic. This gave us an authentic, inside-out structure slated for iterative rollout after our search-first launch.
 
-# UI Design
+* **Separating content with the Diátaxis framework**
+  We adopted the Diátaxis framework to divide all documentation into four distinct modes: **tutorials**, **how-to guides**, **reference**, and **explanation**. Giving each mode a clear boundary immediately solved the mixed-content problem surfaced during interviews.
 
-The platform was built on MkDocs with the Material for MkDocs theme as the foundation chosen because it gave us a solid, developer-familiar base to build on rather than starting from scratch.
+* **Job-oriented how-to guides**
+  We structured how-to guides around *jobs to be done* rather than tool names. Titles were rewritten to reflect developer intent rather than underlying implementation—for example, *"Use the API Gateway wrapper"* became *"Expose resources outside the account."* Developer goals remain stable even when underlying tools evolve.
 
-* **Visual customisation**
-  I adapted the Material theme to the internal brand end-to-end: defining colour tokens, adjusting typography, and preparing detailed mockups for engineering to build from. I reviewed and corrected the implementation against those mockups as it was built. Mermaid diagram support was added for technical documentation, and the Figma prototype built for validation was based on this adapted theme.
-* **Search design**
-  Search wasn't left to defaults. We customised Lunr.js to control how content was indexed, what appeared in search results, and what ranked at the top. The goal was a search experience that surfaced the right content without requiring developers to already understand the platform's structure.
+* **Governance & publishing workflow**
+  To solve the lack of ownership and uneven quality, we introduced an editorial review gate: all new or updated documentation had to pass through the technical writing team before going live. This protected structure, tone, and Diátaxis standards as teams contributed across the organization.
 
 ---
 
-# Usability Tests
+# Interface design
 
-Before rolling out platform-wide, we tested on a single piece of documentation first — the API Gateway wrapper — chosen because it was well understood and had real potential users we could recruit.
+We built the platform on **MkDocs** using the **Material for MkDocs** theme as our foundation—giving us a reliable, developer-familiar environment out of the box rather than reinventing the wheel.
 
-* **Documentation structure**
-  Built a scenario around a job to be done: expose a resource outside the account. Developers used the documentation to complete the task, thinking aloud as they went. The Diátaxis structure held up keeping content types separate was noticeable to users. A few content gaps surfaced and were fixed before rollout.
-* **Search**
-  Tested separately on a working product with a small group of users before launch. The initial Lunr.js ranking didn't surface the right results for how developers actually searched — we adjusted the ranking weights and reworked the search loop based on what testers actually typed, not what we assumed they'd type.
-* **Categories**
-  The platform launched initially without categorisation, focused on tools, products, services, and search. Categorisation was introduced afterward, as an ongoing process informed by real usage data rather than guessed upfront.
+* **Visual customization & prototyping**
+  I adapted the Material theme end-to-end to match Ocado's internal brand—defining color tokens, refining typography, and preparing detailed specs for engineering. I reviewed and QA'd the live build against those mockups throughout implementation. We also integrated **Mermaid** diagram support for technical architectures and built our validation prototype in Figma directly on top of this adapted theme.
 
----
-
-# Data Analysis
-
-We used FullStory to track developer behaviour before and after the redesign establishing a baseline of how developers entered and moved through documentation, then monitoring for changes after launch.
-
-* **Search behaviour**
-  We tracked what developers were typing — tool names, job names, or something else entirely — and which searches returned no results, pointing to content gaps or indexing problems.
-* **Content performance**
-  We tracked which documentation was most viewed, meaning it was actually being used, and which had zero views, meaning it was invisible or irrelevant feeding directly into the next research cycle. Scroll depth told us whether developers were reading content or landing and leaving.
-* **Engagement**
-  Returning users told us whether documentation was becoming a habit, not just a one-off lookup. Time spent across sessions, not just on a single page, showed whether developers were settling in to actually work through material or bouncing off entirely.
+* **Custom search engineering**
+  We didn't leave search on default settings. We customized **Lunr.js** to control how pages were indexed, what metadata surfaced in previews, and how results were weighted—ensuring developers could find exact answers without needing prior knowledge of the platform's structure.
 
 ---
 
-# What I learned?
+# Usability tests
+
+Before rolling out platform-wide, we piloted our approach on a single, well-understood piece of documentation—the **API Gateway wrapper**—where we could easily recruit active users.
+
+* **Testing the documentation structure**
+  We built a realistic task scenario around a core job to be done: *exposing a resource outside the account*. Developers completed the task using the redesigned docs while thinking aloud. The Diátaxis separation held up well—participants immediately noticed how much easier it was to separate conceptual context from actionable steps—and the sessions surfaced a few minor content gaps we fixed before launch.
+
+* **Tuning search with real queries**
+  We tested search separately on a live build with a small group of engineers prior to release. Default Lunr.js weights didn't always surface the best match for how developers naturally phrased queries, so we adjusted ranking weights and refined the search loop based on real tester logs rather than assumptions.
+
+* **Iterative category rollout**
+  We intentionally launched the initial platform without top-level categorization—focusing purely on tools, products, services, and search—and introduced categories iteratively afterward using real behavioral data.
+
+---
+
+# Data analysis
+
+We instrumented **FullStory** to track developer behavior before and after launch—establishing a clear baseline of how engineers entered and navigated documentation, then measuring how those patterns shifted over time.
+
+* **Search behavior & blind spots**
+  We monitored exact search queries—tracking whether engineers searched by tool name, job description, or error phrase—alongside zero-result searches that flagged missing content or indexing gaps.
+
+* **Content performance tiers**
+  Usage patterns quickly segmented the library into three tiers: high-traffic daily staples, "quick-lookup" reference pages where engineers jumped in for a single parameter and left, and zero-view "ghost" pages nobody knew existed.
+
+* **Session depth & retention**
+  Tracking returning users showed whether the hub was becoming a daily habit rather than a one-off stop, while cross-page session duration revealed whether engineers were genuinely working through tutorials or bouncing early.
+
+* **Turning analytics into targeted interviews**
+  Quantitative data showed us *what* developers were doing, but not *why*. Identifying zero-view docs and abrupt bounce patterns gave us the exact signal we needed to run a second round of targeted interviews—uncovering the reasoning behind those behaviors.
+
+---
+
+# What I learned
 
 * **Documentation is a product**
-  It needs ownership, structure, and measurement like any other product.
+  Without clear ownership, editorial governance, and ongoing measurement, even great documentation eventually decays.
+
 * **The best decisions weren't mine**
-  They came from domain experts who understood the platform deeply. My job was to create the conditions for that knowledge to surface.
+  They came from domain experts and real developer workflows. My role was creating the structure and conditions for that knowledge to surface.
 
 ---
 
 ### OCADO Technology documentation platform
+
 **Get in touch**
+
 * [LinkedIn](https://www.linkedin.com/in/kowalczykdawid/)

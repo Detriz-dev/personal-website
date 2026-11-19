@@ -1,0 +1,181 @@
+/* Figma "figma-cover / Ocado": 1280 × 702 — light 119:38326. Dark values derived (no dark frame in Figma yet). */
+
+.light {
+    /* Brand blue taken from the OCADO documentation portal (Figma 119:38326) */
+    --pdp-canvas: #ffffff;
+    --pdp-brand: #176def;
+    --pdp-on-brand: #f3fafe;
+    --pdp-text-primary: var(--light-text-primary);
+    --pdp-text-secondary: var(--light-text-secondary);
+    --pdp-border: var(--light-border-subtle);
+    --pdp-shadow: 0 16px 40px rgba(18, 21, 28, 0.12);
+}
+
+.dark {
+    --pdp-canvas: #0f1522;
+    --pdp-brand: #5c9dff;
+    --pdp-on-brand: #0f1522;
+    --pdp-text-primary: var(--dark-text-primary);
+    --pdp-text-secondary: var(--dark-text-secondary);
+    --pdp-border: var(--dark-border-subtle);
+    --pdp-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.platformDocumentationProject {
+    display: grid;
+    grid-template-columns: minmax(0, 440px) minmax(0, 675px);
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+    /* Background spans the full width; content stays in the centered 1280px Figma frame */
+    padding: 23px max(29px, calc((100% - 1280px) / 2 + 29px)) 52px max(86px, calc((100% - 1280px) / 2 + 86px));
+    overflow: hidden;
+    border-top: 1px solid var(--pdp-border);
+    border-bottom: 1px solid var(--pdp-border);
+    background-color: var(--pdp-canvas);
+    color: var(--pdp-text-primary);
+}
+
+/* ---------- Intro ---------- */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.title {
+    margin: 0;
+    font-size: var(--font-size-40);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-48);
+}
+
+.accent {
+    color: var(--pdp-brand);
+}
+
+.description {
+    max-width: 428px;
+    margin: 18px 0 0;
+    color: var(--pdp-text-secondary);
+    font-size: var(--font-size-18);
+    line-height: var(--font-line-height-28);
+}
+
+.responsibilities {
+    width: 100%;
+    max-width: 357px;
+    margin-top: 21px;
+}
+
+.responsibilitiesHeading {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 36px;
+    margin: 0;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--pdp-border);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+.headingIcon {
+    font-size: 24px;
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.list {
+    margin: 0;
+    padding: 8px 8px 0 16px;
+    list-style: none;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    font-size: var(--font-size-16);
+    line-height: var(--font-line-height-24);
+}
+
+.itemIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: var(--pdp-brand);
+    color: var(--pdp-on-brand);
+}
+
+.itemIcon > span {
+    font-size: 18px;
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
+}
+
+.cta {
+    margin: 29px 0 0 13px;
+}
+
+/* ---------- Screens (static images, overlapping) ---------- */
+/* Figma: back screen 600 wide at x+75, front screen 600 wide at y+275, inside a 675 × 627 area */
+
+.screens {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 675 / 627;
+}
+
+.screen {
+    position: absolute;
+    display: block;
+    width: 88.9%;
+    height: auto;
+    border: 1px solid var(--pdp-border);
+    border-radius: 12px;
+    box-shadow: var(--pdp-shadow);
+    background-color: var(--pdp-canvas);
+}
+
+.screenBack {
+    top: 0;
+    right: 0;
+}
+
+.screenFront {
+    top: 43.9%;
+    left: 0;
+}
+
+/* ---------- Narrow screens: intro on top, screens below ---------- */
+
+@media (max-width: 1100px) {
+    .platformDocumentationProject {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 40px;
+        padding: 40px 24px;
+    }
+
+    .screens {
+        max-width: 675px;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .platformDocumentationProject {
+        padding: 32px 16px;
+    }
+
+    .title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}

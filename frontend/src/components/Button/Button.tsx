@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import styles from "./Button.module.css";
 import type { ButtonProps } from "./Button.types.ts";
 
@@ -18,6 +19,16 @@ const Button = (props: ButtonProps) => {
             )}
         </>
     );
+
+    if (props.to !== undefined) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { label: _l, variant: _v, theme: _t, icon: _i, className: _c, ...linkProps } = props;
+        return (
+            <Link {...linkProps} className={classes}>
+                {content}
+            </Link>
+        );
+    }
 
     if (props.href !== undefined) {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars

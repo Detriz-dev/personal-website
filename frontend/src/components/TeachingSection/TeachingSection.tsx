@@ -71,6 +71,7 @@ const TeachingSection = ({ theme = "light", className, ...sectionProps }: Teachi
             <div className={styles.inner}>
                 <SectionHeader
                     theme={theme}
+                    divider={false} // the Projects block above already ends with a border
                     accent="Workshop"
                     title="and Mentoring"
                     description={
