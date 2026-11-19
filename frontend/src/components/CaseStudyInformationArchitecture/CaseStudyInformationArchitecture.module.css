@@ -1,0 +1,14 @@
+/* Values from Figma (Personal Site / 03 Information architecture 134:38963): ~72px between header and decisions. */
+
+.ia {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    color: var(--color-text-primary);
+}
+
+@media (min-width: 1024px) {
+    .ia {
+        gap: 72px;
+    }
+}

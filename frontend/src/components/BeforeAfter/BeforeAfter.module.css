@@ -1,0 +1,83 @@
+/* Values from Figma (Personal Site / BeforeAfter 134:39118). Mono face: system monospace stack
+   (Figma uses JetBrains Mono, which isn't installed; no new font dependency). */
+
+.beforeAfter {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+    max-width: 528px;
+    font-family: var(--font-family-primary);
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 14px;
+    background-color: var(--color-surface-card);
+}
+
+.afterItem {
+    border: 2px solid var(--color-accent-fill);
+}
+
+.label {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-22);
+}
+
+.afterLabel {
+    color: var(--color-accent-text);
+}
+
+.labelIcon {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.before,
+.after {
+    margin: 0;
+    font-size: var(--font-size-20);
+    line-height: var(--font-line-height-32);
+}
+
+.before {
+    color: var(--color-text-secondary);
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: var(--font-size-18);
+}
+
+.before del {
+    text-decoration-thickness: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.after {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-700);
+}
+
+.arrow {
+    color: var(--color-accent-text);
+    font-size: 24px;
+    line-height: 24px;
+}
+
+@media (min-width: 768px) {
+    .before {
+        font-size: var(--font-size-20);
+    }
+}

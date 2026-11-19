@@ -45,14 +45,15 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | 3 | Shared hooks + page layout | `19-routing-theme` → **PR** | [x] |
 | 4 | Page shell: ProcessNav + hero | `20-case-study-shell` | [x] |
 | 5 | Overview, problems, goal | `20-case-study-shell` → **PR** | [x] |
-| 6.1 | 01 Discovery | `21-case-study-01-03` | [ ] |
-| 6.2 | 02 User research | `21-case-study-01-03` | [ ] |
-| 6.3 | 03 Information architecture | `21-case-study-01-03` → **PR** | [ ] |
+| 6.1 | 01 Discovery | `22-case-study-01-03` | [x] |
+| 6.2 | 02 User research | `22-case-study-01-03` | [x] |
+| 6.3 | 03 Information architecture | `22-case-study-01-03` → **PR** | [x] |
 | 7.1 | 04 Interface design | `22-case-study-04-06` | [ ] |
 | 7.2 | 05 Usability tests | `22-case-study-04-06` | [ ] |
 | 7.3 | 06 Data analysis | `22-case-study-04-06` → **PR** | [ ] |
 | 8 | Entry point (landing → case study) | `23-case-study-polish` | [ ] |
 | 9 | Polish and QA | `23-case-study-polish` → **PR** | [ ] |
+| 10 | Folder refactor (D8: `components/case-study/`) | own branch → **PR** | [ ] |
 
 Branch names are suggestions. Rename them if needed.
 
@@ -67,9 +68,9 @@ Branch names are suggestions. Rename them if needed.
 | D3 | Theme mechanism | App-level `ThemeProvider` + `data-theme` on `<html>`. Existing components keep their `theme` prop; new ones use `--color-*` tokens. | As recommended | [x] |
 | D4 | Default theme | Saved choice → OS `prefers-color-scheme` → `dark` | As recommended | [x] |
 | D5 | Page footer | Figma ends after 06. Add "What I learned" + `ContactSection` (per the brief)? | | [ ] |
-| D6 | Copy drift | Figma text differs from the copy file ("only share a single screen", "(in first round)", "UI Design"). Update the copy file first. | | [ ] |
+| D6 | Copy drift | Figma text differs from the copy file ("only share a single screen", "(in first round)", "UI Design"). Update the copy file first. | Figma text wins. From 6.2 on, build from Figma text; earlier drift is fixed in Step 9. | [x] |
 | D7 | Missing designs | No dark or mobile frame in Figma. Build from tokens and landing-page patterns, or design first? | Build from existing tokens and landing-page patterns | [x] |
-| D8 | Folder structure | Put case-specific illustrations in `components/case-study/`, or keep `components/` flat? | | [ ] |
+| D8 | Folder structure | Put case-specific illustrations in `components/case-study/`, or keep `components/` flat? | Keep flat for now; refactor folders after Step 9 | [x] |
 | D9 | StatStrip | It's [off-canvas in Figma](https://www.figma.com/design/dMHyJ85uRXmnEONUYGg5jT/Personal-Site?node-id=134-38551). Keep or cut? | Keep | [x] |
 | D10 | Theme toggle on the case study | The ProcessNav has no toggle in Figma. Add an icon button at its right end? | Yes, add toggle | [x] |
 
@@ -191,12 +192,15 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Phase header `01 Discovery` | [ ] |
-| `ArchaeologyStack`: dashed depth axis + 4 strata (icon, label, copy reachable by keyboard) | [ ] |
-| `Callout` Bridge variant (`arrow_downward` + italic text) | [ ] |
-| Light + dark, 375 / 1280 | [ ] |
+| Phase header `01 Discovery` | [x] |
+| `ArchaeologyStack`: dashed depth axis + 4 strata (icon, label, copy reachable by keyboard) | [x] |
+| `Callout` Bridge variant (`arrow_downward` + italic text) | [x] |
+| Light + dark, 375 / 1280 | [x] |
 
 **Handoff notes:**
+- `CaseStudySectionHeader variant="phase" number="01"` → `<h2>` with "Phase 01" eyebrow, same grid as `overview`. Phase content goes in `PHASE_CONTENT` (by href) in `CaseStudyPage.tsx`; each phase is its own component (`CaseStudyDiscovery`). `Callout variant="bridge"` added. Imported Urbanist `wght-italic.css` in `main.tsx` (same package, no new dependency) so italics aren't faux.
+- `ArchaeologyStack` copy is always visible (no hover), so it's keyboard/screen-reader reachable as an `<ol>` with `<h3>` titles; bands are `aria-hidden`. Band labels all use `--color-text-on-accent` (Figma mixes accent-text and on-accent; accent-text on yellow has low contrast). Dashed axis is a CSS border, not the Figma SVG. Below 768px the band goes full-width (64px tall) above its text.
+- Kept components flat in `components/` (D8: refactor after Step 9). Discovery text is identical in Figma and the copy file.
 
 ---
 
@@ -207,15 +211,18 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Phase header `02 User research` | [ ] |
-| `QuestionCard` × 3 | [ ] |
-| `InsightText` (title + text, reused in 06) | [ ] |
-| `InsightCard` + `featured` variant | [ ] |
-| `LongFormPageMock` (Ctrl+F visual) | [ ] |
-| `InsightGrid`: 2 rows + the small visuals per card | [ ] |
-| Light + dark, 375 / 1280 | [ ] |
+| Phase header `02 User research` | [x] |
+| `QuestionCard` × 3 | [x] |
+| `InsightText` (title + text, reused in 06) | [x] |
+| `InsightCard` + `featured` variant | [x] |
+| `LongFormPageMock` (Ctrl+F visual) | [x] |
+| `InsightGrid`: 2 rows + the small visuals per card | [x] |
+| Light + dark, 375 / 1280 | [x] |
 
 **Handoff notes:**
+- New: `InsightText` (`iconSurface="accent" | "card"`, `headingLevel` h3/h4; reuse in 06), `QuestionCard` (`<li>`), `InsightCard` (`<li>`, `variant="default" | "featured"`, `visual` + `icon` or `lead`) with `InsightVisuals.tsx` (keycaps + 4 grid visuals), `LongFormPageMock`, `CaseStudyUserResearch`. Group labels are `<h3>`, card titles `<h4>`.
+- Visuals draw on a fixed stage (500×168, featured 592×260) that `InsightCard` centers and scales via container queries; the panel height follows the scale. Grid: 3 / 2 columns from 1024px, one column below; featured stacks visual-on-top below 1024px.
+- Copy from Figma (D6): "(in first round)" + Ctrl+F featured first. Deviation: 24px (not 20px) between featured card and grid, so all findings sit in one `<ul>`.
 
 ---
 
@@ -228,18 +235,20 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Phase header `03 Information architecture` | [ ] |
-| `DecisionText` | [ ] |
-| `DecisionBlock` (text + visual slot, `reverse` prop, stacks on mobile) | [ ] |
-| `SearchFirstVisual` (persona chips → search bar → results) | [ ] |
-| `CardSortVisual` (tool cards → experts → groups) | [ ] |
-| `DiataxisQuadrant` (2×2, hover/focus detail) | [ ] |
-| `BeforeAfter` (tool name → developer intent) | [ ] |
-| `GovernanceFlow` (team writes → review → published) | [ ] |
-| Light + dark, 375 / 1280 | [ ] |
+| Phase header `03 Information architecture` | [x] |
+| `DecisionText` | [x] |
+| `DecisionBlock` (text + visual slot, `reverse` prop, stacks on mobile) | [x] |
+| `SearchFirstVisual` (persona chips → search bar → results) | [x] |
+| `CardSortVisual` (tool cards → experts → groups) | [x] |
+| `DiataxisQuadrant` (2×2, hover/focus detail) | [x] |
+| `BeforeAfter` (tool name → developer intent) | [x] |
+| `GovernanceFlow` (team writes → review → published) | [x] |
+| Light + dark, 375 / 1280 | [x] |
 | **Open PR** for steps 6.1–6.3 | [ ] |
 
 **Handoff notes:**
+- New: `DecisionText` (eyebrow inside the `<h3>`; reuse in 04), `DecisionBlock` (`reverse`, `variant="split" | "card"`, `frame="stage" | "panel" | "none"`; stage = fixed 624×320 drawing scaled by container queries + `aria-hidden`, panel = fluid accessible content), `SearchFirstVisual`, `CardSortVisual`, `DiataxisQuadrant` (real `<table>`, row labels go vertical under 560px), `BeforeAfter` (`<del>` for the old title), `GovernanceFlow` (`<ol>`, stacks vertically under 560px), `CaseStudyInformationArchitecture`.
+- Deviations: Diátaxis has no hover/focus detail (no copy for it in Figma or the copy file; How-to highlighted as in Figma). BeforeAfter mono uses the system monospace stack (Figma: JetBrains Mono, not installed). Decision 04 body follows Figma (example sentence lives in the visual only). 72px between decisions (estimated from the screenshot), 56px below 1024px.
 
 ---
 
@@ -317,6 +326,7 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
+| D6: align steps 4–5 copy with Figma (NDA "only share a single screen", nav "UI Design", "Problems we saw upfront", "My responsibilities" paragraph, overview first sentence) and update the copy file to match | [ ] |
 | `useReveal` (fade + 8px rise on scroll), off under `prefers-reduced-motion` | [ ] |
 | Headings: one `<h1>`, phases `<h2>`, decisions `<h3>` | [ ] |
 | Decorative visuals `aria-hidden`. All hover copy reachable by keyboard focus. | [ ] |

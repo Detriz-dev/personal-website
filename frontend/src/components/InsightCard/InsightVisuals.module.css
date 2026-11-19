@@ -1,0 +1,221 @@
+/* Values from Figma (Personal Site / 02 User research insight visuals). Absolute positions are on InsightCard's stage. */
+
+/* Shared bars (div: background, svg: fill) */
+
+.bar {
+    position: absolute;
+    box-sizing: border-box;
+    height: 8px;
+    border-radius: 4px;
+}
+
+.strong {
+    background-color: var(--color-border-strong);
+    fill: var(--color-border-strong);
+}
+
+.subtle {
+    background-color: var(--color-border-subtle);
+    fill: var(--color-border-subtle);
+}
+
+.accent {
+    background-color: var(--color-accent-text);
+}
+
+.fill {
+    background-color: var(--color-accent-fill);
+    fill: var(--color-accent-fill);
+}
+
+.outline {
+    border: 1px solid var(--color-accent-text);
+    background-color: var(--color-accent-subtle);
+}
+
+/* Keycaps (featured lead) */
+
+.keycaps {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-32);
+}
+
+.key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 64px;
+    height: 64px;
+    border: 1px solid var(--color-border-strong);
+    border-bottom-width: 4px;
+    border-radius: 12px;
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-primary);
+    font: inherit;
+}
+
+.keyWide {
+    width: 96px;
+}
+
+.plus {
+    color: var(--color-text-secondary);
+}
+
+/* How-to steps */
+
+.steps {
+    position: absolute;
+    top: 28px;
+    left: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stepNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background-color: var(--color-accent-fill);
+    color: var(--color-text-on-accent);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-22);
+}
+
+.stepLine {
+    height: 8px;
+    border-radius: 4px;
+    background-color: var(--color-border-strong);
+}
+
+.stepMissing {
+    opacity: 0.6;
+}
+
+.stepMissing .stepNumber {
+    border: 1.5px dashed var(--color-border-strong);
+    background-color: var(--color-surface-card);
+    color: var(--color-text-secondary);
+}
+
+.stepMissing .stepLine {
+    background-color: var(--color-border-subtle);
+}
+
+/* Code examples */
+
+.codeBlock,
+.mixedPage {
+    position: absolute;
+    left: 32px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 12px;
+    background-color: var(--color-surface-card);
+}
+
+.codeBlock {
+    top: 24px;
+    width: 300px;
+    height: 120px;
+}
+
+.empty {
+    position: absolute;
+    top: 52px;
+    left: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 64px;
+    height: 64px;
+    border: 1.5px dashed var(--color-border-strong);
+    border-radius: 12px;
+    color: var(--color-text-secondary);
+}
+
+.empty span {
+    font-size: 28px; /* Figma value; no token */
+    line-height: 28px;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Content types */
+
+.mixedPage {
+    top: 16px;
+    width: 240px;
+    height: 136px;
+}
+
+.legend {
+    position: absolute;
+    top: 44px;
+    left: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}
+
+.swatch {
+    box-sizing: border-box;
+    width: 16px;
+    height: 8px;
+    border-radius: 4px;
+}
+
+/* Taxonomy trees */
+
+.trees {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.treeLabel {
+    position: absolute;
+    top: 132px;
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}

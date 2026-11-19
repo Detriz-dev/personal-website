@@ -1,0 +1,56 @@
+/* Values from Figma (Personal Site / CaseStudy/InsightText 125:3203). */
+
+.insight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    font-family: var(--font-family-primary);
+}
+
+.iconBox {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    color: var(--color-accent-text);
+}
+
+.accent {
+    background-color: var(--color-accent-subtle);
+}
+
+.card {
+    background-color: var(--color-surface-card);
+}
+
+.icon {
+    font-size: 22px; /* Figma value; no token */
+    line-height: 22px;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-32);
+}
+
+.body {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-24);
+}

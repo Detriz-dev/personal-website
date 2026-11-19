@@ -1,0 +1,46 @@
+/* Values from Figma (Personal Site / 02 User research 134:38809): 56px between header and groups, 20px label → cards. */
+
+.research {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-primary);
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.label {
+    margin: 0;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+.questions,
+.findings {
+    display: grid;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (min-width: 1024px) {
+    .questions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .findings {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Featured card (first item) spans the row (Figma: 20px above the grid; 24px here keeps one grid) */
+    .findings > :first-child {
+        grid-column: 1 / -1;
+    }
+}

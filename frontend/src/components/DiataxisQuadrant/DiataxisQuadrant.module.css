@@ -1,0 +1,125 @@
+/* Values from Figma (Personal Site / DiataxisQuadrant 134:39081): 8px gaps, 88px row-label column, 16px-radius cells.
+   A real <table> so the row/column labels stay attached to each mode for screen readers. */
+
+.table {
+    width: calc(100% + 16px);
+    margin: -8px;
+    border-collapse: separate;
+    border-spacing: 8px;
+    table-layout: fixed;
+    font-family: var(--font-family-primary);
+}
+
+.caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.corner {
+    width: 22px;
+    padding: 0;
+}
+
+.colLabel,
+.rowLabel {
+    padding: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-22);
+}
+
+.colLabel {
+    text-align: center;
+}
+
+/* Narrow: row labels run vertically to leave room for the cells */
+.rowLabel {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.rowLabel span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.mode {
+    padding: 12px;
+    border-radius: 16px;
+    background-color: var(--color-surface-raised);
+    vertical-align: top;
+}
+
+.highlight {
+    outline: 2px solid var(--color-accent-fill);
+    outline-offset: -2px;
+    background-color: var(--color-accent-subtle);
+}
+
+.iconBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background-color: var(--color-surface-card);
+    color: var(--color-accent-text);
+}
+
+.highlight .iconBox {
+    background-color: var(--color-accent-fill);
+    color: var(--color-text-on-accent);
+}
+
+.icon {
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.title {
+    display: block;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-28);
+}
+
+.focus {
+    display: block;
+    margin-top: 2px;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-22);
+}
+
+@media (min-width: 560px) {
+    .corner {
+        width: 88px;
+    }
+
+    .rowLabel {
+        text-align: left;
+    }
+
+    .rowLabel span {
+        writing-mode: horizontal-tb;
+        transform: none;
+    }
+
+    .mode {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: var(--font-size-20);
+        line-height: var(--font-line-height-32);
+    }
+}

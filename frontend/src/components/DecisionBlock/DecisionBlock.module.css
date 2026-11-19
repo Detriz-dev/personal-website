@@ -1,0 +1,122 @@
+/* Values from Figma (Personal Site / 03 IA decisions 134:38971, 134:39019, 134:39079, 134:39115, 134:39131):
+   72px between text and visual, 424px text column (344px in the card variant), 320px raised visual panel.
+   No mobile frame (D7): below 1024px text stacks above the visual. */
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-width: 0;
+}
+
+.visual {
+    min-width: 0;
+}
+
+.panel {
+    overflow: hidden;
+    border-radius: 24px;
+    background-color: var(--color-surface-raised);
+}
+
+/* panel: fluid content, centered */
+.fluid {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    padding: 32px 16px;
+}
+
+/* card: bordered surface around text + visual */
+.card {
+    box-sizing: border-box;
+    padding: 24px 16px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 24px;
+    background-color: var(--color-surface-card);
+}
+
+/* stage: fixed 624×320 drawing, scaled to the panel width */
+
+.stageFrame {
+    container-type: inline-size;
+}
+
+.frame {
+    --decision-visual-scale: 1;
+
+    position: relative;
+    height: calc(320px * var(--decision-visual-scale));
+}
+
+.stage {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 624px;
+    height: 320px;
+    overflow: hidden;
+    transform: translateX(-50%) scale(var(--decision-visual-scale));
+    transform-origin: top center;
+}
+
+@container (max-width: 623px) {
+    .frame {
+        --decision-visual-scale: 0.85;
+    }
+}
+
+@container (max-width: 529px) {
+    .frame {
+        --decision-visual-scale: 0.7;
+    }
+}
+
+@container (max-width: 436px) {
+    .frame {
+        --decision-visual-scale: 0.55;
+    }
+}
+
+@container (max-width: 342px) {
+    .frame {
+        --decision-visual-scale: 0.48;
+    }
+}
+
+@media (min-width: 768px) {
+    .card {
+        padding: 32px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .block {
+        flex-direction: row;
+        align-items: center;
+        gap: 72px;
+    }
+
+    .reverse {
+        flex-direction: row-reverse;
+    }
+
+    .text {
+        flex: none;
+        width: 424px;
+    }
+
+    .visual {
+        flex: 1 1 0;
+    }
+
+    .card {
+        padding: 40px;
+    }
+
+    .card .text {
+        width: 344px;
+    }
+}

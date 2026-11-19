@@ -1,0 +1,140 @@
+/* Values from Figma (Personal Site / Decision / Search-first visual 134:38973). Absolute positions on the 624×320 stage. */
+
+.visual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-family-primary);
+}
+
+.chip {
+    position: absolute;
+    top: 40px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding: 6px 12px 6px 10px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 999px;
+    background-color: var(--color-surface-card);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}
+
+.chipIcon {
+    color: var(--color-accent-text);
+    font-size: 16px;
+    line-height: 16px;
+}
+
+/* Dashed drop line (6px dash, 4px gap) from chip to search bar */
+.line {
+    position: absolute;
+    top: 82px;
+    width: 2px;
+    height: 52px;
+    background-image: linear-gradient(to bottom, var(--color-border-strong) 6px, transparent 0);
+    background-size: 2px 10px;
+}
+
+.search {
+    position: absolute;
+    top: 128px;
+    left: 48px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    box-sizing: border-box;
+    width: 528px;
+    padding: 14px 16px;
+    border: 2px solid var(--color-accent-fill);
+    border-radius: 14px;
+    background-color: var(--color-surface-card);
+}
+
+.searchIcon {
+    color: var(--color-text-secondary);
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.query {
+    flex: 1;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-24);
+}
+
+.kbd {
+    padding: 2px 8px;
+    border-radius: 6px;
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-22);
+}
+
+.results {
+    position: absolute;
+    top: 194px;
+    left: 48px;
+    box-sizing: border-box;
+    width: 528px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 14px;
+    background-color: var(--color-surface-card);
+}
+
+.result {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 16px;
+}
+
+.resultIcon {
+    color: var(--color-text-secondary);
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.accentIcon {
+    color: var(--color-accent-text);
+}
+
+.bar {
+    height: 8px;
+    margin-right: auto;
+    border-radius: 4px;
+}
+
+.strong {
+    width: 200px;
+    background-color: var(--color-border-strong);
+}
+
+.subtle {
+    width: 160px;
+    background-color: var(--color-border-subtle);
+}
+
+.tag {
+    padding: 6px 12px 6px 10px;
+    border-radius: 999px;
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-22);
+}
+
+.tagAccent {
+    background-color: var(--color-accent-subtle);
+    color: var(--color-accent-text);
+}
