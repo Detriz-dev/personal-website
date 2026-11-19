@@ -48,7 +48,7 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | 6.1 | 01 Discovery | `22-case-study-01-03` | [x] |
 | 6.2 | 02 User research | `22-case-study-01-03` | [x] |
 | 6.3 | 03 Information architecture | `22-case-study-01-03` → **PR** | [x] |
-| 7.1 | 04 Interface design | `22-case-study-04-06` | [ ] |
+| 7.1 | 04 Interface design | `23-case-study-04-06` | [x] |
 | 7.2 | 05 Usability tests | `22-case-study-04-06` | [ ] |
 | 7.3 | 06 Data analysis | `22-case-study-04-06` → **PR** | [ ] |
 | 8 | Entry point (landing → case study) | `23-case-study-polish` | [ ] |
@@ -259,12 +259,15 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Phase header `04 Interface design` | [ ] |
-| Docs screen image (light/dark via `useTheme`). Re-export it if the Figma frame has changed. Add real `alt` text. | [ ] |
-| `DecisionCard` × 2 (Visual customization, Custom search) + their small visuals | [ ] |
-| Light + dark, 375 / 1280 | [ ] |
+| Phase header `04 Interface design` | [x] |
+| Docs screen image (light/dark via `useTheme`). Re-export it if the Figma frame has changed. Add real `alt` text. | [x] |
+| `DecisionCard` × 2 (Visual customization, Custom search) + their small visuals | [x] |
+| Light + dark, 375 / 1280 | [x] |
 
 **Handoff notes:**
+- New: `DecisionCard` (`<li>`, DecisionText on a bordered card), `CaseStudyInterfaceDesign`. `CaseStudySectionHeader` got a `tags` prop (pill chips with a Material Symbol, under the description; Figma stack chips MkDocs / Material for MkDocs / Lunr.js / Mermaid).
+- Docs screen reuses `assets/platform-documentation/docs-page-{light,dark}.png` (still matches Figma 135:41281, no re-export). Figma decision cards have no small visuals, so none were built. Copy is identical in Figma and the copy file.
+- At 375px the screen just scales down (text in it is tiny but it's a picture with alt text); no horizontal overflow. Cards: 2 columns from 768px, gap 32px (24px stacked).
 
 ---
 

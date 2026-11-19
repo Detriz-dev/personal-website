@@ -7,6 +7,8 @@ import type { ReactNode } from "react";
  */
 export type CaseStudySectionHeaderVariant = "overview" | "sub" | "phase";
 
+export type CaseStudySectionHeaderTag = { icon: string; label: string };
+
 /** Case study section header: divider line on top, heading, optional description. Uses `--color-*` tokens. */
 export type CaseStudySectionHeaderProps = {
     variant?: CaseStudySectionHeaderVariant;
@@ -17,5 +19,7 @@ export type CaseStudySectionHeaderProps = {
     title: string;
     /** Intro copy; wrap emphasized phrases in <strong>. */
     description?: ReactNode;
+    /** Chips under the description, e.g. the tech stack (Figma 134:39170). `icon` is a Material Symbols name. */
+    tags?: readonly CaseStudySectionHeaderTag[];
     className?: string;
 };

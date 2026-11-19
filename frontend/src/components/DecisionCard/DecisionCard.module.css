@@ -1,0 +1,8 @@
+/* Values from Figma (Personal Site / Decision cards 134:39277). */
+
+.card {
+    padding: 24px 24px 32px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 24px;
+    background: var(--color-surface-card);
+}

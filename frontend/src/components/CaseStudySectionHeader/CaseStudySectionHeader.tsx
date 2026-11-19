@@ -7,6 +7,7 @@ const CaseStudySectionHeader = ({
     number,
     title,
     description,
+    tags,
     className,
 }: CaseStudySectionHeaderProps) => {
     const Heading = variant === "sub" ? "h3" : "h2";
@@ -36,6 +37,19 @@ const CaseStudySectionHeader = ({
             </Heading>
 
             {description && <p className={styles.description}>{description}</p>}
+
+            {tags && tags.length > 0 && (
+                <ul className={styles.tags} aria-label="Tech stack">
+                    {tags.map((tag) => (
+                        <li key={tag.label} className={styles.tag}>
+                            <span className={`material-symbols-rounded ${styles.tagIcon}`} aria-hidden="true">
+                                {tag.icon}
+                            </span>
+                            {tag.label}
+                        </li>
+                    ))}
+                </ul>
+            )}
         </header>
     );
 };
