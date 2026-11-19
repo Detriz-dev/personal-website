@@ -1,19 +1,14 @@
-> **Note on confidentiality:** Due to strict NDA agreements, I can’t showcase the user interfaces from this project. Instead, this case study pulls back the curtain on my practical process, research insights, and architectural decisions.
+> **Note on confidentiality:** Due to strict NDA agreements, I can only share a single screen from this project. Instead, this case study pulls back the curtain on my practical process, research insights, and architectural decisions.
 
 # Project overview
 
-A developer platform doesn't fall apart all at once—it accumulates. Ocado Technology's internal platform had grown organically to **50+ tools** used by **100+ engineering teams**, and documentation simply hadn't kept pace. What started as a nice-to-have had become the dividing line between engineers using the platform effectively or working around it.
+Ocado Technology's internal platform had grown organically to **50+ tools** used by **100+ engineering teams**, and documentation simply hadn't kept pace. What started as a nice-to-have had become the dividing line between engineers using the platform effectively or working around it.
 
 ### My responsibilities
 
-* [Discovery](#discovery)
-* [User Research](#user-research)
-* [Information Architecture](#information-architecture)
-* [Interface Design](#interface-design)
-* [Usability Tests](#usability-tests)
-* [Data Analysis](#data-analysis)
+I led the UX design of this initiative end-to-end—taking the documentation platform from early organizational discovery all the way through post-launch analytics. Working closely with platform leadership, technical writers, and engineering teams, I owned every stage of the product lifecycle: uncovering systemic bottlenecks through discovery and developer interviews, defining the information architecture, customizing the interface and search experience, validating decisions through usability testing, and tracking real-world adoption with behavioral data.
 
-### Problems
+### Problems we saw upfront
 
 Before we even began formal research, the warning signs were already clear:
 

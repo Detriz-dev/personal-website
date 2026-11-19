@@ -33,7 +33,9 @@ npm run dev      # dev server with hot reload → http://localhost:5173
 - `npm run lint` — run ESLint
 
 ## Definition of done
-TBD — fill in once the stack exists (e.g. build + lint pass, checked on mobile and desktop).
+- `npm run build` and `npm run lint` pass.
+- Checked at 375px and 1280px (plus 768 / 1024 for layout changes), in light and dark, with no horizontal scroll.
+- Copy matches `docs/site-copy.md` or the case study copy file; headings stay in order (one `<h1>`, no skipped levels).
 
 ## Lessons learned
 <!-- Add one line each time the agent repeats a mistake. -->

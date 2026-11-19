@@ -27,7 +27,7 @@ const CaseStudySectionHeader = ({
             </svg>
 
             <Heading className={styles.heading}>
-                {variant === "phase" && number && <span className={styles.eyebrow}>Phase {number}</span>}
+                {variant === "phase" && number && <span className={styles.eyebrow}>Phase {number} </span>}
                 {accent && (
                     <>
                         <span className={styles.accent}>{accent}</span>
