@@ -3,6 +3,7 @@
 - Skills
 - Experience
 - Projects
+- Teaching
 - About me
 - [GitHub] | [LinkedIn] | [Theme Toggle]
 
@@ -104,6 +105,32 @@ Turning the right questions into shippable product value requires ownership and 
 - Prototyping (React)
 - Documentation
 - **Tools:** `Git` • `Claude` • `WebStorm`
+
+---
+
+# Teaching
+*Section heading: **Workshop** and Mentoring*
+
+## Intro Copy
+Previously a **university lecturer** in **Design Thinking**, **UX** and **Mobile Design**. Today I keep sharing that craft through hands-on **workshops** — here are three I love facilitating.
+
+## Workshops
+Each card: **What we do** → **What you'll learn** → tags.
+
+### Product design stack
+- **What we do:** Participants map the full product design toolkit — **product strategy**, **user research** and **interface design** — and connect each stage through practical exercises.
+- **What you'll learn:** Product design as **one connected system**, where every element shapes the final outcome.
+- **Tags:** `Product strategy` • `User research` • `Interface design`
+
+### Scrum LEGO
+- **What we do:** Teams run rapid **Scrum** sprints — planning, building and adapting **LEGO** structures while the requirements keep shifting.
+- **What you'll learn:** The three pillars of Scrum — **transparency**, **inspection** and **adaptation** — in practice.
+- **Tags:** `Scrum` • `Sprints` • `LEGO`
+
+### Penciltivity
+- **What we do:** Divergent thinking and rapid sketching exercises with nothing more than **paper and pencil**.
+- **What you'll learn:** What **creativity** is, its core elements, and how the **creative process** works in action.
+- **Tags:** `Divergent thinking` • `Sketching` • `Paper & pencil`
 
 ---
 

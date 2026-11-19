@@ -66,7 +66,7 @@ const SmartHomeKitWork = ({ theme = "light", projectHref, className, ...articleP
                     variant="secondary"
                     theme={theme}
                     icon="arrow_right_alt"
-                    href={"https://smart-home-kit.detriz.com/"}
+                    href={projectHref}
                     openInNewTab
                 />
             </div>

@@ -1,0 +1,137 @@
+/* Values from Figma (Personal Site / Teaching proposal v3 — desktop 111:2991, mobile 111:7614, TeachingCard 111:2972).
+   Desktop (≥1024px): three cards in a row, equal height, tags pinned to the bottom.
+   Below 1024px: cards stacked. */
+
+.teachingSection {
+    width: 100%;
+}
+
+.inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 44px 16px;
+}
+
+.workshops {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin: 56px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (min-width: 1024px) {
+    .workshops {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--teaching-border);
+    border-radius: 8px;
+    background-color: var(--teaching-card-bg);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+    color: var(--teaching-text);
+    font-family: var(--font-family-primary);
+    letter-spacing: var(--font-letter-spacing-default);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--teaching-border);
+    background-color: var(--teaching-header-bg);
+}
+
+.cardIcon {
+    flex-shrink: 0;
+    font-size: 24px;
+    line-height: 24px;
+    color: var(--teaching-accent);
+}
+
+.cardTitle {
+    margin: 0;
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+/* Grows so the tags sit at the bottom of equal-height cards */
+.cardBody {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 18px 4px;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Divider between "What we do" and "What you'll learn" */
+.outcome {
+    padding-top: 16px;
+    border-top: 1px solid var(--teaching-border);
+}
+
+.label {
+    margin: 0;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-24);
+    color: var(--teaching-text-secondary);
+}
+
+.copy {
+    margin: 0;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-24);
+}
+
+.copy strong {
+    font-weight: var(--font-weight-700);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px 18px 18px;
+}
+
+/* Figma TeachingCard tags use 6px side padding (Tag default is 4px) */
+.tags .tag {
+    padding: 0 6px;
+}
+
+/* Themes */
+
+.light {
+    --teaching-card-bg: var(--light-surface-cards);
+    --teaching-border: var(--light-border-subtle);
+    --teaching-text: var(--light-text-primary);
+    --teaching-text-secondary: var(--light-text-secondary);
+    --teaching-header-bg: var(--light-accent-subtle);
+    --teaching-accent: var(--light-accent-text);
+}
+
+.dark {
+    --teaching-card-bg: var(--dark-surface-cards);
+    --teaching-border: var(--dark-border-subtle);
+    --teaching-text: var(--dark-text-primary);
+    --teaching-text-secondary: var(--dark-text-secondary);
+    --teaching-header-bg: var(--dark-accent-subtle);
+    --teaching-accent: var(--light-accent-fill);
+}
