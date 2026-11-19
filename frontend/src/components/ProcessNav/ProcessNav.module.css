@@ -1,0 +1,108 @@
+/* Values from Figma (Personal Site / ProcessNav / sticky, node 134:39838).
+   No mobile or dark frame in Figma (D7): steps become a horizontal chip scroller under 768px,
+   colors come from the --color-* tokens. */
+
+.processNav {
+    position: sticky;
+    top: 8px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 6px;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 12px;
+    background-color: var(--color-surface-card);
+    font-family: var(--font-family-primary);
+}
+
+.steps {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.steps::-webkit-scrollbar {
+    display: none;
+}
+
+.step {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px; /* Figma 8px / 12px minus the 1px focus border */
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-22);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.number {
+    font-weight: var(--font-weight-700);
+}
+
+.step.selected {
+    background-color: var(--color-accent-subtle);
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-700);
+}
+
+/* Amber hover is the same in both themes (matches NavItem) */
+.step:hover,
+.iconButton:hover {
+    background-color: var(--light-accent-fill);
+    color: var(--light-text-primary);
+}
+
+.step:focus-visible,
+.iconButton:focus-visible {
+    outline: none;
+    border-color: var(--color-text-primary);
+}
+
+/* Icon button matching TopNav .iconButton (38×36 here: 20px icon + 8px padding) */
+.iconButton {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.iconButton :global(.material-symbols-rounded) {
+    font-size: var(--font-size-20);
+    line-height: var(--font-line-height-20);
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+}
+
+/* Figma: the back button carries a visible outline */
+.back {
+    border-color: var(--color-text-primary);
+}
+
+.themeToggle {
+    margin-left: auto;
+}

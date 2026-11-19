@@ -1,0 +1,35 @@
+/* Values from Figma (Personal Site / NDA note, node 134:38548). */
+
+.callout {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-sizing: border-box;
+    font-family: var(--font-family-primary);
+}
+
+.icon {
+    flex: none;
+    font-size: var(--font-size-20);
+    line-height: var(--font-line-height-20);
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+}
+
+.text {
+    margin: 0;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-22);
+}
+
+.text strong {
+    font-weight: var(--font-weight-700);
+}
+
+.nda {
+    max-width: 815px;
+    padding: 16px 20px 16px 16px;
+    border-radius: 12px;
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-secondary);
+}

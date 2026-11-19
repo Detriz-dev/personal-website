@@ -1,0 +1,167 @@
+/* Values from Figma (Personal Site / GoalCard visuals 134:38669, 134:38709).
+   Both draw on a fixed 496×200 stage (the visual's size at 1280), centered in the visual panel.
+   GoalCard.module.css scales the stage down on narrow cards. */
+
+.stage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 496px;
+    height: 200px;
+    transform: translate(-50%, -50%) scale(var(--goal-visual-scale, 1));
+    font-family: var(--font-family-primary);
+}
+
+.arrow,
+.searchIcon,
+.badgeIcon {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* One place */
+
+.tile {
+    position: absolute;
+    box-sizing: border-box;
+    width: 44px;
+    height: 54px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 6px;
+    background-color: var(--color-surface-card);
+}
+
+.faded {
+    opacity: 0.5;
+}
+
+.tileLine {
+    position: absolute;
+    left: 7px;
+    top: 9px;
+    width: 28px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--color-border-subtle);
+}
+
+.tileLine:nth-child(2) {
+    top: 19px;
+    width: 20px;
+}
+
+.tileLine:nth-child(3) {
+    top: 29px;
+    width: 24px;
+}
+
+.arrow {
+    position: absolute;
+    top: 84px;
+    left: 198px;
+    color: var(--color-text-secondary);
+    font-size: 32px; /* Figma value; no token */
+    line-height: 32px;
+}
+
+.panel {
+    position: absolute;
+    top: 46px;
+    left: 254px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px;
+    border: 2px solid var(--color-accent-fill);
+    border-radius: 12px;
+    background-color: var(--color-surface-card);
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-sizing: border-box;
+    width: 176px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    background-color: var(--color-surface-raised);
+}
+
+.searchIcon {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-16);
+    line-height: 16px;
+}
+
+.searchQuery,
+.panelLine {
+    display: block;
+    height: 6px;
+    border-radius: 3px;
+}
+
+.searchQuery {
+    width: 80px;
+    background-color: var(--color-border-strong);
+}
+
+.panelLine {
+    width: 150px;
+    background-color: var(--color-border-subtle);
+}
+
+.panelLine:nth-of-type(2) {
+    width: 120px;
+}
+
+.panelLine:nth-of-type(3) {
+    width: 136px;
+}
+
+/* Usage data */
+
+.bar {
+    position: absolute;
+    bottom: 32px; /* sits on the baseline at y=168 */
+    width: 32px;
+    border-radius: 6px;
+    background-color: var(--color-border-subtle);
+}
+
+.barAccent {
+    background-color: var(--color-accent-fill);
+}
+
+.baseline {
+    position: absolute;
+    top: 168px;
+    left: 30px;
+    width: 436px;
+    height: 2px;
+    background-color: var(--color-border-strong);
+}
+
+.badge {
+    position: absolute;
+    top: 20px;
+    left: 340px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px 6px 10px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 999px;
+    background-color: var(--color-surface-card);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}
+
+.badgeIcon {
+    font-size: var(--font-size-16);
+    line-height: 16px;
+}

@@ -1,0 +1,80 @@
+/* Values from Figma (Personal Site / Project overview 134:38558, Problems 134:38662, Project goal 135:39894).
+   Divider is flipped vertically, as in Figma and SectionHeader. */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: var(--font-family-primary);
+    color: var(--color-text-primary);
+}
+
+.divider {
+    display: block;
+    width: 100%;
+    height: 3px;
+    overflow: visible;
+    color: var(--color-border-subtle);
+    transform: scaleY(-1);
+}
+
+.heading {
+    margin: 0;
+    font-weight: var(--font-weight-700);
+}
+
+.accent {
+    color: var(--color-accent-text);
+}
+
+.description {
+    max-width: 736px;
+    margin: 0;
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-30);
+}
+
+.description strong {
+    font-weight: var(--font-weight-700);
+}
+
+/* overview: 40/48 two-line heading, 96px below the divider */
+
+.overview .heading {
+    margin-top: 96px;
+    font-size: var(--font-size-40);
+    line-height: var(--font-line-height-48);
+}
+
+.overview .description {
+    margin-top: 24px;
+}
+
+/* Desktop (Figma): heading in a 384px column, description to its right, tops aligned */
+@media (min-width: 1024px) {
+    .overview {
+        display: grid;
+        grid-template-columns: 384px minmax(0, 736px);
+    }
+
+    .overview .divider {
+        grid-column: 1 / -1;
+    }
+
+    .overview .description {
+        margin-top: 96px;
+    }
+}
+
+/* sub: 24/32 heading 40px below the divider, description 8px below */
+
+.sub .heading {
+    margin-top: 40px;
+    font-size: 24px; /* Figma value; no --font-size-24 token */
+    line-height: var(--font-line-height-32);
+}
+
+.sub .description {
+    margin-top: 8px;
+}

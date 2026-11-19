@@ -1,0 +1,45 @@
+/* Values from Figma (Personal Site / StatStrip 134:38551, CaseStudy/Stat 121:3186).
+   Dividers are the 1px grid gap over the border color, so they work in the 2×2 mobile layout too (D7). */
+
+.statStrip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 16px;
+    background-color: var(--color-border-subtle);
+    font-family: var(--font-family-primary);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 4px;
+    padding: 24px;
+    background-color: var(--color-surface-card);
+}
+
+.value {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-40);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-48);
+    white-space: nowrap;
+}
+
+.label {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-22);
+}
+
+@media (min-width: 768px) {
+    .statStrip {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}

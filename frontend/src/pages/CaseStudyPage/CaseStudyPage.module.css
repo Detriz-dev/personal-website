@@ -1,0 +1,26 @@
+/* Page spacing only; background comes from PageLayout. 1120px column, 80px between sections. */
+
+.page {
+    padding: 8px 16px 80px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    width: 100%;
+    max-width: 1120px;
+    margin: 48px auto 0;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+@media (min-width: 768px) {
+    .main {
+        margin-top: 80px;
+    }
+}
