@@ -8,7 +8,7 @@ import column3Dark from "../../assets/smart-home-kit/column-3-dark.png";
 import styles from "./SmartHomeKitWork.module.css";
 import type { SmartHomeKitWorkProps } from "./SmartHomeKitWork.types.ts";
 
-// Deliverables from docs/site-copy.md — Project 01; icons from Figma (73:13943)
+// Icons from Figma (73:13943)
 const DELIVERABLES = [
     { icon: "widgets", label: "Domain model" },
     { icon: "widgets", label: "Design systems (Figma)" },

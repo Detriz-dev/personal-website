@@ -1,6 +1,6 @@
 /* Values from Figma (Personal Site / 03 IA decisions 134:38971, 134:39019, 134:39079, 134:39115, 134:39131):
    72px between text and visual, 424px text column (344px in the card variant), 320px raised visual panel.
-   No mobile frame (D7): below 1024px text stacks above the visual. */
+   No mobile frame in Figma: below 1024px text stacks above the visual. */
 
 .block {
     display: flex;

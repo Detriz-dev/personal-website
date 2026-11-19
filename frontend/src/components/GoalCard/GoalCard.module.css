@@ -24,7 +24,7 @@
     container-type: inline-size;
 }
 
-/* The visuals draw on a 496px stage; scale it down when the panel is narrower (no mobile frame, D7) */
+/* The visuals draw on a 496px stage; scale it down when the panel is narrower (no mobile frame in Figma) */
 @container (max-width: 495px) {
     .visual > * {
         --goal-visual-scale: 0.8;

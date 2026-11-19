@@ -6,7 +6,7 @@ import docsPageDark from "../../assets/platform-documentation/docs-page-dark.png
 import styles from "./PlatformDocumentationProject.module.css";
 import type { PlatformDocumentationProjectProps } from "./PlatformDocumentationProject.types.ts";
 
-// Responsibilities from docs/ocado-technology-platform-documentation.md; icons from Figma (119:38327)
+// Icons from Figma (119:38327)
 const RESPONSIBILITIES = [
     { icon: "rocket_launch", label: "Discovery" },
     { icon: "search", label: "User Research" },

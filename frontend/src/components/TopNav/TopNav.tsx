@@ -59,12 +59,12 @@ const TopNav = ({
 
                 <div className={styles.actions}>
                     {githubHref && (
-                        <a className={styles.iconButton} href={githubHref} aria-label="GitHub" title="GitHub">
+                        <a className={styles.iconButton} href={githubHref} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
                             <img src={isDark ? githubDark : githubLight} width={20} height={20} alt="" />
                         </a>
                     )}
                     {linkedinHref && (
-                        <a className={styles.iconButton} href={linkedinHref} aria-label="LinkedIn" title="LinkedIn">
+                        <a className={styles.iconButton} href={linkedinHref} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
                             <img src={isDark ? linkedinDark : linkedinLight} width={20} height={20} alt="" />
                         </a>
                     )}

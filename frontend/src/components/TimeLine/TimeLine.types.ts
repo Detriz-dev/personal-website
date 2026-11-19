@@ -15,7 +15,7 @@ export interface TimeLineItem {
 /**
  * Figma "TimeLine" (Personal Site, 66:46393 — light 66:46392 / dark 66:46391).
  * Dashed accent line with an icon circle above each card (domain + company).
- * Copy comes from docs/site-copy.md and is passed in by the section.
+ * Copy is passed in by the section.
  */
 export type TimeLineProps = Omit<HTMLAttributes<HTMLElement>, "children"> & {
     theme?: TimeLineTheme;

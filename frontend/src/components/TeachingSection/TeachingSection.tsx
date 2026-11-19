@@ -11,7 +11,7 @@ type Workshop = {
     outcome: ReactNode;
 };
 
-// Copy from docs/site-copy.md — Teaching; layout from Figma (TeachingRow 116:3190, sections 115:3101 / 116:3191)
+// Layout from Figma (TeachingRow 116:3190, sections 115:3101 / 116:3191)
 const WORKSHOPS: Workshop[] = [
     {
         icon: "stacks",

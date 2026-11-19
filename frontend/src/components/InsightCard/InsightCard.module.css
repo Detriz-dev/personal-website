@@ -1,5 +1,5 @@
 /* Values from Figma (Personal Site / InsightCard featured 134:38828, InsightGrid 134:38867).
-   Visuals draw on a fixed stage (their size at 1280), centered and scaled down on narrow cards (no mobile frame, D7). */
+   Visuals draw on a fixed stage (their size at 1280), centered and scaled down on narrow cards (no mobile frame in Figma). */
 
 .card {
     --stage-w: 500px;

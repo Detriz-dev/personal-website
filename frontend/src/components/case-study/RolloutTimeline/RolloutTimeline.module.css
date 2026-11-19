@@ -1,6 +1,6 @@
 /* Values from Figma (Personal Site / Rollout timeline 134:39434): 48px accent markers on a dashed accent line
    (8px dash, 6px gap), labels 12px below. First label left-aligned, middle centered, last right-aligned.
-   No mobile frame (D7): below 768px the timeline runs vertically with labels beside the markers. */
+   No mobile frame in Figma: below 768px the timeline runs vertically with labels beside the markers. */
 
 .timeline {
     --marker: 48px;

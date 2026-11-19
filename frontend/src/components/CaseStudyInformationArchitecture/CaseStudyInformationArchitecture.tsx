@@ -7,8 +7,7 @@ import DiataxisQuadrant from "../case-study/DiataxisQuadrant/DiataxisQuadrant.ts
 import BeforeAfter from "../case-study/BeforeAfter/BeforeAfter.tsx";
 import GovernanceFlow from "../case-study/GovernanceFlow/GovernanceFlow.tsx";
 
-// Copy: Figma 134:38963 (D6: Figma text wins). Differs from docs/ocado-technology-platform-documentation.md →
-// "Information architecture" only in Decision 04, where the example sentence moved into the BeforeAfter visual.
+// Copy: Figma 134:38963. In Decision 04 the example sentence lives in the BeforeAfter visual.
 
 /** 03 Information architecture (Figma 134:38963): phase header + five decisions, alternating sides. */
 const CaseStudyInformationArchitecture = () => (

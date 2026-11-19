@@ -1,5 +1,5 @@
 /* Values from Figma (Personal Site / FlowDiagram 134:39133): 12px gaps, 16px-radius nodes, gate node highlighted.
-   Narrow (no mobile frame, D7): nodes stack, arrows point down. */
+   Narrow (no mobile frame in Figma): nodes stack, arrows point down. */
 
 .flow {
     display: flex;

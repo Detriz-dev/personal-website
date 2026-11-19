@@ -1,6 +1,6 @@
 /* Values from Figma (Personal Site / PilotScope 134:39344): 260px raised panel, 560×196 docs grid at 40/32,
    arrow 40px right of it, rollout steps 40px right of the arrow.
-   No mobile frame (D7): below 1024px the parts stack and the docs grid scales down with container queries. */
+   No mobile frame in Figma: below 1024px the parts stack and the docs grid scales down with container queries. */
 
 .scope {
     display: flex;

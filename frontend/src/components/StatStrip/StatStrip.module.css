@@ -1,5 +1,5 @@
 /* Values from Figma (Personal Site / StatStrip 134:38551, CaseStudy/Stat 121:3186).
-   Dividers are the 1px grid gap over the border color, so they work in the 2×2 mobile layout too (D7). */
+   Dividers are the 1px grid gap over the border color, so they work in the 2×2 mobile layout too. */
 
 .statStrip {
     display: grid;

@@ -8,7 +8,7 @@ export type ProcessNavStep = {
 
 /**
  * Figma "ProcessNav / sticky" (Personal Site, node 134:39838).
- * Sticky case-study nav: back link, Overview + phase steps, theme toggle (D10).
+ * Sticky case-study nav: back link, Overview + phase steps, theme toggle.
  */
 export type ProcessNavProps = {
     steps: readonly ProcessNavStep[];

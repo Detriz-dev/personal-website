@@ -15,6 +15,7 @@ import CaseStudyDataAnalysis from "../../components/CaseStudyDataAnalysis/CaseSt
 import CaseStudyLearnings from "../../components/CaseStudyLearnings/CaseStudyLearnings.tsx";
 import ContactSection from "../../components/ContactSection/ContactSection.tsx";
 import { useTheme } from "../../theme/ThemeContext.tsx";
+import { GITHUB_HREF, LINKEDIN_HREF } from "../../links.ts";
 import useActiveSection from "../../hooks/useActiveSection.ts";
 import useDocumentTitle from "../../hooks/useDocumentTitle.ts";
 import useReveal from "../../hooks/useReveal.ts";
@@ -48,9 +49,6 @@ const PHASE_CONTENT: Partial<Record<string, ReactNode>> = {
     "#data-analysis": <CaseStudyDataAnalysis />,
 };
 
-// From the copy file ("Get in touch")
-const LINKEDIN_HREF = "https://www.linkedin.com/in/kowalczykdawid/";
-
 // Matches the global `scroll-padding-top` (72px) on <html>; clears the sticky ProcessNav (8px + 50px)
 const NAV_OFFSET = 72;
 
@@ -78,7 +76,7 @@ const CaseStudyPage = () => {
                         note={
                             <>
                                 <strong>Note on confidentiality:</strong> Due to strict NDA agreements, I can only
-                                share a single screen from this project. Instead, this case study pulls back
+                                share a few screens from this project. Instead, this case study pulls back
                                 the curtain on my practical process, research insights, and architectural decisions.
                             </>
                         }
@@ -105,7 +103,7 @@ const CaseStudyPage = () => {
                 className={styles.contact}
                 theme={theme}
                 linkedinHref={LINKEDIN_HREF}
-                githubHref="#" // TODO: GitHub profile URL (same as the landing page)
+                githubHref={GITHUB_HREF}
             />
         </PageLayout>
     );

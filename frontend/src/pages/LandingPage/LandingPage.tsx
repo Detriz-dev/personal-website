@@ -13,8 +13,9 @@ import useHasScrolled from "../../hooks/useHasScrolled.ts";
 import PageLayout from "../../components/PageLayout/PageLayout.tsx";
 import type { TopNavLink } from "../../components/TopNav/TopNav.types.ts";
 import { useTheme } from "../../theme/ThemeContext.tsx";
+import { GITHUB_HREF, LINKEDIN_HREF } from "../../links.ts";
 
-// Labels from docs/site-copy.md; icons from Figma (TopNav, node 42:29568)
+// Icons from Figma (TopNav, node 42:29568)
 const NAV_LINKS: TopNavLink[] = [
     { label: "Skills", icon: "home_repair_service", href: "#skills" },
     { label: "Experience", icon: "directions", href: "#experience" },
@@ -39,8 +40,8 @@ const LandingPage = () => {
             homeHref="#"
             links={NAV_LINKS}
             activeHref={activeHref}
-            githubHref="#" // TODO: GitHub profile URL
-            linkedinHref="#" // TODO: LinkedIn profile URL
+            githubHref={GITHUB_HREF}
+            linkedinHref={LINKEDIN_HREF}
             onThemeToggle={toggleTheme}
             menuOpen={menuOpen && navVisible} // closed while the nav is hidden
             onMenuToggle={() => setMenuOpen(!(menuOpen && navVisible))}
@@ -60,8 +61,8 @@ const LandingPage = () => {
         <ContactSection
             id="contact"
             theme={theme}
-            linkedinHref="#" // TODO: LinkedIn profile URL
-            githubHref="#" // TODO: GitHub profile URL
+            linkedinHref={LINKEDIN_HREF}
+            githubHref={GITHUB_HREF}
         />
     </PageLayout>)}
 

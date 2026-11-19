@@ -4,7 +4,7 @@ import type { TimeLineItem } from "../TimeLine/TimeLine.types.ts";
 import styles from "./ExperienceSection.module.css";
 import type { ExperienceSectionProps } from "./ExperienceSection.types.ts";
 
-// Copy from docs/site-copy.md — 10+ Years of Experience > Domain Highlights; icons and line breaks from Figma (66:46392)
+// Icons and line breaks from Figma (66:46392)
 const DOMAINS: TimeLineItem[] = [
     { icon: "developer_guide", title: <>Career development<br />platform</>, company: "DOOS.pro" },
     { icon: "currency_exchange", title: <>B2B loan<br />system</>, company: "Santander Bank" },
@@ -13,7 +13,7 @@ const DOMAINS: TimeLineItem[] = [
     { icon: "terminal", title: <>Developer<br />tools</>, company: "OCADO Technology" },
 ];
 
-// Copy from docs/site-copy.md — 10+ Years of Experience; emphasis as in Figma (66:46398)
+// Emphasis as in Figma (66:46398)
 const ExperienceSection = ({ theme = "light", className, ...sectionProps }: ExperienceSectionProps) => {
     const classes = [styles.experienceSection, className].filter(Boolean).join(" ");
 

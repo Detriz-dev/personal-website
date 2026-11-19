@@ -2,8 +2,7 @@ import styles from "./CaseStudyLearnings.module.css";
 import CaseStudySectionHeader from "../CaseStudySectionHeader/CaseStudySectionHeader.tsx";
 import InsightText from "../InsightText/InsightText.tsx";
 
-// Copy: docs/ocado-technology-platform-documentation.md → "What I learned". No Figma frame (D5):
-// built from CaseStudySectionHeader + InsightText. Icons are a design choice, not copy.
+// No Figma frame: built from CaseStudySectionHeader + InsightText. Icons are a design choice, not copy.
 
 const LEARNINGS = [
     {
@@ -18,7 +17,7 @@ const LEARNINGS = [
     },
 ] as const;
 
-/** Closing "What I learned" section (D5): header + two takeaways. */
+/** Closing "What I learned" section: header + two takeaways. */
 const CaseStudyLearnings = () => (
     <div className={styles.learnings}>
         <CaseStudySectionHeader title="What I learned" />

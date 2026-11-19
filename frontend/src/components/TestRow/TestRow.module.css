@@ -1,6 +1,6 @@
 /* Values from Figma (Personal Site / CaseStudy/TestRow 128:3346, Rollout timeline 134:39426):
    32px padding and gaps, 248px head, three equal columns, "What changed" on an accent panel.
-   No mobile frame (D7): below 1024px the head sits on top; below 768px the columns stack. */
+   No mobile frame in Figma: below 1024px the head sits on top; below 768px the columns stack. */
 
 .card {
     display: flex;

@@ -4,8 +4,7 @@ import PilotScope from "../case-study/PilotScope/PilotScope.tsx";
 import TestRow from "../TestRow/TestRow.tsx";
 import RolloutTimeline from "../case-study/RolloutTimeline/RolloutTimeline.tsx";
 
-// Copy: Figma 134:39336 (D6: Figma text wins). Same sentences as docs/ocado-technology-platform-documentation.md →
-// "Usability tests", split into tested / saw / changed. Eyebrows, column labels and visual labels are Figma-only.
+// Copy: Figma 134:39336, split into tested / saw / changed. Eyebrows, column labels and visual labels are Figma-only.
 
 /** 05 Usability tests (Figma 134:39336): phase header, pilot scope, two test rows, category rollout timeline. */
 const CaseStudyUsabilityTests = () => (
