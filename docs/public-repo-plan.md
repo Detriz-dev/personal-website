@@ -52,10 +52,10 @@ Whatever you choose, update `AGENT.md` so it doesn't point to deleted files.
 - [x] `AGENT.md`: update the Docs list and the "Current phase" line to match D4
 
 ## Step 5b: Stale code comments
-- [ ] About 30 comments in `frontend/src` point to the deleted `docs/site-copy.md` and `docs/ocado-technology-platform-documentation.md`, or to old plan decisions ("D5", "D6: Figma text wins"). Remove those references and keep any useful notes. Comments only, no code changes.
+- [x] About 30 comments in `frontend/src` point to the deleted `docs/site-copy.md` and `docs/ocado-technology-platform-documentation.md`, or to old plan decisions ("D5", "D6: Figma text wins"). Remove those references and keep any useful notes. Comments only, no code changes.
 
 ## Step 6: Site fixes (own branch, it changes the site)
-- [ ] Real GitHub and LinkedIn URLs in place of `#` (`LandingPage.tsx:42-43,63-64`, `CaseStudyPage.tsx:108`)
+- [x] Real GitHub and LinkedIn URLs in place of `#` (`LandingPage.tsx:42-43,63-64`, `CaseStudyPage.tsx:108`). Shared in `src/links.ts`; nav icons now open in a new tab like the footer ones
 - [ ] Apply D1 if a screenshot has to go
 - [ ] Optional: folder refactor (old case study Step 10: move case study components to `components/case-study/`)
 

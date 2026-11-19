@@ -5,7 +5,7 @@ import dividerDark from "../../assets/hero/divider-dark.svg";
 import styles from "./HeroSection.module.css";
 import type { HeroSectionProps } from "./HeroSection.types.ts";
 
-// Copy from docs/site-copy.md — Hero Section; CTA labels as in Figma (61:45959)
+// CTA labels as in Figma (61:45959)
 const HeroSection = ({
     theme = "light",
     processHref = "#design-process",

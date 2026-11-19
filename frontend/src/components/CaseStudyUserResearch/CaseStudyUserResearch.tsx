@@ -11,8 +11,7 @@ import {
     TaxonomyVisual,
 } from "../InsightCard/InsightVisuals.tsx";
 
-// Copy: Figma 134:38809 (D6: Figma text wins). Matches docs/ocado-technology-platform-documentation.md → "User research"
-// except "(in first round)" and the order of findings (Ctrl+F featured first).
+// Copy: Figma 134:38809.
 const QUESTIONS = [
     {
         question: "What makes developer documentation genuinely useful?",

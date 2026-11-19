@@ -3,7 +3,6 @@ import portrait from "../../assets/footer/portrait.png";
 import styles from "./ContactSection.module.css";
 import type { ContactSectionProps } from "./ContactSection.types.ts";
 
-// Copy from docs/site-copy.md — Footer / Contact
 const PHONE = "+48 609 984 199";
 const EMAIL = "kowalczyk.dawid@gmail.com";
 

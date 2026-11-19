@@ -1,6 +1,6 @@
 import styles from "./RolloutTimeline.module.css";
 
-// Figma 134:39434. Labels are Figma-only (not in the copy file). The last stop came after launch (dashed marker).
+// Figma 134:39434. The last stop came after launch (dashed marker).
 const STOPS = [
     { icon: "science", title: "Pilot", detail: "API Gateway wrapper" },
     { icon: "manage_search", title: "Search test", detail: "Live build" },

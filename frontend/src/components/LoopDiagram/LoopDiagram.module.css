@@ -1,5 +1,5 @@
 /* Values from Figma (Personal Site / LoopDiagram 134:39663): 232px nodes in a 2×2 loop, 280px tall,
-   28px accent arrows centered between nodes. No mobile frame (D7): below 520px the nodes stack. */
+   28px accent arrows centered between nodes. No mobile frame in Figma: below 520px the nodes stack. */
 
 .loop {
     container-type: inline-size;

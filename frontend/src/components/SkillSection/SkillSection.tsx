@@ -3,7 +3,7 @@ import SkillDiagram from "../SkillDiagram/SkillDiagram.tsx";
 import styles from "./SkillSection.module.css";
 import type { SkillSectionProps } from "./SkillSection.types.ts";
 
-// Copy from docs/site-copy.md — End-to-End Design Process; emphasis as in Figma (63:45968)
+// Emphasis as in Figma (63:45968)
 const SkillSection = ({ theme = "light", className, ...sectionProps }: SkillSectionProps) => {
     const classes = [styles.skillSection, className].filter(Boolean).join(" ");
 

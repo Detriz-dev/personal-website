@@ -3,7 +3,7 @@ import CaseStudySectionHeader from "../CaseStudySectionHeader/CaseStudySectionHe
 import ArchaeologyStack from "../ArchaeologyStack/ArchaeologyStack.tsx";
 import Callout from "../Callout/Callout.tsx";
 
-// Copy: docs/ocado-technology-platform-documentation.md → "Discovery". Icons + band labels from Figma (134:38755).
+// Icons + band labels from Figma (134:38755).
 const LAYERS = [
     {
         icon: "history",

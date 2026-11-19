@@ -5,7 +5,7 @@ import ProblemRow from "../ProblemRow/ProblemRow.tsx";
 import GoalCard from "../GoalCard/GoalCard.tsx";
 import { OnePlaceVisual, UsageDataVisual } from "../GoalCard/GoalVisuals.tsx";
 
-// Copy: docs/ocado-technology-platform-documentation.md → "Problems". Icons from Figma (ProblemList 134:38655).
+// Icons from Figma (ProblemList 134:38655).
 const PROBLEMS = [
     {
         icon: "folder_off",

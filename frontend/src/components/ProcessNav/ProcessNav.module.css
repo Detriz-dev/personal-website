@@ -1,5 +1,5 @@
 /* Values from Figma (Personal Site / ProcessNav / sticky, node 134:39838).
-   No mobile or dark frame in Figma (D7): steps become a horizontal chip scroller under 768px,
+   No mobile or dark frame in Figma: steps become a horizontal chip scroller under 768px,
    colors come from the --color-* tokens. */
 
 .processNav {

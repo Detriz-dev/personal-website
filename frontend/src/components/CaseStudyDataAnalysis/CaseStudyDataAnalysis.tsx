@@ -5,8 +5,7 @@ import { ContentTiersVisual, SearchQueriesVisual } from "../SignalCard/SignalVis
 import SessionDepthVisual from "../SessionDepthVisual/SessionDepthVisual.tsx";
 import LoopDiagram from "../LoopDiagram/LoopDiagram.tsx";
 
-// Copy: Figma 134:39525 (D6: Figma text wins). Same sentences as docs/ocado-technology-platform-documentation.md →
-// "Data analysis"; Figma bolds "what" / "why." (copy file: italics). Chip and visual labels are Figma-only.
+// Copy: Figma 134:39525. Chip and visual labels are Figma-only.
 
 const TIMELINE = [
     { icon: "flag", label: "Baseline" },

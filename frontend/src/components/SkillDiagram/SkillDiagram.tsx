@@ -17,7 +17,7 @@ import webstormDark from "../../assets/tags/webstorm-dark.svg";
 
 type Step = Omit<CardProps, "theme">;
 
-// Copy from docs/site-copy.md — Process Framework; icons from Figma (66:46316)
+// Icons from Figma (66:46316)
 const getSteps = (dark: boolean): Step[] => [
     {
         icon: "manage_search",

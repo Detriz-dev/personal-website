@@ -5,8 +5,7 @@ import { useTheme } from "../../theme/ThemeContext.tsx";
 import docsPageLight from "../../assets/platform-documentation/docs-page-light.png";
 import docsPageDark from "../../assets/platform-documentation/docs-page-dark.png";
 
-// Copy: Figma 134:39161 (D6: Figma text wins). Matches docs/ocado-technology-platform-documentation.md →
-// "Interface design". Stack chips and decision eyebrows are Figma-only labels.
+// Copy: Figma 134:39161. Stack chips and decision eyebrows are Figma-only labels.
 
 const STACK = [
     { icon: "description", label: "MkDocs" },

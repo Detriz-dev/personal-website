@@ -37,5 +37,4 @@ npm run dev      # dev server with hot reload → http://localhost:5173
 - Checked at 375px and 1280px (plus 768 / 1024 for layout changes), in light and dark, with no horizontal scroll.
 - Copy is unchanged unless the change was asked for; headings stay in order (one `<h1>`, no skipped levels).
 
-## Lessons learned
-<!-- Add one line each time the agent repeats a mistake. -->
+
