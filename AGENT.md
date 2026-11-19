@@ -2,11 +2,6 @@
 
 ## Context
 Personal website. Goal: communicate the owner's value proposition clearly.
-Current phase: see `docs/public-repo-plan.md` (unchecked items = not started). Don't work ahead of the current phase.
-
-## Docs (read only when relevant)
-- `docs/public-repo-plan.md` — current plan and step status
-
 Site copy lives in the components. Never invent copy; ask for it.
 
 ## Rules
