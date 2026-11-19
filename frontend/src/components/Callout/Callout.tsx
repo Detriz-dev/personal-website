@@ -3,6 +3,7 @@ import type { CalloutProps, CalloutVariant } from "./Callout.types.ts";
 
 const ICONS: Record<CalloutVariant, string> = {
     nda: "lock",
+    bridge: "arrow_downward",
 };
 
 const Callout = ({ variant = "nda", children, className }: CalloutProps) => (

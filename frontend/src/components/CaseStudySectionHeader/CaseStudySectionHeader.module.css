@@ -39,30 +39,44 @@
     font-weight: var(--font-weight-700);
 }
 
-/* overview: 40/48 two-line heading, 96px below the divider */
+/* overview + phase: 40/48 heading, 96px below the divider */
 
-.overview .heading {
+.overview .heading,
+.phase .heading {
     margin-top: 96px;
     font-size: var(--font-size-40);
     line-height: var(--font-line-height-48);
 }
 
-.overview .description {
+.overview .description,
+.phase .description {
     margin-top: 24px;
+}
+
+/* phase: "Phase 01" eyebrow, 4px above the title (Figma 134:38751) */
+.eyebrow {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--color-accent-text);
+    font-size: var(--font-size-16);
+    line-height: var(--font-line-height-24);
 }
 
 /* Desktop (Figma): heading in a 384px column, description to its right, tops aligned */
 @media (min-width: 1024px) {
-    .overview {
+    .overview,
+    .phase {
         display: grid;
         grid-template-columns: 384px minmax(0, 736px);
     }
 
-    .overview .divider {
+    .overview .divider,
+    .phase .divider {
         grid-column: 1 / -1;
     }
 
-    .overview .description {
+    .overview .description,
+    .phase .description {
         margin-top: 96px;
     }
 }

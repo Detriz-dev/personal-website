@@ -33,3 +33,43 @@
     background-color: var(--color-surface-raised);
     color: var(--color-text-secondary);
 }
+
+/* bridge: Figma "Bridge" (134:38805) */
+
+.bridge {
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 24px 32px 24px 24px;
+    border-radius: 16px;
+    background-color: var(--color-accent-subtle);
+    color: var(--color-text-primary);
+}
+
+.bridge .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background-color: var(--color-accent-fill);
+    color: var(--color-text-on-accent);
+    font-size: 22px; /* Figma value; no token */
+    line-height: 22px;
+}
+
+.bridge .text {
+    flex: 1 1 0;
+    min-width: 0;
+    font-size: var(--font-size-18);
+    font-style: italic;
+    line-height: var(--font-line-height-30);
+}
+
+@media (max-width: 767px) {
+    .bridge {
+        align-items: flex-start;
+        padding: 20px;
+    }
+}

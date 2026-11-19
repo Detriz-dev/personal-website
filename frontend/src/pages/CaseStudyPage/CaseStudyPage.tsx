@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import styles from "./CaseStudyPage.module.css";
 import type { CaseStudySection } from "./CaseStudyPage.types.ts";
 import PageLayout from "../../components/PageLayout/PageLayout.tsx";
@@ -5,6 +6,7 @@ import ProcessNav from "../../components/ProcessNav/ProcessNav.tsx";
 import CaseStudyHero from "../../components/CaseStudyHero/CaseStudyHero.tsx";
 import StatStrip from "../../components/StatStrip/StatStrip.tsx";
 import CaseStudyOverview from "../../components/CaseStudyOverview/CaseStudyOverview.tsx";
+import CaseStudyDiscovery from "../../components/CaseStudyDiscovery/CaseStudyDiscovery.tsx";
 import useActiveSection from "../../hooks/useActiveSection.ts";
 import useDocumentTitle from "../../hooks/useDocumentTitle.ts";
 import { ROUTES } from "../../routes.ts";
@@ -26,6 +28,11 @@ const STATS = [
     { value: "~10", label: "in-depth interviews" },
     { value: "3", label: "platform experts in card sorting" },
 ] as const;
+
+// Phase content by anchor; phases without an entry render as empty anchors until their step is built
+const PHASE_CONTENT: Partial<Record<string, ReactNode>> = {
+    "#discovery": <CaseStudyDiscovery />,
+};
 
 // Matches the global `scroll-padding-top` (72px) on <html>; clears the sticky ProcessNav (8px + 50px)
 const NAV_OFFSET = 72;
@@ -64,7 +71,9 @@ const CaseStudyPage = () => {
                 </section>
 
                 {SECTIONS.slice(1).map((section) => (
-                    <section key={section.href} id={section.href.slice(1)} />
+                    <section key={section.href} id={section.href.slice(1)} aria-label={section.label}>
+                        {PHASE_CONTENT[section.href]}
+                    </section>
                 ))}
             </main>
         </PageLayout>

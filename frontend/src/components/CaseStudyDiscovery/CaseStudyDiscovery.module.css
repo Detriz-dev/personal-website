@@ -1,0 +1,8 @@
+/* Values from Figma (Personal Site / 01 Discovery 134:38747): 56px between header, stack and bridge. */
+
+.discovery {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    color: var(--color-text-primary);
+}

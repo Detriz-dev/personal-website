@@ -45,14 +45,15 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | 3 | Shared hooks + page layout | `19-routing-theme` → **PR** | [x] |
 | 4 | Page shell: ProcessNav + hero | `20-case-study-shell` | [x] |
 | 5 | Overview, problems, goal | `20-case-study-shell` → **PR** | [x] |
-| 6.1 | 01 Discovery | `21-case-study-01-03` | [ ] |
-| 6.2 | 02 User research | `21-case-study-01-03` | [ ] |
-| 6.3 | 03 Information architecture | `21-case-study-01-03` → **PR** | [ ] |
+| 6.1 | 01 Discovery | `22-case-study-01-03` | [x] |
+| 6.2 | 02 User research | `22-case-study-01-03` | [ ] |
+| 6.3 | 03 Information architecture | `22-case-study-01-03` → **PR** | [ ] |
 | 7.1 | 04 Interface design | `22-case-study-04-06` | [ ] |
 | 7.2 | 05 Usability tests | `22-case-study-04-06` | [ ] |
 | 7.3 | 06 Data analysis | `22-case-study-04-06` → **PR** | [ ] |
 | 8 | Entry point (landing → case study) | `23-case-study-polish` | [ ] |
 | 9 | Polish and QA | `23-case-study-polish` → **PR** | [ ] |
+| 10 | Folder refactor (D8: `components/case-study/`) | own branch → **PR** | [ ] |
 
 Branch names are suggestions. Rename them if needed.
 
@@ -67,9 +68,9 @@ Branch names are suggestions. Rename them if needed.
 | D3 | Theme mechanism | App-level `ThemeProvider` + `data-theme` on `<html>`. Existing components keep their `theme` prop; new ones use `--color-*` tokens. | As recommended | [x] |
 | D4 | Default theme | Saved choice → OS `prefers-color-scheme` → `dark` | As recommended | [x] |
 | D5 | Page footer | Figma ends after 06. Add "What I learned" + `ContactSection` (per the brief)? | | [ ] |
-| D6 | Copy drift | Figma text differs from the copy file ("only share a single screen", "(in first round)", "UI Design"). Update the copy file first. | | [ ] |
+| D6 | Copy drift | Figma text differs from the copy file ("only share a single screen", "(in first round)", "UI Design"). Update the copy file first. | Figma text wins. From 6.2 on, build from Figma text; earlier drift is fixed in Step 9. | [x] |
 | D7 | Missing designs | No dark or mobile frame in Figma. Build from tokens and landing-page patterns, or design first? | Build from existing tokens and landing-page patterns | [x] |
-| D8 | Folder structure | Put case-specific illustrations in `components/case-study/`, or keep `components/` flat? | | [ ] |
+| D8 | Folder structure | Put case-specific illustrations in `components/case-study/`, or keep `components/` flat? | Keep flat for now; refactor folders after Step 9 | [x] |
 | D9 | StatStrip | It's [off-canvas in Figma](https://www.figma.com/design/dMHyJ85uRXmnEONUYGg5jT/Personal-Site?node-id=134-38551). Keep or cut? | Keep | [x] |
 | D10 | Theme toggle on the case study | The ProcessNav has no toggle in Figma. Add an icon button at its right end? | Yes, add toggle | [x] |
 
@@ -191,12 +192,15 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Phase header `01 Discovery` | [ ] |
-| `ArchaeologyStack`: dashed depth axis + 4 strata (icon, label, copy reachable by keyboard) | [ ] |
-| `Callout` Bridge variant (`arrow_downward` + italic text) | [ ] |
-| Light + dark, 375 / 1280 | [ ] |
+| Phase header `01 Discovery` | [x] |
+| `ArchaeologyStack`: dashed depth axis + 4 strata (icon, label, copy reachable by keyboard) | [x] |
+| `Callout` Bridge variant (`arrow_downward` + italic text) | [x] |
+| Light + dark, 375 / 1280 | [x] |
 
 **Handoff notes:**
+- `CaseStudySectionHeader variant="phase" number="01"` → `<h2>` with "Phase 01" eyebrow, same grid as `overview`. Phase content goes in `PHASE_CONTENT` (by href) in `CaseStudyPage.tsx`; each phase is its own component (`CaseStudyDiscovery`). `Callout variant="bridge"` added. Imported Urbanist `wght-italic.css` in `main.tsx` (same package, no new dependency) so italics aren't faux.
+- `ArchaeologyStack` copy is always visible (no hover), so it's keyboard/screen-reader reachable as an `<ol>` with `<h3>` titles; bands are `aria-hidden`. Band labels all use `--color-text-on-accent` (Figma mixes accent-text and on-accent; accent-text on yellow has low contrast). Dashed axis is a CSS border, not the Figma SVG. Below 768px the band goes full-width (64px tall) above its text.
+- Kept components flat in `components/` (D8: refactor after Step 9). Discovery text is identical in Figma and the copy file.
 
 ---
 
@@ -317,6 +321,7 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
+| D6: align steps 4–5 copy with Figma (NDA "only share a single screen", nav "UI Design", "Problems we saw upfront", "My responsibilities" paragraph, overview first sentence) and update the copy file to match | [ ] |
 | `useReveal` (fade + 8px rise on scroll), off under `prefers-reduced-motion` | [ ] |
 | Headings: one `<h1>`, phases `<h2>`, decisions `<h3>` | [ ] |
 | Decorative visuals `aria-hidden`. All hover copy reachable by keyboard focus. | [ ] |

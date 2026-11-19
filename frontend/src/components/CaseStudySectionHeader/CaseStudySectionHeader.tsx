@@ -4,11 +4,12 @@ import type { CaseStudySectionHeaderProps } from "./CaseStudySectionHeader.types
 const CaseStudySectionHeader = ({
     variant = "overview",
     accent,
+    number,
     title,
     description,
     className,
 }: CaseStudySectionHeaderProps) => {
-    const Heading = variant === "overview" ? "h2" : "h3";
+    const Heading = variant === "sub" ? "h3" : "h2";
 
     return (
         <header className={[styles.header, styles[variant], className].filter(Boolean).join(" ")}>
@@ -24,6 +25,7 @@ const CaseStudySectionHeader = ({
             </svg>
 
             <Heading className={styles.heading}>
+                {variant === "phase" && number && <span className={styles.eyebrow}>Phase {number}</span>}
                 {accent && (
                     <>
                         <span className={styles.accent}>{accent}</span>
