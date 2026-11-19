@@ -7,8 +7,7 @@
 - [x] **Main message and content scope**  
   - Who is audience?
   - What content need to be on site to support my message. (experience, about me etc )
-  -  What is my value proposition?     
-- [x] **Tone ov voice** Who am I? How I want to be perceived?  
+  -  What is my value proposition?      
 - [x] **Content scope**
 - [x] **Copywriting**
 - [x] **Copy evaluation**
@@ -29,6 +28,7 @@
 - [x] **Components structure** 
 - [x] **Design tokens to CSS**
 - [ ] **Componenet building**
+- [ ] **Case study page**
  
 
 #### Deployment
