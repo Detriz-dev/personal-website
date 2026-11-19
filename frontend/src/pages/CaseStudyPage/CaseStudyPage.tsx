@@ -78,7 +78,7 @@ const CaseStudyPage = () => {
                         note={
                             <>
                                 <strong>Note on confidentiality:</strong> Due to strict NDA agreements, I can only
-                                share a single screen from this project. Instead, this case study pulls back
+                                share a few screens from this project. Instead, this case study pulls back
                                 the curtain on my practical process, research insights, and architectural decisions.
                             </>
                         }
