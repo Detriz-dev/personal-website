@@ -68,10 +68,10 @@ Branch names are suggestions. Rename them if needed.
 | D4 | Default theme | Saved choice → OS `prefers-color-scheme` → `dark` | As recommended | [x] |
 | D5 | Page footer | Figma ends after 06. Add "What I learned" + `ContactSection` (per the brief)? | | [ ] |
 | D6 | Copy drift | Figma text differs from the copy file ("only share a single screen", "(in first round)", "UI Design"). Update the copy file first. | | [ ] |
-| D7 | Missing designs | No dark or mobile frame in Figma. Build from tokens and landing-page patterns, or design first? | | [ ] |
+| D7 | Missing designs | No dark or mobile frame in Figma. Build from tokens and landing-page patterns, or design first? | Build from existing tokens and landing-page patterns | [x] |
 | D8 | Folder structure | Put case-specific illustrations in `components/case-study/`, or keep `components/` flat? | | [ ] |
-| D9 | StatStrip | It's [off-canvas in Figma](https://www.figma.com/design/dMHyJ85uRXmnEONUYGg5jT/Personal-Site?node-id=134-38551). Keep or cut? | | [ ] |
-| D10 | Theme toggle on the case study | The ProcessNav has no toggle in Figma. Add an icon button at its right end? | | [ ] |
+| D9 | StatStrip | It's [off-canvas in Figma](https://www.figma.com/design/dMHyJ85uRXmnEONUYGg5jT/Personal-Site?node-id=134-38551). Keep or cut? | Keep | [x] |
+| D10 | Theme toggle on the case study | The ProcessNav has no toggle in Figma. Add an icon button at its right end? | Yes, add toggle | [x] |
 
 ---
 
