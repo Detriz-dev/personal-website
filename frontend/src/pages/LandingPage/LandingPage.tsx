@@ -7,6 +7,7 @@ import ExperienceSection from "../../components/ExperienceSection/ExperienceSect
 import ProjectSection from "../../components/ProjectSection/ProjectSection.tsx";
 import TeachingSection from "../../components/TeachingSection/TeachingSection.tsx";
 import ContactSection from "../../components/ContactSection/ContactSection.tsx";
+import useDocumentTitle from "../../hooks/useDocumentTitle.ts";
 import type { TopNavLink, TopNavTheme } from "../../components/TopNav/TopNav.types.ts";
 
 // Labels from docs/site-copy.md; icons from Figma (TopNav, node 42:29568)
@@ -77,6 +78,7 @@ const useHasScrolled = () => {
 };
 
 const LandingPage = () => {
+    useDocumentTitle("Dawid — Product Designer");
     const [theme, setTheme] = useState<TopNavTheme>("dark");
     const [menuOpen, setMenuOpen] = useState(false);
     const activeHref = useActiveSection(NAV_LINKS);

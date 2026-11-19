@@ -40,7 +40,7 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | Step | Session | Branch / PR | Status |
 |---|---|---|---|
 | D | Decisions (no code) | — | [ ] |
-| 1 | Routing | `19-routing-theme` | [ ] |
+| 1 | Routing | `19-routing-theme` | [x] |
 | 2 | Dark mode (app-wide) | `19-routing-theme` | [ ] |
 | 3 | Shared hooks + page layout | `19-routing-theme` → **PR** | [ ] |
 | 4 | Page shell: ProcessNav + hero | `20-case-study-shell` | [ ] |
@@ -62,8 +62,8 @@ Branch names are suggestions. Rename them if needed.
 
 | # | Question | Recommendation | Answer | Done |
 |---|---|---|---|---|
-| D1 | Routing library | `react-router` v7, declarative mode (new dependency). Alternative: own ~40-line History API hook. | | [ ] |
-| D2 | Case study URL | `/projects/platform-documentation` | | [ ] |
+| D1 | Routing library | `react-router` v7, declarative mode (new dependency). Alternative: own ~40-line History API hook. | `react-router` v7 | [x] |
+| D2 | Case study URL | `/projects/platform-documentation` | `/projects/platform-documentation` | [x] |
 | D3 | Theme mechanism | App-level `ThemeProvider` + `data-theme` on `<html>`. Existing components keep their `theme` prop; new ones use `--color-*` tokens. | | [ ] |
 | D4 | Default theme | Saved choice → OS `prefers-color-scheme` → `dark` | | [ ] |
 | D5 | Page footer | Figma ends after 06. Add "What I learned" + `ContactSection` (per the brief)? | | [ ] |
@@ -82,16 +82,19 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Install `react-router` (per D1) | [ ] |
-| Create `src/App.tsx` with `BrowserRouter`, routes `/`, the D2 URL and `*` (→ landing) | [ ] |
-| `main.tsx` renders `<App />` | [ ] |
-| Lazy-load `CaseStudyPage` (`React.lazy` + `Suspense`). A placeholder page is OK for now. | [ ] |
-| `ScrollManager`: scroll to top on route change; scroll to `#hash` after render | [ ] |
-| `Button` can render a router `<Link>` (small `to` prop), no full reload | [ ] |
-| `useDocumentTitle` hook + fix the `index.html` title ("frontend") | [ ] |
-| Add an SPA rewrite to the "Vercel settings" item in `docs/planing.md` (note only) | [ ] |
+| Install `react-router` (per D1) | [x] |
+| Create `src/App.tsx` with `BrowserRouter`, routes `/`, the D2 URL and `*` (→ landing) | [x] |
+| `main.tsx` renders `<App />` | [x] |
+| Lazy-load `CaseStudyPage` (`React.lazy` + `Suspense`). A placeholder page is OK for now. | [x] |
+| `ScrollManager`: scroll to top on route change; scroll to `#hash` after render | [x] |
+| `Button` can render a router `<Link>` (small `to` prop), no full reload | [x] |
+| `useDocumentTitle` hook + fix the `index.html` title ("frontend") | [x] |
+| Add an SPA rewrite to the "Vercel settings" item in `docs/planing.md` (note only) | [x] |
 
 **Handoff notes:**
+- Paths live in `src/routes.ts` (`ROUTES`). Unknown URLs redirect to `/`. `CaseStudyPage` is a lazy-loaded placeholder (only an `<h1>`).
+- `Button` takes `to` (router `<Link>`) in addition to `href`. `ScrollManager` only acts on page changes; same-page `#hash` clicks stay native.
+- Tab titles ("Dawid — Product Designer", "OCADO Technology Platform Documentation — Dawid") aren't in `site-copy.md` yet. Confirm them or add them there.
 
 ---
 
