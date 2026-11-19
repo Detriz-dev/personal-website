@@ -10,6 +10,6 @@ export type PlatformDocumentationProjectTheme = "light" | "dark";
  */
 export type PlatformDocumentationProjectProps = Omit<HTMLAttributes<HTMLElement>, "children"> & {
     theme?: PlatformDocumentationProjectTheme;
-    /** Target of the "View case study" button. The button is hidden until this is set (case study page not built yet). */
+    /** In-app route of the "View case study" button (router link, no reload). The button is hidden when unset. */
     projectHref?: string;
 };

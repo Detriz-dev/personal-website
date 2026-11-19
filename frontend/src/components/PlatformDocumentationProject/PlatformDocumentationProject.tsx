@@ -70,7 +70,7 @@ const PlatformDocumentationProject = ({
                         variant="secondary"
                         theme={theme}
                         icon="arrow_right_alt"
-                        href={projectHref}
+                        to={projectHref}
                     />
                 )}
             </div>
