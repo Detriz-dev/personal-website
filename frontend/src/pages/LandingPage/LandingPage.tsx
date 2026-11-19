@@ -105,7 +105,7 @@ const LandingPage = () => {
 
         <ProjectSection id="projects" className={style.projects} theme={theme} />
 
-        <TeachingSection id="teaching" className={style.teaching} theme={theme} />
+        <TeachingSection id="teaching" theme={theme} />
 
         <ContactSection
             id="contact"

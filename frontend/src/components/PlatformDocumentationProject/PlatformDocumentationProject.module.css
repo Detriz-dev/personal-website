@@ -31,6 +31,7 @@
     padding: 23px max(29px, calc((100% - 1280px) / 2 + 29px)) 52px max(86px, calc((100% - 1280px) / 2 + 86px));
     overflow: hidden;
     border-top: 1px solid var(--pdp-border);
+    border-bottom: 1px solid var(--pdp-border);
     background-color: var(--pdp-canvas);
     color: var(--pdp-text-primary);
 }

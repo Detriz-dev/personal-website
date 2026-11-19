@@ -15,4 +15,6 @@ export type SectionHeaderProps = Omit<HTMLAttributes<HTMLElement>, "title" | "ch
     title: string;
     /** Intro copy; wrap emphasized phrases in <strong>. */
     description?: ReactNode;
+    /** Show the divider line on top. Default true; turn off when the section above already ends with a border. */
+    divider?: boolean;
 };
