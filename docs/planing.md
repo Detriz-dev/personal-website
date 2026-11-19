@@ -24,11 +24,12 @@
 - [x] **Hand off preparation** - Clen up, component decomposition 
 
 #### Implementation
-- [ ] **Environment and structure** What technology I will use?
-- [ ] **AI Agent setup** 
-- [ ] **Components structure** 
-- [ ] **Design tokens to CSS**
-- [ ] **Agent workflow test**
+- [x] **Environment and structure** What technology I will use?
+- [x] **AI Agent setup** 
+- [x] **Components structure** 
+- [x] **Design tokens to CSS**
+- [ ] **Componenet building**
+ 
 
 #### Deployment
 - [ ] **Vercel settings**

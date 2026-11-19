@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import portrait from "../../assets/footer/portrait.png";
-import styles from "./FooterSection.module.css";
-import type { FooterSectionProps } from "./FooterSection.types.ts";
+import styles from "./ContactSection.module.css";
+import type { ContactSectionProps } from "./ContactSection.types.ts";
 
 // Copy from docs/site-copy.md — Footer / Contact
 const PHONE = "+48 609 984 199";
 const EMAIL = "kowalczyk.dawid@gmail.com";
 
-const FooterSection = ({ theme = "light", linkedinHref, githubHref, className, ...footerProps }: FooterSectionProps) => {
-    const classes = [styles.footer, styles[theme], className].filter(Boolean).join(" ");
+const ContactSection = ({ theme = "light", linkedinHref, githubHref, className, ...contactProps }: ContactSectionProps) => {
+    const classes = [styles.section, styles[theme], className].filter(Boolean).join(" ");
     const [copied, setCopied] = useState(false);
 
     // Reset the "copied" checkmark after a moment
@@ -28,7 +28,7 @@ const FooterSection = ({ theme = "light", linkedinHref, githubHref, className, .
     };
 
     return (
-        <footer {...footerProps} className={classes}>
+        <footer {...contactProps} className={classes}>
             <div className={styles.inner}>
                 <div className={styles.portrait}>
                     <img src={portrait} width={210} height={174} alt="Dawid Kowalczyk" />
@@ -94,4 +94,4 @@ const FooterSection = ({ theme = "light", linkedinHref, githubHref, className, .
     );
 };
 
-export default FooterSection;
+export default ContactSection;

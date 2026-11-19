@@ -17,6 +17,7 @@
 
 .inner {
     flex: 1;
+    min-width: 0; /* don't let wide children stretch the column past the viewport */
     display: flex;
     flex-direction: column;
     max-width: 1120px;
@@ -98,6 +99,26 @@
     flex-shrink: 0;
     align-self: center;
     margin-top: 48px;
+}
+
+/* QuestionDiagram is a fixed 380px canvas; scale it down so it fits the column
+   (viewport minus 2 × 16px padding) on narrow phones instead of overflowing the page. */
+@media (max-width: 411px) {
+    .diagram {
+        zoom: 0.9;
+    }
+}
+
+@media (max-width: 374px) {
+    .diagram {
+        zoom: 0.8;
+    }
+}
+
+@media (max-width: 335px) {
+    .diagram {
+        zoom: 0.75;
+    }
 }
 
 @media (min-width: 1024px) {

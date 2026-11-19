@@ -1,0 +1,146 @@
+/* Values from Figma (Personal Site / Teaching proposal v4 rows — desktop 115:3101, mobile 116:3191,
+   TeachingRow 116:3190).
+   Desktop (≥1024px): one full-width row per workshop — identity | divider | What we do | What you'll learn.
+   Below 1024px: the same parts stacked, divider horizontal. */
+
+.teachingSection {
+    width: 100%;
+}
+
+.inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 44px 16px;
+}
+
+.workshops {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 56px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Mobile: stacked */
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    border: 1px solid var(--teaching-border);
+    border-radius: 8px;
+    background-color: var(--teaching-card-bg);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+    color: var(--teaching-text);
+    font-family: var(--font-family-primary);
+    letter-spacing: var(--font-letter-spacing-default);
+}
+
+.identity {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.iconTile {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: var(--teaching-accent-subtle);
+}
+
+.icon {
+    font-size: 28px;
+    line-height: 28px;
+    color: var(--teaching-accent);
+}
+
+.title {
+    margin: 0;
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--teaching-border);
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    margin: 0;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-24);
+    color: var(--teaching-text-secondary);
+}
+
+.labelAccent {
+    color: var(--teaching-accent);
+}
+
+.copy {
+    margin: 0;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-24);
+}
+
+.copy strong {
+    font-weight: var(--font-weight-700);
+}
+
+/* Desktop: one row per workshop */
+@media (min-width: 1024px) {
+    .row {
+        flex-direction: row;
+        gap: 40px;
+        padding: 32px;
+    }
+
+    .identity {
+        flex: 0 0 352px;
+    }
+
+    .divider {
+        width: 1px;
+        height: auto;
+        align-self: stretch;
+    }
+
+    .block {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}
+
+/* Themes */
+
+.light {
+    --teaching-card-bg: var(--light-surface-cards);
+    --teaching-border: var(--light-border-subtle);
+    --teaching-text: var(--light-text-primary);
+    --teaching-text-secondary: var(--light-text-secondary);
+    --teaching-accent-subtle: var(--light-accent-subtle);
+    --teaching-accent: var(--light-accent-text);
+}
+
+.dark {
+    --teaching-card-bg: var(--dark-surface-cards);
+    --teaching-border: var(--dark-border-subtle);
+    --teaching-text: var(--dark-text-primary);
+    --teaching-text-secondary: var(--dark-text-secondary);
+    --teaching-accent-subtle: var(--dark-accent-subtle);
+    --teaching-accent: var(--light-accent-fill);
+}
