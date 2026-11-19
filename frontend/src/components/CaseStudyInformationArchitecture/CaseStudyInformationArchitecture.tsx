@@ -1,11 +1,11 @@
 import styles from "./CaseStudyInformationArchitecture.module.css";
 import CaseStudySectionHeader from "../CaseStudySectionHeader/CaseStudySectionHeader.tsx";
 import DecisionBlock from "../DecisionBlock/DecisionBlock.tsx";
-import SearchFirstVisual from "../SearchFirstVisual/SearchFirstVisual.tsx";
-import CardSortVisual from "../CardSortVisual/CardSortVisual.tsx";
-import DiataxisQuadrant from "../DiataxisQuadrant/DiataxisQuadrant.tsx";
-import BeforeAfter from "../BeforeAfter/BeforeAfter.tsx";
-import GovernanceFlow from "../GovernanceFlow/GovernanceFlow.tsx";
+import SearchFirstVisual from "../case-study/SearchFirstVisual/SearchFirstVisual.tsx";
+import CardSortVisual from "../case-study/CardSortVisual/CardSortVisual.tsx";
+import DiataxisQuadrant from "../case-study/DiataxisQuadrant/DiataxisQuadrant.tsx";
+import BeforeAfter from "../case-study/BeforeAfter/BeforeAfter.tsx";
+import GovernanceFlow from "../case-study/GovernanceFlow/GovernanceFlow.tsx";
 
 // Copy: Figma 134:38963 (D6: Figma text wins). Differs from docs/ocado-technology-platform-documentation.md →
 // "Information architecture" only in Decision 04, where the example sentence moved into the BeforeAfter visual.

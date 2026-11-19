@@ -53,7 +53,7 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | 7.3 | 06 Data analysis | `23-case-study-04-06` → **PR** | [x] |
 | 8 | Entry point (landing → case study) | `23-case-study-polish` | [x] |
 | 9 | Polish and QA | `23-case-study-polish` → **PR** | [x] |
-| 10 | Folder refactor (D8: `components/case-study/`) | own branch → **PR** | [ ] |
+| 10 | Folder refactor (D8: `components/case-study/`) | `28-folder-refactor` → **PR** | [x] |
 
 Branch names are suggestions. Rename them if needed.
 
@@ -352,6 +352,20 @@ Branch names are suggestions. Rename them if needed.
 - D6 done: NDA "only share a single screen", nav "04 UI Design" (phase heading stays "Interface design"), "Problems we saw upfront", Figma's "My responsibilities" paragraph (replaces the link list; `CaseStudyOverview` has no props now), overview starts at "Ocado Technology's…". Copy file updated to match. `useReveal(ref)` marks `[data-reveal]` (intro + every section) with `data-revealed`; CSS is opacity-only until revealed, then an 8px-rise keyframe, so anchor scroll measures correctly. Off under reduced motion.
 - Fixed `ScrollManager`: deep links with a hash (`/projects/platform-documentation#…`) never scrolled in dev (StrictMode cancelled the pending scroll, the re-run bailed out), and in a cold prod load they landed ~56px off (most likely late web fonts shifting the layout). Now it retries after a cancelled run and re-pins the target once fonts + `load` settle, unless the user has scrolled. The cold-load fix wasn't reproducible on a warm cache, so recheck once deployed.
 - Audit: one `<h1>`, no skipped levels, no un-hidden SVGs, nothing focusable inside `aria-hidden`, no hover-only content. Contrast passes AA in both themes except the decorative `aria-hidden` "0 results" chip (3.12:1 in light). No horizontal scroll at 375/768/1024/1280 in either theme. Unknown URL → `/`; back/forward OK in dev and preview. Step 8's "~95px off during a running smooth scroll" wasn't reproduced; real clicks landed correctly.
+
+---
+
+## Step 10 — Folder refactor (D8)
+
+| Task | Done |
+|---|---|
+| Move the 12 case-specific illustrations into `components/case-study/` (`git mv`, history kept) | [x] |
+| Update imports in the `CaseStudy*` section components | [x] |
+| `npm run build` + `npm run lint` pass | [x] |
+| **Open PR** | [ ] |
+
+**Handoff notes:**
+- Only import paths changed (`../X/X.tsx` → `../case-study/X/X.tsx`); no outward relative imports inside the moved folders, so no visual change. Reusable blocks (`DecisionBlock`, `InsightCard`, …) and the `CaseStudy*` sections stay flat in `components/`.
 
 ---
 
