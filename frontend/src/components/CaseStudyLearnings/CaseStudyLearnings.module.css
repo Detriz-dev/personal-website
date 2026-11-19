@@ -1,0 +1,21 @@
+/* No Figma frame (D5). Spacing follows the phase sections: 56px below the header, two columns from 768px. */
+
+.learnings {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.list {
+    display: grid;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (min-width: 768px) {
+    .list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

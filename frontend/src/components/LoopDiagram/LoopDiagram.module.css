@@ -1,0 +1,153 @@
+/* Values from Figma (Personal Site / LoopDiagram 134:39663): 232px nodes in a 2×2 loop, 280px tall,
+   28px accent arrows centered between nodes. No mobile frame (D7): below 520px the nodes stack. */
+
+.loop {
+    container-type: inline-size;
+    font-family: var(--font-family-primary);
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.step {
+    position: relative;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 14px 18px 14px 14px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 16px;
+    background-color: var(--color-surface-card);
+}
+
+.icon {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: var(--color-accent-subtle);
+    color: var(--color-accent-text);
+    font-size: 22px; /* Figma value; no token */
+    line-height: 22px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.title {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+.caption {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-22);
+}
+
+/* Interviews: accent fill, on-accent text, white icon box. Border matches the fill so all nodes are the same size. */
+.highlight {
+    border-color: var(--color-accent-fill);
+    background-color: var(--color-accent-fill);
+}
+
+.highlight .icon {
+    background-color: var(--light-surface-cards);
+    color: var(--light-accent-text);
+}
+
+.highlight .title,
+.highlight .caption {
+    color: var(--color-text-on-accent);
+}
+
+/* Arrow to the next step; one glyph, rotated per direction. Stacked: points down, centered in the 40px gap. */
+.arrow {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: calc(50% - 14px);
+    width: 28px;
+    color: var(--color-accent-text);
+    font-size: 28px; /* Figma value; no token */
+    line-height: 28px;
+    transform: rotate(90deg);
+}
+
+.step:last-child .arrow {
+    display: none;
+}
+
+/* Loop: Analytics → Signals (top row), ↓ Interviews, ← Next iteration (bottom row), ↑ back to Analytics */
+@container (min-width: 520px) {
+    .steps {
+        --gap-x: calc(100cqw - 2 * 232px);
+        --gap-y: 134px;
+
+        display: grid;
+        grid-template-columns: repeat(2, 232px);
+        gap: var(--gap-y) var(--gap-x);
+    }
+
+    .step:nth-child(1) {
+        grid-area: 1 / 1;
+    }
+
+    .step:nth-child(2) {
+        grid-area: 1 / 2;
+    }
+
+    .step:nth-child(3) {
+        grid-area: 2 / 2;
+    }
+
+    .step:nth-child(4) {
+        grid-area: 2 / 1;
+    }
+
+    .step:last-child .arrow {
+        display: block;
+    }
+
+    /* → */
+    .step:nth-child(1) .arrow {
+        top: calc(50% - 14px);
+        left: calc(100% + (var(--gap-x) - 28px) / 2);
+        transform: none;
+    }
+
+    /* ↓ */
+    .step:nth-child(2) .arrow {
+        top: calc(100% + (var(--gap-y) - 28px) / 2);
+    }
+
+    /* ← */
+    .step:nth-child(3) .arrow {
+        top: calc(50% - 14px);
+        left: auto;
+        right: calc(100% + (var(--gap-x) - 28px) / 2);
+        transform: rotate(180deg);
+    }
+
+    /* ↑ */
+    .step:nth-child(4) .arrow {
+        top: auto;
+        bottom: calc(100% + (var(--gap-y) - 28px) / 2);
+        transform: rotate(-90deg);
+    }
+}

@@ -1,0 +1,127 @@
+/* Values from Figma (Personal Site / Rollout timeline 134:39434): 48px accent markers on a dashed accent line
+   (8px dash, 6px gap), labels 12px below. First label left-aligned, middle centered, last right-aligned.
+   No mobile frame (D7): below 768px the timeline runs vertically with labels beside the markers. */
+
+.timeline {
+    --marker: 48px;
+
+    position: relative;
+    font-family: var(--font-family-primary);
+}
+
+.line {
+    position: absolute;
+    top: calc(var(--marker) / 2);
+    bottom: calc(var(--marker) / 2);
+    left: calc(var(--marker) / 2 - 1px);
+    width: 2px;
+    background-image: linear-gradient(to bottom, var(--color-accent-fill) 8px, transparent 0);
+    background-size: 2px 14px;
+}
+
+.list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stop {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.marker {
+    display: flex;
+    flex: none;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    width: var(--marker);
+    height: var(--marker);
+    border-radius: 999px;
+    background-color: var(--color-accent-fill);
+    color: var(--color-text-on-accent);
+}
+
+.later {
+    border: 2px dashed var(--color-accent-fill);
+    background-color: var(--color-surface-card);
+    color: var(--color-accent-text);
+}
+
+.icon {
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.title {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+.detail {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-22);
+}
+
+@media (min-width: 768px) {
+    .timeline {
+        padding: 0 16px;
+    }
+
+    .line {
+        top: calc(var(--marker) / 2 - 1px);
+        right: calc(16px + var(--marker) / 2);
+        bottom: auto;
+        left: calc(16px + var(--marker) / 2);
+        width: auto;
+        height: 2px;
+        background-image: linear-gradient(to right, var(--color-accent-fill) 8px, transparent 0);
+        background-size: 14px 2px;
+    }
+
+    /* Outer columns half as wide, so the middle markers sit near the thirds */
+    .list {
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr 1fr;
+        gap: 16px;
+    }
+
+    .stop {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .stop:first-child {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .stop:last-child {
+        align-items: flex-end;
+        text-align: right;
+    }
+
+    /* Outer labels stay on one line and overflow inward, as in Figma */
+    .stop:first-child .label,
+    .stop:last-child .label {
+        white-space: nowrap;
+    }
+}

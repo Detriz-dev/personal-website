@@ -1,0 +1,204 @@
+/* Values from Figma (Personal Site / PilotScope 134:39344): 260px raised panel, 560×196 docs grid at 40/32,
+   arrow 40px right of it, rollout steps 40px right of the arrow.
+   No mobile frame (D7): below 1024px the parts stack and the docs grid scales down with container queries. */
+
+.scope {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    padding: 32px 16px;
+    border-radius: 24px;
+    background-color: var(--color-surface-raised);
+    font-family: var(--font-family-primary);
+}
+
+/* Docs grid: fixed 560×196 drawing, scaled to the available width */
+
+.docsFrame {
+    width: 100%;
+    max-width: 560px;
+    container-type: inline-size;
+}
+
+.docsBox {
+    --pilot-scale: 1;
+
+    position: relative;
+    height: calc(196px * var(--pilot-scale));
+}
+
+.docs {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 560px;
+    height: 196px;
+    transform: translateX(-50%) scale(var(--pilot-scale));
+    transform-origin: top center;
+}
+
+@container (max-width: 559px) {
+    .docsBox {
+        --pilot-scale: 0.85;
+    }
+}
+
+@container (max-width: 475px) {
+    .docsBox {
+        --pilot-scale: 0.7;
+    }
+}
+
+@container (max-width: 391px) {
+    .docsBox {
+        --pilot-scale: 0.55;
+    }
+}
+
+@container (max-width: 307px) {
+    .docsBox {
+        --pilot-scale: 0.48;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 64px);
+    gap: 14px 16px;
+}
+
+.doc {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    gap: 8px;
+    width: 64px;
+    height: 56px;
+    padding: 13px 0 0 11px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 8px;
+    background-color: var(--color-surface-card);
+    opacity: 0.55;
+}
+
+.bar {
+    width: 28px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: var(--color-border-subtle);
+}
+
+.bar:first-child {
+    width: 36px;
+    background-color: var(--color-border-strong);
+}
+
+.pilot {
+    padding: 12px 0 0 10px;
+    border: 2px solid var(--color-accent-fill);
+    background-color: var(--color-accent-subtle);
+    opacity: 1;
+}
+
+.pilot .bar:first-child {
+    background-color: var(--color-accent-text);
+}
+
+.chip {
+    position: absolute;
+    top: 134px;
+    left: 140px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding: 6px 12px 6px 10px;
+    border: 1px solid var(--color-accent-fill);
+    border-radius: 999px;
+    background-color: var(--color-surface-card);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}
+
+.chipIcon {
+    color: var(--color-accent-text);
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.arrow {
+    color: var(--color-text-secondary);
+    font-size: 32px;
+    line-height: 32px;
+    transform: rotate(90deg);
+}
+
+/* Rollout steps */
+
+.rollout {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.step {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+.stepIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: var(--color-surface-card);
+    color: var(--color-accent-text);
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.current {
+    color: var(--color-text-primary);
+}
+
+.current .stepIcon {
+    background-color: var(--color-accent-fill);
+    color: var(--color-text-on-accent);
+}
+
+.caption {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-22);
+}
+
+@media (min-width: 1024px) {
+    .scope {
+        flex-direction: row;
+        gap: 40px;
+        min-height: 260px;
+        box-sizing: border-box;
+        padding: 32px 40px;
+    }
+
+    .docsFrame {
+        flex: none;
+        width: 560px;
+    }
+
+    .arrow {
+        transform: none;
+    }
+}
