@@ -1,0 +1,61 @@
+/* Values from Figma (Personal Site / CaseStudy/ProblemRow 122:3275, ProblemList 134:38655).
+   In a list: first row has no top padding, last row no bottom border. */
+
+.row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+    font-family: var(--font-family-primary);
+}
+
+.row:first-child {
+    padding-top: 0;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.iconBox {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: var(--color-accent-subtle);
+    color: var(--color-accent-text);
+}
+
+.icon {
+    font-size: 22px; /* Figma value; no token */
+    line-height: 22px;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.text {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-28);
+}
+
+.body {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-24);
+}

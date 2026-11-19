@@ -1,0 +1,97 @@
+/* Values from Figma (Personal Site / ScatterVisual 134:38590). Fixed 365×560 stage;
+   on narrow screens it shrinks to the column width and clips the right edge (decorative). */
+
+.visual {
+    position: relative;
+    flex: none;
+    width: min(100%, 365px);
+    height: 560px;
+    overflow: hidden;
+    border-radius: 24px;
+    background-color: var(--color-surface-raised);
+    font-family: var(--font-family-primary);
+}
+
+.tile,
+.unknown {
+    position: absolute;
+    box-sizing: border-box;
+    width: 88px;
+    height: 104px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 8px;
+    background-color: var(--color-surface-card);
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px 10px 12px;
+}
+
+.faded {
+    opacity: 0.45;
+}
+
+.label {
+    color: var(--color-accent-text);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}
+
+.line {
+    display: block;
+    flex: none;
+    width: 64px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: var(--color-border-subtle);
+}
+
+.line:nth-of-type(3) {
+    width: 52px;
+}
+
+.line:nth-of-type(4) {
+    width: 60px;
+}
+
+.line:nth-of-type(5) {
+    width: 36px;
+}
+
+.unknown {
+    top: 220px;
+    left: 148px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px dashed var(--color-border-strong);
+}
+
+.unknownIcon {
+    color: var(--color-text-secondary);
+    font-size: 32px; /* Figma value; no token */
+    line-height: 32px;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.caption {
+    position: absolute;
+    top: 500px;
+    left: 24px;
+    padding: 6px 12px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 999px;
+    background-color: var(--color-surface-card);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}

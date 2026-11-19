@@ -4,6 +4,7 @@ import PageLayout from "../../components/PageLayout/PageLayout.tsx";
 import ProcessNav from "../../components/ProcessNav/ProcessNav.tsx";
 import CaseStudyHero from "../../components/CaseStudyHero/CaseStudyHero.tsx";
 import StatStrip from "../../components/StatStrip/StatStrip.tsx";
+import CaseStudyOverview from "../../components/CaseStudyOverview/CaseStudyOverview.tsx";
 import useActiveSection from "../../hooks/useActiveSection.ts";
 import useDocumentTitle from "../../hooks/useDocumentTitle.ts";
 import { ROUTES } from "../../routes.ts";
@@ -58,7 +59,11 @@ const CaseStudyPage = () => {
                     <StatStrip stats={STATS} />
                 </div>
 
-                {SECTIONS.map((section) => (
+                <section id="overview" aria-label="Project overview">
+                    <CaseStudyOverview responsibilities={SECTIONS.slice(1)} />
+                </section>
+
+                {SECTIONS.slice(1).map((section) => (
                     <section key={section.href} id={section.href.slice(1)} />
                 ))}
             </main>

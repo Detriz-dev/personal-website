@@ -1,0 +1,97 @@
+/* Values from Figma (Personal Site / Project overview 134:38557, Problems 135:39900, Project goal 134:38661).
+   80px between the three blocks (same as page sections), 48px from header to content. */
+
+.overview {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    font-family: var(--font-family-primary);
+    color: var(--color-text-primary);
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/* My responsibilities: under the description column on desktop (384px offset) */
+
+.responsibilities {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 736px;
+}
+
+.subheading {
+    margin: 0;
+    font-size: 24px; /* Figma value; no --font-size-24 token */
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-32);
+}
+
+.responsibilityList {
+    margin: 0;
+    padding-left: 24px;
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-30);
+}
+
+.responsibilityLink {
+    color: inherit;
+    text-decoration-color: var(--color-accent-fill);
+    text-underline-offset: 4px;
+}
+
+.responsibilityLink:hover {
+    color: var(--color-accent-text);
+}
+
+.responsibilityLink:focus-visible {
+    outline: 2px solid var(--color-accent-fill);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Problems: scatter visual left, list right (desktop); stacked below 1024px */
+
+.problems {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.problemList {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Goals: two cards side by side from 768px */
+
+.goals {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+}
+
+@media (min-width: 768px) {
+    .goals {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .responsibilities {
+        padding-left: 384px;
+    }
+
+    .problems {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}

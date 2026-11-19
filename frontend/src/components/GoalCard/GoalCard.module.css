@@ -1,0 +1,81 @@
+/* Values from Figma (Personal Site / GoalCard 134:38668, 134:38708). */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 24px 24px 32px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 24px;
+    background-color: var(--color-surface-card);
+    font-family: var(--font-family-primary);
+}
+
+.visual {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: var(--color-surface-raised);
+    container-type: inline-size;
+}
+
+/* The visuals draw on a 496px stage; scale it down when the panel is narrower (no mobile frame, D7) */
+@container (max-width: 495px) {
+    .visual > * {
+        --goal-visual-scale: 0.8;
+    }
+}
+
+@container (max-width: 396px) {
+    .visual > * {
+        --goal-visual-scale: 0.58;
+    }
+}
+
+.audience {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 4px 12px 4px 10px;
+    border-radius: 999px;
+    background-color: var(--color-accent-subtle);
+    color: var(--color-accent-text);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}
+
+.audienceIcon {
+    font-size: var(--font-size-16);
+    line-height: 16px;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-32);
+}
+
+.body {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-24);
+}
