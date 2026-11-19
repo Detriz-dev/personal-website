@@ -31,28 +31,11 @@
     line-height: var(--font-line-height-32);
 }
 
-.responsibilityList {
+.responsibilityText {
     margin: 0;
-    padding-left: 24px;
     font-size: var(--font-size-18);
     font-weight: var(--font-weight-400);
     line-height: var(--font-line-height-30);
-}
-
-.responsibilityLink {
-    color: inherit;
-    text-decoration-color: var(--color-accent-fill);
-    text-underline-offset: 4px;
-}
-
-.responsibilityLink:hover {
-    color: var(--color-accent-text);
-}
-
-.responsibilityLink:focus-visible {
-    outline: 2px solid var(--color-accent-fill);
-    outline-offset: 2px;
-    border-radius: 2px;
 }
 
 /* Problems: scatter visual left, list right (desktop); stacked below 1024px */

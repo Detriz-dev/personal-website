@@ -28,7 +28,7 @@
 - [x] **Components structure** 
 - [x] **Design tokens to CSS**
 - [ ] **Componenet building**
-- [ ] **Case study page**
+- [x] **Case study page**
  
 
 #### Deployment

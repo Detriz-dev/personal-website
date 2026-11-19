@@ -1,5 +1,4 @@
 import styles from "./CaseStudyOverview.module.css";
-import type { CaseStudyOverviewProps } from "./CaseStudyOverview.types.ts";
 import CaseStudySectionHeader from "../CaseStudySectionHeader/CaseStudySectionHeader.tsx";
 import ScatterVisual from "../ScatterVisual/ScatterVisual.tsx";
 import ProblemRow from "../ProblemRow/ProblemRow.tsx";
@@ -36,7 +35,7 @@ const PROBLEMS = [
 ] as const;
 
 /** Overview section content (Figma 134:38557, 135:39900, 134:38661): overview, responsibilities, problems, goal. */
-const CaseStudyOverview = ({ responsibilities }: CaseStudyOverviewProps) => (
+const CaseStudyOverview = () => (
     <div className={styles.overview}>
         <div className={styles.block}>
             <CaseStudySectionHeader
@@ -45,8 +44,7 @@ const CaseStudyOverview = ({ responsibilities }: CaseStudyOverviewProps) => (
                 title="overview"
                 description={
                     <>
-                        A developer platform doesn't fall apart all at once—it accumulates. Ocado Technology's
-                        internal platform had grown organically to <strong>50+ tools</strong> used by{" "}
+                        Ocado Technology's internal platform had grown organically to <strong>50+ tools</strong> used by{" "}
                         <strong>100+ engineering teams</strong>, and documentation simply hadn't kept pace. What
                         started as a nice-to-have had become the dividing line between engineers using the platform
                         effectively or working around it.
@@ -56,22 +54,21 @@ const CaseStudyOverview = ({ responsibilities }: CaseStudyOverviewProps) => (
 
             <div className={styles.responsibilities}>
                 <h3 className={styles.subheading}>My responsibilities</h3>
-                <ul className={styles.responsibilityList}>
-                    {responsibilities.map((item) => (
-                        <li key={item.href}>
-                            <a className={styles.responsibilityLink} href={item.href}>
-                                {item.label}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+                <p className={styles.responsibilityText}>
+                    I led the UX design of this initiative end-to-end—taking the documentation platform from early
+                    organizational discovery all the way through post-launch analytics. Working closely with platform
+                    leadership, technical writers, and engineering teams, I owned every stage of the product
+                    lifecycle: uncovering systemic bottlenecks through discovery and developer interviews, defining
+                    the information architecture, customizing the interface and search experience, validating
+                    decisions through usability testing, and tracking real-world adoption with behavioral data.
+                </p>
             </div>
         </div>
 
         <div className={styles.block}>
             <CaseStudySectionHeader
                 variant="sub"
-                title="Problems"
+                title="Problems we saw upfront"
                 description="Before we even began formal research, the warning signs were already clear:"
             />
             <div className={styles.problems}>

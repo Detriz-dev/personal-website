@@ -25,6 +25,25 @@
     gap: 48px;
 }
 
+/* Scroll reveal (useReveal): fade + 8px rise, only when motion is allowed.
+   Hidden elements keep their position (opacity only) so anchor scrolling measures them correctly. */
+@media (prefers-reduced-motion: no-preference) {
+    .main [data-reveal]:not([data-revealed]) {
+        opacity: 0;
+    }
+
+    .main [data-reveal][data-revealed] {
+        animation: reveal 0.5s ease-out;
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
 @media (min-width: 768px) {
     .main {
         margin-top: 80px;

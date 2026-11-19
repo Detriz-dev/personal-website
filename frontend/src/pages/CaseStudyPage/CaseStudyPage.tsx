@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import styles from "./CaseStudyPage.module.css";
 import type { CaseStudySection } from "./CaseStudyPage.types.ts";
 import PageLayout from "../../components/PageLayout/PageLayout.tsx";
@@ -17,15 +17,16 @@ import ContactSection from "../../components/ContactSection/ContactSection.tsx";
 import { useTheme } from "../../theme/ThemeContext.tsx";
 import useActiveSection from "../../hooks/useActiveSection.ts";
 import useDocumentTitle from "../../hooks/useDocumentTitle.ts";
+import useReveal from "../../hooks/useReveal.ts";
 import { ROUTES } from "../../routes.ts";
 
-// Labels and anchors from the copy file ("My responsibilities")
+// Labels and anchors from Figma (ProcessNav 134:39838)
 const SECTIONS: readonly CaseStudySection[] = [
     { href: "#overview", label: "Overview" },
     { href: "#discovery", number: "01", label: "Discovery" },
     { href: "#user-research", number: "02", label: "User Research" },
     { href: "#information-architecture", number: "03", label: "Information Architecture" },
-    { href: "#interface-design", number: "04", label: "Interface Design" },
+    { href: "#interface-design", number: "04", label: "UI Design" },
     { href: "#usability-tests", number: "05", label: "Usability Tests" },
     { href: "#data-analysis", number: "06", label: "Data Analysis" },
 ];
@@ -57,6 +58,8 @@ const CaseStudyPage = () => {
     useDocumentTitle("OCADO Technology Platform Documentation — Dawid");
     const activeHref = useActiveSection(SECTIONS, NAV_OFFSET);
     const { theme } = useTheme();
+    const mainRef = useRef<HTMLElement>(null);
+    useReveal(mainRef);
 
     return (
         <PageLayout className={styles.page}>
@@ -67,15 +70,15 @@ const CaseStudyPage = () => {
                 backLabel="Back to projects"
             />
 
-            <main className={styles.main}>
-                <div className={styles.intro}>
+            <main ref={mainRef} className={styles.main}>
+                <div className={styles.intro} data-reveal>
                     <CaseStudyHero
                         titleAccent="OCADO Technology"
                         title="documentation platform"
                         note={
                             <>
-                                <strong>Note on confidentiality:</strong> Due to strict NDA agreements, I can’t
-                                showcase the user interfaces from this project. Instead, this case study pulls back
+                                <strong>Note on confidentiality:</strong> Due to strict NDA agreements, I can only
+                                share a single screen from this project. Instead, this case study pulls back
                                 the curtain on my practical process, research insights, and architectural decisions.
                             </>
                         }
@@ -83,17 +86,17 @@ const CaseStudyPage = () => {
                     <StatStrip stats={STATS} />
                 </div>
 
-                <section id="overview" aria-label="Project overview">
-                    <CaseStudyOverview responsibilities={SECTIONS.slice(1)} />
+                <section id="overview" aria-label="Project overview" data-reveal>
+                    <CaseStudyOverview />
                 </section>
 
                 {SECTIONS.slice(1).map((section) => (
-                    <section key={section.href} id={section.href.slice(1)} aria-label={section.label}>
+                    <section key={section.href} id={section.href.slice(1)} aria-label={section.label} data-reveal>
                         {PHASE_CONTENT[section.href]}
                     </section>
                 ))}
 
-                <section id="what-i-learned" aria-label="What I learned">
+                <section id="what-i-learned" aria-label="What I learned" data-reveal>
                     <CaseStudyLearnings />
                 </section>
             </main>

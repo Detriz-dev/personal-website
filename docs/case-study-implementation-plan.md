@@ -51,8 +51,8 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | 7.1 | 04 Interface design | `23-case-study-04-06` | [x] |
 | 7.2 | 05 Usability tests | `23-case-study-04-06` | [x] |
 | 7.3 | 06 Data analysis | `23-case-study-04-06` → **PR** | [x] |
-| 8 | Entry point (landing → case study) | `23-case-study-polish` | [ ] |
-| 9 | Polish and QA | `23-case-study-polish` → **PR** | [ ] |
+| 8 | Entry point (landing → case study) | `23-case-study-polish` | [x] |
+| 9 | Polish and QA | `23-case-study-polish` → **PR** | [x] |
 | 10 | Folder refactor (D8: `components/case-study/`) | own branch → **PR** | [ ] |
 
 Branch names are suggestions. Rename them if needed.
@@ -320,11 +320,13 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Pass `projectHref` (D2 URL) and remove the TODO comment | [ ] |
-| "View case study" uses a router link (no reload) | [ ] |
-| Round trip: card → case study → back → lands on `#projects` with the TopNav visible | [ ] |
+| Pass `projectHref` (D2 URL) and remove the TODO comment | [x] |
+| "View case study" uses a router link (no reload) | [x] |
+| Round trip: card → case study → back → lands on `#projects` with the TopNav visible | [x] |
 
 **Handoff notes:**
+- No code changes: `projectHref={ROUTES.platformDocumentation}` and the `to` router link were already in place (no TODO left). Verified at 1280 with real clicks: card → case study opens at top without reload; ProcessNav back → `/#projects`, section 72px under the visible TopNav, "Projects" active.
+- `<html>` has `scroll-behavior: smooth`; if a smooth scroll is still animating when the back link is clicked, the landing page can land ~95px off. Only seen with a scripted `scrollTo`, not with wheel scroll. Recheck in Step 9.
 
 ---
 
@@ -335,18 +337,21 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| D6: align steps 4–5 copy with Figma (NDA "only share a single screen", nav "UI Design", "Problems we saw upfront", "My responsibilities" paragraph, overview first sentence) and update the copy file to match | [ ] |
-| `useReveal` (fade + 8px rise on scroll), off under `prefers-reduced-motion` | [ ] |
-| Headings: one `<h1>`, phases `<h2>`, decisions `<h3>` | [ ] |
-| Decorative visuals `aria-hidden`. All hover copy reachable by keyboard focus. | [ ] |
-| Contrast check, light + dark | [ ] |
-| Responsive: 375 / 768 / 1024 / 1280, no horizontal scroll | [ ] |
-| Theme persists across pages and reloads, no flash | [ ] |
-| Direct load of the case study URL in `npm run dev` and `npm run preview`; back/forward; unknown URL | [ ] |
-| Update `docs/planing.md` (Case study page ✔) and the AGENT.md "Definition of done" | [ ] |
-| **Open PR** for steps 8–9 | [ ] |
+| D6: align steps 4–5 copy with Figma (NDA "only share a single screen", nav "UI Design", "Problems we saw upfront", "My responsibilities" paragraph, overview first sentence) and update the copy file to match | [x] |
+| `useReveal` (fade + 8px rise on scroll), off under `prefers-reduced-motion` | [x] |
+| Headings: one `<h1>`, phases `<h2>`, decisions `<h3>` | [x] |
+| Decorative visuals `aria-hidden`. All hover copy reachable by keyboard focus. | [x] |
+| Contrast check, light + dark | [x] |
+| Responsive: 375 / 768 / 1024 / 1280, no horizontal scroll | [x] |
+| Theme persists across pages and reloads, no flash | [x] |
+| Direct load of the case study URL in `npm run dev` and `npm run preview`; back/forward; unknown URL | [x] |
+| Update `docs/planing.md` (Case study page ✔) and the AGENT.md "Definition of done" | [x] |
+| **Open PR** for steps 8–9 | [x] |
 
 **Handoff notes:**
+- D6 done: NDA "only share a single screen", nav "04 UI Design" (phase heading stays "Interface design"), "Problems we saw upfront", Figma's "My responsibilities" paragraph (replaces the link list; `CaseStudyOverview` has no props now), overview starts at "Ocado Technology's…". Copy file updated to match. `useReveal(ref)` marks `[data-reveal]` (intro + every section) with `data-revealed`; CSS is opacity-only until revealed, then an 8px-rise keyframe, so anchor scroll measures correctly. Off under reduced motion.
+- Fixed `ScrollManager`: deep links with a hash (`/projects/platform-documentation#…`) never scrolled in dev (StrictMode cancelled the pending scroll, the re-run bailed out), and in a cold prod load they landed ~56px off (most likely late web fonts shifting the layout). Now it retries after a cancelled run and re-pins the target once fonts + `load` settle, unless the user has scrolled. The cold-load fix wasn't reproducible on a warm cache, so recheck once deployed.
+- Audit: one `<h1>`, no skipped levels, no un-hidden SVGs, nothing focusable inside `aria-hidden`, no hover-only content. Contrast passes AA in both themes except the decorative `aria-hidden` "0 results" chip (3.12:1 in light). No horizontal scroll at 375/768/1024/1280 in either theme. Unknown URL → `/`; back/forward OK in dev and preview. Step 8's "~95px off during a running smooth scroll" wasn't reproduced; real clicks landed correctly.
 
 ---
 
