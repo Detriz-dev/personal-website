@@ -7,7 +7,7 @@ const SelectedWorkSection = ({ theme = "light", className, ...sectionProps }: Se
 
     return (
         <section {...sectionProps} className={classes} aria-label="Selected work">
-            <SmartHomeKitWork theme={theme} projectHref="#" /* TODO: Smart Home Kit case study URL */ />
+            <SmartHomeKitWork theme={theme} projectHref="https://smart-home-kit.detriz.com/" />
         </section>
     );
 };
