@@ -60,8 +60,8 @@ Whatever you choose, update `AGENT.md` so it doesn't point to deleted files.
 - [ ] Optional: folder refactor (old case study Step 10: move case study components to `components/case-study/`)
 
 ## Step 7: Optional polish
-- [ ] `package.json`: real `name` and `version`
-- [ ] `index.html`: meta description and Open Graph tags (title, description, image)
+- [x] `package.json`: real `name` and `version` (`personal-website`, `1.0.0`)
+- [ ] `index.html`: meta description and Open Graph tags (title, description, image). Skipped for now; needs the owner's description text and a 1200×630 image
 
 ## Step 8: Go public
 - [ ] Open items from the old `planing.md`: "Component building" (unchecked) and "Release"
