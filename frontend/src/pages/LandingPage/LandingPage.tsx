@@ -4,6 +4,7 @@ import TopNav from "../../components/TopNav/TopNav.tsx";
 import HeroSection from "../../components/HeroSection/HeroSection.tsx";
 import SkillSection from "../../components/SkillSection/SkillSection.tsx";
 import ExperienceSection from "../../components/ExperienceSection/ExperienceSection.tsx";
+import SelectedWorkSection from "../../components/SelectedWorkSection/SelectedWorkSection.tsx";
 import FooterSection from "../../components/FooterSection/FooterSection.tsx";
 import type { TopNavLink, TopNavTheme } from "../../components/TopNav/TopNav.types.ts";
 
@@ -59,14 +60,29 @@ const useActiveSection = (links: TopNavLink[]) => {
     return activeHref;
 };
 
+/** True once the page has been scrolled away from the very top (i.e. past the initial hero view). */
+const useHasScrolled = () => {
+    const [scrolled, setScrolled] = useState(() => window.scrollY > 0);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 0);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    return scrolled;
+};
+
 const LandingPage = () => {
     const [theme, setTheme] = useState<TopNavTheme>("dark");
     const [menuOpen, setMenuOpen] = useState(false);
     const activeHref = useActiveSection(NAV_LINKS);
+    const navVisible = useHasScrolled();
+
 
     return (<div className={`${style.page} ${style[theme]}`}>
         <TopNav
-            className={style.nav}
             theme={theme}
             homeHref="#"
             links={NAV_LINKS}
@@ -74,8 +90,9 @@ const LandingPage = () => {
             githubHref="#" // TODO: GitHub profile URL
             linkedinHref="#" // TODO: LinkedIn profile URL
             onThemeToggle={() => setTheme(theme === "light" ? "dark" : "light")}
-            menuOpen={menuOpen}
-            onMenuToggle={() => setMenuOpen(!menuOpen)}
+            menuOpen={menuOpen && navVisible} // closed while the nav is hidden
+            onMenuToggle={() => setMenuOpen(!(menuOpen && navVisible))}
+            visible={navVisible}
         />
 
         <HeroSection className={style.hero} theme={theme} processHref="#skills" />
@@ -84,9 +101,10 @@ const LandingPage = () => {
 
         <ExperienceSection id="experience" className={style.experience} theme={theme} />
 
+        <SelectedWorkSection id="selected-work" className={style.selectedWork} theme={theme} />
+
         <FooterSection
             id="contact"
-            className={style.footer}
             theme={theme}
             linkedinHref="#" // TODO: LinkedIn profile URL
             githubHref="#" // TODO: GitHub profile URL

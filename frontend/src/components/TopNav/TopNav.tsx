@@ -18,11 +18,12 @@ const TopNav = ({
     onThemeToggle,
     menuOpen = false,
     onMenuToggle,
+    visible = true,
     className,
     ...navProps
 }: TopNavProps) => {
     const isDark = theme === "dark";
-    const classes = [styles.topNav, styles[theme], className].filter(Boolean).join(" ");
+    const classes = [styles.topNav, styles[theme], !visible && styles.hidden, className].filter(Boolean).join(" ");
 
     const renderLinks = (listClass: string) => (
         <ul className={listClass}>

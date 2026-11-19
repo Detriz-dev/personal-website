@@ -22,14 +22,9 @@
     --page-dot: var(--dark-dot-grid);
 }
 
-.nav {
-    align-self: center;
-    margin-top: 8px; /* gap between TopNav and the browser bar */
-}
-
-/* Hero fills the first screen below the 56px TopNav and its 8px top offset */
+/* TopNav is fixed and hidden over the hero, so the hero fills the whole first screen */
 .hero {
-    min-height: calc(100svh - 64px);
+    min-height: 100svh;
 }
 
 /* Extra space between Skills and Experience (on top of each section's 44px padding → 152px total) */
@@ -37,7 +32,7 @@
     margin-top: 64px;
 }
 
-/* Space between Experience and the footer */
-.footer {
+/* Space between Experience and Selected Work */
+.selectedWork {
     margin-top: 64px;
 }
