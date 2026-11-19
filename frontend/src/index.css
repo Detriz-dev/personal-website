@@ -79,18 +79,17 @@
 }
 
 /* Semantic colors — Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-surface-canvas: var(--dark-canvas);
-    --color-surface-card: var(--dark-surface-cards);
-    --color-surface-raised: var(--dark-raised-controls);
-    --color-text-primary: var(--dark-text-primary);
-    --color-text-secondary: var(--dark-text-secondary);
-    --color-border-subtle: var(--dark-border-subtle);
-    --color-border-strong: var(--dark-border-strong);
-    --color-accent-text: var(--light-accent-fill);
-    --color-accent-subtle: var(--dark-accent-subtle);
-  }
+/* data-theme is set by index.html before first paint and by ThemeProvider */
+:root[data-theme="dark"] {
+  --color-surface-canvas: var(--dark-canvas);
+  --color-surface-card: var(--dark-surface-cards);
+  --color-surface-raised: var(--dark-raised-controls);
+  --color-text-primary: var(--dark-text-primary);
+  --color-text-secondary: var(--dark-text-secondary);
+  --color-border-subtle: var(--dark-border-subtle);
+  --color-border-strong: var(--dark-border-strong);
+  --color-accent-text: var(--light-accent-fill);
+  --color-accent-subtle: var(--dark-accent-subtle);
 }
 
 body {

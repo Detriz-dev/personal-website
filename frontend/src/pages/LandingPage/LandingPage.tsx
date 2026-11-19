@@ -8,7 +8,8 @@ import ProjectSection from "../../components/ProjectSection/ProjectSection.tsx";
 import TeachingSection from "../../components/TeachingSection/TeachingSection.tsx";
 import ContactSection from "../../components/ContactSection/ContactSection.tsx";
 import useDocumentTitle from "../../hooks/useDocumentTitle.ts";
-import type { TopNavLink, TopNavTheme } from "../../components/TopNav/TopNav.types.ts";
+import type { TopNavLink } from "../../components/TopNav/TopNav.types.ts";
+import { useTheme } from "../../theme/ThemeContext.tsx";
 
 // Labels from docs/site-copy.md; icons from Figma (TopNav, node 42:29568)
 const NAV_LINKS: TopNavLink[] = [
@@ -79,7 +80,7 @@ const useHasScrolled = () => {
 
 const LandingPage = () => {
     useDocumentTitle("Dawid — Product Designer");
-    const [theme, setTheme] = useState<TopNavTheme>("dark");
+    const { theme, toggleTheme } = useTheme();
     const [menuOpen, setMenuOpen] = useState(false);
     const activeHref = useActiveSection(NAV_LINKS);
     const navVisible = useHasScrolled();
@@ -93,7 +94,7 @@ const LandingPage = () => {
             activeHref={activeHref}
             githubHref="#" // TODO: GitHub profile URL
             linkedinHref="#" // TODO: LinkedIn profile URL
-            onThemeToggle={() => setTheme(theme === "light" ? "dark" : "light")}
+            onThemeToggle={toggleTheme}
             menuOpen={menuOpen && navVisible} // closed while the nav is hidden
             onMenuToggle={() => setMenuOpen(!(menuOpen && navVisible))}
             visible={navVisible}

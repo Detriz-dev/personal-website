@@ -41,7 +41,7 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 |---|---|---|---|
 | D | Decisions (no code) | — | [ ] |
 | 1 | Routing | `19-routing-theme` | [x] |
-| 2 | Dark mode (app-wide) | `19-routing-theme` | [ ] |
+| 2 | Dark mode (app-wide) | `19-routing-theme` | [x] |
 | 3 | Shared hooks + page layout | `19-routing-theme` → **PR** | [ ] |
 | 4 | Page shell: ProcessNav + hero | `20-case-study-shell` | [ ] |
 | 5 | Overview, problems, goal | `20-case-study-shell` → **PR** | [ ] |
@@ -64,8 +64,8 @@ Branch names are suggestions. Rename them if needed.
 |---|---|---|---|---|
 | D1 | Routing library | `react-router` v7, declarative mode (new dependency). Alternative: own ~40-line History API hook. | `react-router` v7 | [x] |
 | D2 | Case study URL | `/projects/platform-documentation` | `/projects/platform-documentation` | [x] |
-| D3 | Theme mechanism | App-level `ThemeProvider` + `data-theme` on `<html>`. Existing components keep their `theme` prop; new ones use `--color-*` tokens. | | [ ] |
-| D4 | Default theme | Saved choice → OS `prefers-color-scheme` → `dark` | | [ ] |
+| D3 | Theme mechanism | App-level `ThemeProvider` + `data-theme` on `<html>`. Existing components keep their `theme` prop; new ones use `--color-*` tokens. | As recommended | [x] |
+| D4 | Default theme | Saved choice → OS `prefers-color-scheme` → `dark` | As recommended | [x] |
 | D5 | Page footer | Figma ends after 06. Add "What I learned" + `ContactSection` (per the brief)? | | [ ] |
 | D6 | Copy drift | Figma text differs from the copy file ("only share a single screen", "(in first round)", "UI Design"). Update the copy file first. | | [ ] |
 | D7 | Missing designs | No dark or mobile frame in Figma. Build from tokens and landing-page patterns, or design first? | | [ ] |
@@ -105,15 +105,18 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| `src/theme/ThemeContext.tsx`: `ThemeProvider` + `useTheme()` → `{ theme, toggleTheme }` | [ ] |
-| Initial theme per D4. Save to `localStorage` (try/catch). | [ ] |
-| Set `data-theme` and `color-scheme` on `<html>` | [ ] |
-| `index.css`: replace `@media (prefers-color-scheme: dark)` with `:root[data-theme="dark"]` | [ ] |
-| Inline script in `index.html` that sets `data-theme` before React mounts (no flash) | [ ] |
-| `LandingPage` uses `useTheme()` instead of local state | [ ] |
-| Check: toggle → reload → theme kept; OS dark with no saved choice → dark | [ ] |
+| `src/theme/ThemeContext.tsx`: `ThemeProvider` + `useTheme()` → `{ theme, toggleTheme }` | [x] |
+| Initial theme per D4. Save to `localStorage` (try/catch). | [x] |
+| Set `data-theme` and `color-scheme` on `<html>` | [x] |
+| `index.css`: replace `@media (prefers-color-scheme: dark)` with `:root[data-theme="dark"]` | [x] |
+| Inline script in `index.html` that sets `data-theme` before React mounts (no flash) | [x] |
+| `LandingPage` uses `useTheme()` instead of local state | [x] |
+| Check: toggle → reload → theme kept; OS dark with no saved choice → dark | [x] |
 
 **Handoff notes:**
+- `useTheme()` from `src/theme/ThemeContext.tsx` → `{ theme, toggleTheme }`; `Theme` type is `"light" | "dark"` (same as `TopNavTheme`). Only an explicit toggle is saved (`localStorage["theme"]`), so the OS preference applies until the user picks.
+- `index.html` inline script and `getInitialTheme` share the same rule; keep them in sync. `--color-*` tokens now follow `:root[data-theme="dark"]`, not the OS media query.
+- Verified toggle → reload keeps theme, and no saved choice → OS preference. OS-dark path not tested on a dark-OS machine (same code path).
 
 ---
 
