@@ -51,7 +51,7 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | 7.1 | 04 Interface design | `23-case-study-04-06` | [x] |
 | 7.2 | 05 Usability tests | `23-case-study-04-06` | [x] |
 | 7.3 | 06 Data analysis | `23-case-study-04-06` → **PR** | [x] |
-| 8 | Entry point (landing → case study) | `23-case-study-polish` | [ ] |
+| 8 | Entry point (landing → case study) | `23-case-study-polish` | [x] |
 | 9 | Polish and QA | `23-case-study-polish` → **PR** | [ ] |
 | 10 | Folder refactor (D8: `components/case-study/`) | own branch → **PR** | [ ] |
 
@@ -320,11 +320,13 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Pass `projectHref` (D2 URL) and remove the TODO comment | [ ] |
-| "View case study" uses a router link (no reload) | [ ] |
-| Round trip: card → case study → back → lands on `#projects` with the TopNav visible | [ ] |
+| Pass `projectHref` (D2 URL) and remove the TODO comment | [x] |
+| "View case study" uses a router link (no reload) | [x] |
+| Round trip: card → case study → back → lands on `#projects` with the TopNav visible | [x] |
 
 **Handoff notes:**
+- No code changes: `projectHref={ROUTES.platformDocumentation}` and the `to` router link were already in place (no TODO left). Verified at 1280 with real clicks: card → case study opens at top without reload; ProcessNav back → `/#projects`, section 72px under the visible TopNav, "Projects" active.
+- `<html>` has `scroll-behavior: smooth`; if a smooth scroll is still animating when the back link is clicked, the landing page can land ~95px off. Only seen with a scripted `scrollTo`, not with wheel scroll. Recheck in Step 9.
 
 ---
 
