@@ -42,7 +42,7 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | D | Decisions (no code) | — | [ ] |
 | 1 | Routing | `19-routing-theme` | [x] |
 | 2 | Dark mode (app-wide) | `19-routing-theme` | [x] |
-| 3 | Shared hooks + page layout | `19-routing-theme` → **PR** | [ ] |
+| 3 | Shared hooks + page layout | `19-routing-theme` → **PR** | [x] |
 | 4 | Page shell: ProcessNav + hero | `20-case-study-shell` | [ ] |
 | 5 | Overview, problems, goal | `20-case-study-shell` → **PR** | [ ] |
 | 6.1 | 01 Discovery | `21-case-study-01-03` | [ ] |
@@ -127,13 +127,15 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Move `useActiveSection` → `src/hooks/useActiveSection.ts`, with the nav offset as a parameter | [ ] |
-| Move `useHasScrolled` → `src/hooks/useHasScrolled.ts` | [ ] |
-| `PageLayout` component: dot-grid background + theme class (from `LandingPage.module.css`) | [ ] |
-| `LandingPage` uses the hooks and `PageLayout`. No visual change. | [ ] |
-| **Open PR** for steps 1–3 | [ ] |
+| Move `useActiveSection` → `src/hooks/useActiveSection.ts`, with the nav offset as a parameter | [x] |
+| Move `useHasScrolled` → `src/hooks/useHasScrolled.ts` | [x] |
+| `PageLayout` component: dot-grid background + theme class (from `LandingPage.module.css`) | [x] |
+| `LandingPage` uses the hooks and `PageLayout`. No visual change. | [x] |
+| **Open PR** for steps 1–3 | [x] |
 
 **Handoff notes:**
+- `useActiveSection(links, navOffset)` takes any `{ href }[]` (keep the array stable, e.g. module-level const). `useHasScrolled()` unchanged.
+- `<PageLayout>` reads the theme from `useTheme()` itself; accepts `className` + div props. Pages put only their own spacing in their CSS module.
 
 ---
 
