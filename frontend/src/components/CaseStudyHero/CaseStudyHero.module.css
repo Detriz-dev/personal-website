@@ -1,0 +1,29 @@
+/* Values from Figma (Personal Site / Hero, node 134:38540). No mobile frame (D7): title drops to 40/48. */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    font-family: var(--font-family-primary);
+}
+
+.title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-40);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-48);
+}
+
+.accent {
+    display: block;
+    color: var(--color-accent-text);
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: var(--font-size-56);
+        line-height: var(--font-line-height-64);
+    }
+}

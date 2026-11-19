@@ -43,7 +43,7 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | 1 | Routing | `19-routing-theme` | [x] |
 | 2 | Dark mode (app-wide) | `19-routing-theme` | [x] |
 | 3 | Shared hooks + page layout | `19-routing-theme` → **PR** | [x] |
-| 4 | Page shell: ProcessNav + hero | `20-case-study-shell` | [ ] |
+| 4 | Page shell: ProcessNav + hero | `20-case-study-shell` | [x] |
 | 5 | Overview, problems, goal | `20-case-study-shell` → **PR** | [ ] |
 | 6.1 | 01 Discovery | `21-case-study-01-03` | [ ] |
 | 6.2 | 02 User research | `21-case-study-01-03` | [ ] |
@@ -146,16 +146,19 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| `pages/CaseStudyPage/` (`.tsx`, `.types.ts`, `.module.css`): 1120px column, 80px between sections, empty section anchors `#overview`, `#discovery` … `#data-analysis` | [ ] |
-| `ProcessNav`: back button (→ `/#projects`), Overview, 01–06, active step from `useActiveSection`, sticky | [ ] |
-| `ProcessNav` mobile: horizontally scrolling chips; active chip scrolls into view | [ ] |
-| `ProcessNav` theme toggle (if D10 = yes) | [ ] |
-| `Callout` (NdaNote variant: `lock` icon + text) | [ ] |
-| `CaseStudyHero`: `<h1>` title (accent second line) + NdaNote | [ ] |
-| `StatStrip` + `Stat` (if D9 = keep) | [ ] |
-| Light + dark, 375 / 1280 | [ ] |
+| `pages/CaseStudyPage/` (`.tsx`, `.types.ts`, `.module.css`): 1120px column, 80px between sections, empty section anchors `#overview`, `#discovery` … `#data-analysis` | [x] |
+| `ProcessNav`: back button (→ `/#projects`), Overview, 01–06, active step from `useActiveSection`, sticky | [x] |
+| `ProcessNav` mobile: horizontally scrolling chips; active chip scrolls into view | [x] |
+| `ProcessNav` theme toggle (if D10 = yes) | [x] |
+| `Callout` (NdaNote variant: `lock` icon + text) | [x] |
+| `CaseStudyHero`: `<h1>` title (accent second line) + NdaNote | [x] |
+| `StatStrip` + `Stat` (if D9 = keep) | [x] |
+| Light + dark, 375 / 1280 | [x] |
 
 **Handoff notes:**
+- Sections live in `SECTIONS` in `CaseStudyPage.tsx` (empty `<section id>` anchors; fill them in place). `NAV_OFFSET = 72` matches the global `scroll-padding-top` on `<html>`, so don't add `scroll-margin-top` to sections. New: `ProcessNav`, `Callout` (`variant="nda"` only; add `bridge` to `CalloutVariant` + `ICONS`), `CaseStudyHero`, `StatStrip` (+ `Stat`, `<dl>`, 2×2 under 768px).
+- Copy follows the copy file, not Figma (D6 still open): NDA text "can’t showcase the user interfaces…", nav label "Interface Design" (Figma: "UI Design"). Stat labels "~10 in-depth interviews" / "3 platform experts in card sorting" come from Figma, paraphrasing the copy file.
+- Back button keeps Figma's outline (`--color-text-primary` border). 375px checked by measurement only (no overflow, title fits); the browser couldn't go below 614px wide.
 
 ---
 
