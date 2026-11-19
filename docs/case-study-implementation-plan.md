@@ -49,8 +49,8 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | 6.2 | 02 User research | `22-case-study-01-03` | [x] |
 | 6.3 | 03 Information architecture | `22-case-study-01-03` → **PR** | [x] |
 | 7.1 | 04 Interface design | `23-case-study-04-06` | [x] |
-| 7.2 | 05 Usability tests | `22-case-study-04-06` | [ ] |
-| 7.3 | 06 Data analysis | `22-case-study-04-06` → **PR** | [ ] |
+| 7.2 | 05 Usability tests | `23-case-study-04-06` | [x] |
+| 7.3 | 06 Data analysis | `23-case-study-04-06` → **PR** | [ ] |
 | 8 | Entry point (landing → case study) | `23-case-study-polish` | [ ] |
 | 9 | Polish and QA | `23-case-study-polish` → **PR** | [ ] |
 | 10 | Folder refactor (D8: `components/case-study/`) | own branch → **PR** | [ ] |
@@ -278,13 +278,16 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Phase header `05 Usability tests` | [ ] |
-| `PilotScope` (docs grid → arrow → rollout) | [ ] |
-| `TestRow` × 2 (tested → saw → changed) | [ ] |
-| `RolloutTimeline`: horizontal `TimeLine` variant, or a new component | [ ] |
-| Light + dark, 375 / 1280 | [ ] |
+| Phase header `05 Usability tests` | [x] |
+| `PilotScope` (docs grid → arrow → rollout) | [x] |
+| `TestRow` × 2 (tested → saw → changed) | [x] |
+| `RolloutTimeline`: horizontal `TimeLine` variant, or a new component | [x] |
+| Light + dark, 375 / 1280 | [x] |
 
 **Handoff notes:**
+- New: `TestRow` (`<article>`, `<h3>` with eyebrow inside; `findings` → `<dl>` tested/saw/changed, or `body` + `children` for Test 03), `PilotScope` (all `aria-hidden`, restates the description; 560×196 docs grid scaled by container queries, stacks with a down arrow below 1024px), `RolloutTimeline` (new component, not a `TimeLine` variant; `<ol>`, horizontal from 768px, vertical below), `CaseStudyUsabilityTests`.
+- Copy is identical in Figma and the copy file (split into the three columns). Eyebrows, column labels and timeline/pilot labels are Figma-only. Timeline columns are 1fr 2fr 2fr 1fr, so middle markers sit ~8px off Figma's even spacing; outer labels don't wrap.
+- TestRow: head on top below 1024px, columns stack below 768px. Checked 375 / 768 / 1024 (iframe, no overflow) and 1280, light + dark.
 
 ---
 

@@ -1,0 +1,14 @@
+/* Values from Figma (Personal Site / 05 Usability tests 134:39336): 56px between blocks, 24px between test rows. */
+
+.usability {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    color: var(--color-text-primary);
+}
+
+.rows {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

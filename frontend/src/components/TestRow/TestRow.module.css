@@ -1,0 +1,141 @@
+/* Values from Figma (Personal Site / CaseStudy/TestRow 128:3346, Rollout timeline 134:39426):
+   32px padding and gaps, 248px head, three equal columns, "What changed" on an accent panel.
+   No mobile frame (D7): below 1024px the head sits on top; below 768px the columns stack. */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 24px;
+    background-color: var(--color-surface-card);
+    font-family: var(--font-family-primary);
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: var(--color-accent-subtle);
+    color: var(--color-accent-text);
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.icon > span {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-32);
+}
+
+.eyebrow {
+    display: block;
+    margin-bottom: 16px;
+    color: var(--color-accent-text);
+    font-size: var(--font-size-14);
+    line-height: var(--font-line-height-22);
+}
+
+.findings {
+    display: grid;
+    gap: 24px;
+    margin: 0;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.changed {
+    padding: 16px;
+    border-radius: 16px;
+    background-color: var(--color-accent-subtle);
+}
+
+.label {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-22);
+}
+
+.changed .label {
+    color: var(--color-accent-text);
+}
+
+.labelIcon {
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.text {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-24);
+}
+
+@media (min-width: 768px) {
+    .card {
+        padding: 32px;
+    }
+
+    .findings {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 32px;
+        align-items: start;
+    }
+
+    .withVisual {
+        padding-bottom: 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .row {
+        flex-direction: row;
+        gap: 32px;
+    }
+
+    .head {
+        flex: none;
+        width: 248px;
+    }
+
+    .findings,
+    .body {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}

@@ -10,6 +10,7 @@ import CaseStudyDiscovery from "../../components/CaseStudyDiscovery/CaseStudyDis
 import CaseStudyUserResearch from "../../components/CaseStudyUserResearch/CaseStudyUserResearch.tsx";
 import CaseStudyInformationArchitecture from "../../components/CaseStudyInformationArchitecture/CaseStudyInformationArchitecture.tsx";
 import CaseStudyInterfaceDesign from "../../components/CaseStudyInterfaceDesign/CaseStudyInterfaceDesign.tsx";
+import CaseStudyUsabilityTests from "../../components/CaseStudyUsabilityTests/CaseStudyUsabilityTests.tsx";
 import useActiveSection from "../../hooks/useActiveSection.ts";
 import useDocumentTitle from "../../hooks/useDocumentTitle.ts";
 import { ROUTES } from "../../routes.ts";
@@ -38,6 +39,7 @@ const PHASE_CONTENT: Partial<Record<string, ReactNode>> = {
     "#user-research": <CaseStudyUserResearch />,
     "#information-architecture": <CaseStudyInformationArchitecture />,
     "#interface-design": <CaseStudyInterfaceDesign />,
+    "#usability-tests": <CaseStudyUsabilityTests />,
 };
 
 // Matches the global `scroll-padding-top` (72px) on <html>; clears the sticky ProcessNav (8px + 50px)
