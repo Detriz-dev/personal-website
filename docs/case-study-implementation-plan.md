@@ -46,7 +46,7 @@ Every step below runs in its **own fresh Claude Code session** (`/clear` or a ne
 | 4 | Page shell: ProcessNav + hero | `20-case-study-shell` | [x] |
 | 5 | Overview, problems, goal | `20-case-study-shell` → **PR** | [x] |
 | 6.1 | 01 Discovery | `22-case-study-01-03` | [x] |
-| 6.2 | 02 User research | `22-case-study-01-03` | [ ] |
+| 6.2 | 02 User research | `22-case-study-01-03` | [x] |
 | 6.3 | 03 Information architecture | `22-case-study-01-03` → **PR** | [ ] |
 | 7.1 | 04 Interface design | `22-case-study-04-06` | [ ] |
 | 7.2 | 05 Usability tests | `22-case-study-04-06` | [ ] |
@@ -211,15 +211,18 @@ Branch names are suggestions. Rename them if needed.
 
 | Task | Done |
 |---|---|
-| Phase header `02 User research` | [ ] |
-| `QuestionCard` × 3 | [ ] |
-| `InsightText` (title + text, reused in 06) | [ ] |
-| `InsightCard` + `featured` variant | [ ] |
-| `LongFormPageMock` (Ctrl+F visual) | [ ] |
-| `InsightGrid`: 2 rows + the small visuals per card | [ ] |
-| Light + dark, 375 / 1280 | [ ] |
+| Phase header `02 User research` | [x] |
+| `QuestionCard` × 3 | [x] |
+| `InsightText` (title + text, reused in 06) | [x] |
+| `InsightCard` + `featured` variant | [x] |
+| `LongFormPageMock` (Ctrl+F visual) | [x] |
+| `InsightGrid`: 2 rows + the small visuals per card | [x] |
+| Light + dark, 375 / 1280 | [x] |
 
 **Handoff notes:**
+- New: `InsightText` (`iconSurface="accent" | "card"`, `headingLevel` h3/h4; reuse in 06), `QuestionCard` (`<li>`), `InsightCard` (`<li>`, `variant="default" | "featured"`, `visual` + `icon` or `lead`) with `InsightVisuals.tsx` (keycaps + 4 grid visuals), `LongFormPageMock`, `CaseStudyUserResearch`. Group labels are `<h3>`, card titles `<h4>`.
+- Visuals draw on a fixed stage (500×168, featured 592×260) that `InsightCard` centers and scales via container queries; the panel height follows the scale. Grid: 3 / 2 columns from 1024px, one column below; featured stacks visual-on-top below 1024px.
+- Copy from Figma (D6): "(in first round)" + Ctrl+F featured first. Deviation: 24px (not 20px) between featured card and grid, so all findings sit in one `<ul>`.
 
 ---
 

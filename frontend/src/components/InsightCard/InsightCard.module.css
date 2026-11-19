@@ -1,0 +1,131 @@
+/* Values from Figma (Personal Site / InsightCard featured 134:38828, InsightGrid 134:38867).
+   Visuals draw on a fixed stage (their size at 1280), centered and scaled down on narrow cards (no mobile frame, D7). */
+
+.card {
+    --stage-w: 500px;
+    --stage-h: 168px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 24px 24px 32px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 24px;
+    background-color: var(--color-surface-card);
+    font-family: var(--font-family-primary);
+}
+
+.featured {
+    --stage-w: 592px;
+    --stage-h: 260px;
+
+    border: 2px solid var(--color-accent-fill);
+}
+
+.visual {
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: var(--color-surface-raised);
+    container-type: inline-size;
+}
+
+.frame {
+    --insight-visual-scale: 1;
+
+    position: relative;
+    height: calc(var(--stage-h) * var(--insight-visual-scale));
+}
+
+.stage {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--stage-w);
+    height: var(--stage-h);
+    overflow: hidden;
+    transform: translateX(-50%) scale(var(--insight-visual-scale));
+    transform-origin: top center;
+}
+
+/* default stage: 500px (panel is 498px at 1280 because of the card border; a 2px crop is fine) */
+@container (max-width: 479px) {
+    .frame {
+        --insight-visual-scale: 0.8;
+    }
+}
+
+@container (max-width: 399px) {
+    .frame {
+        --insight-visual-scale: 0.58;
+    }
+}
+
+@container (max-width: 289px) {
+    .frame {
+        --insight-visual-scale: 0.5;
+    }
+}
+
+/* featured stage: 592px (overrides the default steps above) */
+@container (max-width: 571px) {
+    .featured .frame {
+        --insight-visual-scale: 0.75;
+    }
+}
+
+@container (max-width: 443px) {
+    .featured .frame {
+        --insight-visual-scale: 0.47;
+    }
+}
+
+/* featured text column */
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.copy {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-32);
+}
+
+.body {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-line-height-24);
+}
+
+@media (min-width: 1024px) {
+    .featured {
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 40px;
+        padding: 32px;
+    }
+
+    .featured .visual {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .featured .text {
+        flex: none;
+        width: 420px;
+    }
+}

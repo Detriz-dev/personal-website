@@ -1,0 +1,9 @@
+/* Values from Figma (Personal Site / QuestionCards 134:38819). */
+
+.card {
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 24px 24px 32px;
+    border-radius: 24px;
+    background-color: var(--color-surface-raised);
+}

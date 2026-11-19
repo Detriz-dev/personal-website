@@ -1,0 +1,110 @@
+/* Values from Figma (Personal Site / Long-form page mock 134:38839). The page runs past the stage bottom (clipped). */
+
+.page,
+.toc {
+    position: absolute;
+    top: 24px;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 12px;
+    background-color: var(--color-surface-card);
+    font-family: var(--font-family-primary);
+}
+
+.page {
+    left: 24px;
+    width: 340px;
+    height: 300px;
+}
+
+.line {
+    position: absolute;
+    height: 6px;
+    border-radius: 3px;
+    background-color: var(--color-border-subtle);
+}
+
+.heading {
+    height: 8px;
+    border-radius: 4px;
+    background-color: var(--color-border-strong);
+}
+
+.match {
+    height: 10px;
+    background-color: var(--color-accent-fill);
+}
+
+.findBar {
+    position: absolute;
+    top: 11px;
+    left: 162px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px 6px 8px;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 8px;
+    background-color: var(--color-surface-card);
+    font-size: var(--font-size-14);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}
+
+.findIcon,
+.annotationIcon {
+    font-size: var(--font-size-16);
+    line-height: 16px;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+}
+
+.findIcon,
+.findCount {
+    color: var(--color-text-secondary);
+}
+
+.findQuery {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-500);
+}
+
+.toc {
+    left: 388px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px;
+}
+
+.tocTitle {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}
+
+.tocLine {
+    height: 6px;
+    border-radius: 3px;
+    background-color: var(--color-border-subtle);
+}
+
+.tocActive {
+    background-color: var(--color-accent-fill);
+}
+
+.annotation {
+    position: absolute;
+    top: 200px;
+    left: 380px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-accent-text);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-22);
+    white-space: nowrap;
+}
