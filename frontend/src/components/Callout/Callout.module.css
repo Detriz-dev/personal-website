@@ -5,6 +5,8 @@
     align-items: flex-start;
     gap: 12px;
     box-sizing: border-box;
+    width: fit-content; /* hug the text (capped at 640px on the case study) */
+    max-width: 100%;
     font-family: var(--font-family-secondary);
 }
 
@@ -39,7 +41,6 @@
 .bridge {
     align-items: center;
     gap: 16px;
-    width: 100%;
     padding: 24px 32px 24px 24px;
     border-radius: 16px;
     background-color: var(--color-accent-subtle);
@@ -60,7 +61,7 @@
 }
 
 .bridge .text {
-    flex: 1 1 0;
+    flex: 1 1 auto;
     min-width: 0;
     font-size: var(--font-size-18);
     font-style: italic;
