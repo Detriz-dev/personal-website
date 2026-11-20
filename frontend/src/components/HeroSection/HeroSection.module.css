@@ -3,7 +3,7 @@
    The section's height is set by the page (e.g. min-height); content stays vertically centered in it.
    Desktop: text column (680px) left, QuestionDiagram right; the dashed divider
    runs from the text into the diagram's "Why build?" callout.
-   Below 1024px it stacks: headline, description, diagram, then buttons
+   Below 1024px it stacks: headline, diagram, then description and buttons
    (.content becomes display: contents so its children can be reordered around the diagram). */
 
 .hero {
@@ -75,8 +75,9 @@
 }
 
 .subheadline {
+    order: 2;
     max-width: 600px;
-    margin: 24px 0 0;
+    margin: 48px 0 0;
     font-size: var(--font-size-20);
     font-weight: var(--font-weight-300);
     line-height: var(--font-line-height-32);
@@ -209,10 +210,10 @@
 }
 
 /* Stacked layout (below 1024): no shift and no divider, so content arrives top to bottom:
-   headline → subheadline (1300ms) → diagram (QuestionDiagram.module.css) → buttons (3100ms). */
+   headline → diagram (1300ms, QuestionDiagram.module.css) → subheadline (2700ms) → buttons (3100ms). */
 @media (prefers-reduced-motion: no-preference) and (max-width: 1023px) {
     .intro .subheadline {
-        animation-delay: 1300ms;
+        animation-delay: 2700ms;
     }
 
     .intro .actions {
