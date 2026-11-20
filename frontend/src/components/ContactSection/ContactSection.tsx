@@ -29,17 +29,17 @@ const ContactSection = ({ theme = "light", linkedinHref, githubHref, className, 
     return (
         <footer {...contactProps} className={classes}>
             <div className={styles.inner}>
-                <div className={styles.portrait}>
+                <div className={styles.portrait} data-reveal="rise">
                     <img src={portrait} width={210} height={174} alt="Dawid Kowalczyk" />
                 </div>
 
                 <div className={styles.content}>
-                    <h2 className={styles.headline}>Thanks for stopping by.</h2>
-                    <p className={styles.subheadline}>
+                    <h2 className={styles.headline} data-reveal="rise">Thanks for stopping by.</h2>
+                    <p className={styles.subheadline} data-reveal="rise">
                         Have a question or just want to chat? Feel free to reach out here:.
                     </p>
 
-                    <ul className={styles.contacts}>
+                    <ul className={styles.contacts} data-reveal="rise">
                         <li>
                             <a className={styles.contact} href={`tel:${PHONE.replace(/\s/g, "")}`}>
                                 <span className={`material-symbols-rounded ${styles.contactIcon}`} aria-hidden="true">
@@ -69,7 +69,7 @@ const ContactSection = ({ theme = "light", linkedinHref, githubHref, className, 
                         </li>
                     </ul>
 
-                    <ul className={styles.socials}>
+                    <ul className={styles.socials} data-reveal="rise">
                         <li>
                             <a className={styles.social} href={linkedinHref} target="_blank" rel="noreferrer">
                                 <span className={styles.label}>LinkedIn</span>

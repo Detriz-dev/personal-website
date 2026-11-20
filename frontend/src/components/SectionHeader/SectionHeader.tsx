@@ -9,10 +9,12 @@ const SectionHeader = ({
     title,
     description,
     divider = true,
+    reveal = false,
     className,
     ...headerProps
 }: SectionHeaderProps) => {
     const classes = [styles.sectionHeader, styles[theme], className].filter(Boolean).join(" ");
+    const revealAs = (kind: "draw" | "rise") => (reveal ? { "data-reveal": kind } : {});
 
     return (
         <header {...headerProps} className={classes}>
@@ -24,16 +26,17 @@ const SectionHeader = ({
                     height={3}
                     alt=""
                     aria-hidden="true"
+                    {...revealAs("draw")}
                 />
             )}
 
-            <h2 className={styles.heading}>
+            <h2 className={styles.heading} {...revealAs("rise")}>
                 <span className={styles.accent}>{accent}</span>
                 <br />
                 {title}
             </h2>
 
-            {description && <p className={styles.description}>{description}</p>}
+            {description && <p className={styles.description} {...revealAs("rise")}>{description}</p>}
         </header>
     );
 };

@@ -29,7 +29,7 @@ const SmartHomeKitWork = ({ theme = "light", projectHref, className, ...articleP
 
     return (
         <article {...articleProps} className={classes}>
-            <div className={styles.intro}>
+            <div className={styles.intro} data-reveal="rise">
                 <h3 className={styles.title}>
                     <span className={styles.accent}>Rapid Prototyping kit</span>
                     <br />
@@ -71,7 +71,7 @@ const SmartHomeKitWork = ({ theme = "light", projectHref, className, ...articleP
                 />
             </div>
 
-            <div className={styles.columns} aria-hidden="true">
+            <div className={styles.columns} aria-hidden="true" data-reveal="rise">
                 {COLUMNS.map((column) => (
                     <img
                         key={column.light}

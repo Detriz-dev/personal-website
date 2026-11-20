@@ -63,27 +63,29 @@ const getSteps = (dark: boolean): Step[] => [
     },
 ];
 
-const SkillDiagram = ({ theme = "light", className, ...divProps }: SkillDiagramProps) => {
+const SkillDiagram = ({ theme = "light", reveal = false, className, ...divProps }: SkillDiagramProps) => {
     const classes = [styles.diagram, styles[theme], className].filter(Boolean).join(" ");
     const steps = getSteps(theme === "dark");
+    const revealProps = reveal ? { "data-reveal": "rise" } : {};
 
     return (
         <div {...divProps} className={classes}>
-            {/* Connectors flow clockwise: Why → What → How on top, How → Why below. */}
-            <div className={`${styles.connector} ${styles.top} ${styles.insights}`}>
-                <span className={styles.label}>Insights</span>
-            </div>
-            <div className={`${styles.connector} ${styles.top} ${styles.specification}`}>
-                <span className={styles.label}>Specification</span>
-            </div>
-            <div className={`${styles.connector} ${styles.bottom} ${styles.validation}`}>
-                <span className={styles.label}>Validation</span>
-            </div>
-
             <div className={styles.cards}>
                 {steps.map((step) => (
-                    <Card key={step.title} theme={theme} className={styles.card} {...step} />
+                    <Card key={step.title} theme={theme} className={styles.card} {...step} {...revealProps} />
                 ))}
+            </div>
+
+            {/* Connectors flow clockwise: Why → What → How on top, How → Why below.
+                After the cards in DOM order so a staggered reveal shows them last. */}
+            <div className={`${styles.connector} ${styles.top} ${styles.insights}`} {...revealProps}>
+                <span className={styles.label}>Insights</span>
+            </div>
+            <div className={`${styles.connector} ${styles.top} ${styles.specification}`} {...revealProps}>
+                <span className={styles.label}>Specification</span>
+            </div>
+            <div className={`${styles.connector} ${styles.bottom} ${styles.validation}`} {...revealProps}>
+                <span className={styles.label}>Validation</span>
             </div>
         </div>
     );

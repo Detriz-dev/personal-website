@@ -72,6 +72,7 @@ const TeachingSection = ({ theme = "light", className, ...sectionProps }: Teachi
                 <SectionHeader
                     theme={theme}
                     divider={false} // the Projects block above already ends with a border
+                    reveal
                     accent="Workshop"
                     title="and Mentoring"
                     description={
@@ -85,7 +86,7 @@ const TeachingSection = ({ theme = "light", className, ...sectionProps }: Teachi
 
                 <ul className={styles.workshops}>
                     {WORKSHOPS.map((workshop) => (
-                        <li key={workshop.title} className={styles.row}>
+                        <li key={workshop.title} className={styles.row} data-reveal="rise">
                             <header className={styles.identity}>
                                 <span className={styles.iconTile} aria-hidden="true">
                                     <span className={`material-symbols-rounded ${styles.icon}`}>{workshop.icon}</span>

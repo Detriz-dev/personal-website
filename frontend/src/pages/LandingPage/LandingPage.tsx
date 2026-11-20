@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import style from "./LandingPage.module.css";
 import TopNav from "../../components/TopNav/TopNav.tsx";
 import HeroSection from "../../components/HeroSection/HeroSection.tsx";
@@ -11,6 +11,7 @@ import useDocumentTitle from "../../hooks/useDocumentTitle.ts";
 import useActiveSection from "../../hooks/useActiveSection.ts";
 import useHasScrolled from "../../hooks/useHasScrolled.ts";
 import useIntro from "../../hooks/useIntro.ts";
+import useReveal from "../../hooks/useReveal.ts";
 import PageLayout from "../../components/PageLayout/PageLayout.tsx";
 import type { TopNavLink } from "../../components/TopNav/TopNav.types.ts";
 import { useTheme } from "../../theme/ThemeContext.tsx";
@@ -36,7 +37,12 @@ const LandingPage = () => {
     const navVisible = useHasScrolled();
     const intro = useIntro();
 
-    return (<PageLayout>
+    // One queue for the whole page: elements marked data-reveal="rise" | "draw" (styles in index.css)
+    // appear one after another as they scroll into view.
+    const pageRef = useRef<HTMLDivElement>(null);
+    useReveal(pageRef, { stagger: 150 });
+
+    return (<PageLayout ref={pageRef}>
         <TopNav
             theme={theme}
             homeHref="#"
