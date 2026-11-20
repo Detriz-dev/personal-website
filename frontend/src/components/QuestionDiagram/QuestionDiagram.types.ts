@@ -25,4 +25,6 @@ export type QuestionDiagramProps = Omit<HTMLAttributes<HTMLDivElement>, "childre
     coreLabel: string;
     /** Material Symbols (Rounded) icon for the center node. */
     coreIcon?: string;
+    /** Plays the hero intro animation. */
+    intro?: boolean;
 };

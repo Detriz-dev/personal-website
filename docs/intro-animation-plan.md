@@ -3,12 +3,12 @@
 One step per session. Read only the step's **Context** files and Figma nodes. At the end of a step: tick its box, fill **Handoff notes**.
 
 ## Progress
-- [ ] 0. Branch
-- [ ] 1. Intro gate (when it plays)
-- [ ] 2. Headline + divider
-- [ ] 3. Diagram (circle, core, questions)
-- [ ] 4. Header moves up + content arrives
-- [ ] 5. Responsive + QA
+- [x] 0. Branch
+- [x] 1. Intro gate (when it plays)
+- [x] 2. Headline + divider
+- [x] 3. Diagram (circle, core, questions)
+- [x] 4. Header moves up + content arrives
+- [x] 5. Responsive + QA
 
 ## Design reference
 Figma file `dMHyJ85uRXmnEONUYGg5jT`, page **Loader**.
@@ -78,9 +78,50 @@ Branch `34-ui-improvements` has uncommitted changes. The user decides whether to
 
 ### 5. Responsive + QA
 **Context:** `HeroSection.module.css`, `QuestionDiagram.module.css`.
-- Below 1024px (stacked layout, divider hidden): **no centring/shift**. Same order: headline → diagram → subheadline + buttons fade in. The `--intro-shift` rule only applies inside `@media (min-width: 1024px)`.
+- Below 1024px (stacked layout, divider hidden): **no centring/shift**. Content arrives top to bottom: headline (0–1300) → subheadline 1300 → circle + core 1700 → Why / What / How 2200 / 2500 / 2800 → buttons 3100. The `--intro-shift` rule only applies inside `@media (min-width: 1024px)`.
 - Check: 375 / 768 / 1024 / 1280, light + dark, reduced motion on (no intro, page shows immediately), reload in the same tab (no intro), open with `#projects` (no intro), no horizontal scroll.
 - `npm run build` and `npm run lint` pass.
 
 ## Handoff notes
 _(fill in after each step)_
+
+**Steps 0 + 1 (2026-11-20)**
+- Branch `intro-animation` was created from `34-ui-improvements`, not `main`. `fba03bc` (case study work + this plan) isn't on `main` yet, so branching from `main` would have dropped this plan file.
+- `hooks/useIntro.ts`: the state initialiser checks `!location.hash && !sessionStorage.introPlayed`. An effect sets the flag. If storage is blocked, the intro plays.
+- `HeroSection` and `QuestionDiagram` take `intro?: boolean` → `styles.intro` on the root. The `.intro` class isn't defined in either CSS module yet (`styles.intro` is undefined and filtered out). Add `.intro` rules in steps 2–3.
+- `LandingPage` passes `intro={useIntro()}` to the hero.
+- Build + lint pass. No visual change.
+
+**Step 2 (2026-11-20)**
+- Headline: `.lead` (the accent span, "Product value") plus `.word` spans with `--i` 0–4 ("right"/"questions." sit inside `<strong>`). `textContent` is unchanged.
+- CSS lives in `HeroSection.module.css` under `@media (prefers-reduced-motion: no-preference)`. Spans become `inline-block` only under `.intro` (translate needs a box). Line layout and h1 height are unchanged.
+- Keyframes are `intro-rise` (opacity + `translate` 12px) and `intro-draw` (clip-path). `.intro .divider` lists `intro-draw` and `flow`.
+- CSS modules hash keyframe names (e.g. `_intro-rise_7a79o_1`), so in devtools filter `document.getAnimations()` with `/intro/`, not `startsWith`.
+- Checked at 1280×800, dark only: frame 03 at ~1000 ms, divider partly drawn at 1600 ms, final state OK. A reload in the same tab skips the intro.
+- Subheadline, buttons and diagram are still visible from the start. Steps 3–4 hide them.
+- Step 4: the headline words already use `translate`. Put `--intro-shift` on the `.headline` element itself (not on the words) to avoid a conflict.
+
+**Step 3 (2026-11-20)**
+- `QuestionDiagram.module.css` uses its own `intro-pop` (opacity + `scale` 0.9→1) and `intro-rise` (opacity + `translate` 12px) keyframes, under `@media (prefers-reduced-motion: no-preference)`.
+- `.intro .circle` lists `intro-pop` and `spin`. Spin uses `transform`, so it doesn't conflict with `scale`.
+- `fill-mode: both` is fine. Hover only changes `.descriptionWrap` and the border/shadow, never the callout's opacity. Checked: "Why build?" expands after the intro.
+- Checked at 1280, dark: frame 05 at 2150 ms, Why/What order at 2850 ms, end state OK.
+- Step 4: the diagram root (`.diagram` in HeroSection) has no `translate` yet. Put `--intro-shift` on that wrapper. The children already animate `scale`/`translate` on themselves, so there's no conflict.
+- Testing tip: a page load sets `introPlayed`, even a blank first load while Vite is starting. Clear it before reloading: `sessionStorage.removeItem("introPlayed")`.
+
+**Step 4 (2026-11-20)**
+- `HeroSection.tsx` uses `useLayoutEffect` with refs on the section and the h1. It sets `--intro-shift` = section centre − headline centre on the section, e.g. `117px` at 1280×781.
+- The effect clears the variable before measuring and in its cleanup. Without that, StrictMode's second run measured the already-shifted headline and set `0px`.
+- `intro-shift` (`translate: 0 var(--intro-shift, 0px)` → 0, 500ms ease-in-out, 3300ms) runs on `.headline`, `.divider` (third animation in its list) and `.diagram` (the QuestionDiagram root). It sits in its own `@media (prefers-reduced-motion: no-preference) and (min-width: 1024px)` block, so below 1024 there's no shift. That part of step 5 is already done.
+- `.subheadline` and `.actions` use `intro-rise-16` (16px, 500ms ease-out, 3600ms). This runs at all widths.
+- Checked at 1280, dark: starts centred, centred at 3250 ms, moving with the content fading in at 3650 ms. The end state matches the hero: every intro animation ends at opacity 1, translate 0, scale 1. The divider ends at `inset(0 0% 0 0)`, which doesn't clip.
+- For step 5: on mobile, the order is headline → subheadline → diagram → buttons. The subheadline fades in at 3600 ms, after the diagram (2400–3300 ms). Check if that order reads well, or re-time it below 1024. Light theme and other widths aren't checked yet.
+- Known edge: the shift is measured once. If the window is resized mid-intro (under 4 s) or the font loads late, the start position may be slightly off. The end state is unaffected.
+
+**Step 5 (2026-11-20)**
+- Mobile re-timed (user's choice): top to bottom instead of the desktop order. It's done with `animation-delay` overrides in `@media (prefers-reduced-motion: no-preference) and (max-width: 1023px)` blocks in both CSS modules. `.intro .circle` overrides both delays (`1700ms, 0s`) so `spin` is unaffected. Desktop timing is unchanged.
+- Checked: 375 / 768 use the mobile delays and 1024 / 1280 the desktop ones (read from `getAnimations()`). Frames checked at 375 + 1280 in dark and light. `#projects` and a same-tab reload skip the intro. The first load plays it.
+- Reduced motion: not emulated in the browser. Every `.intro` rule is inside `prefers-reduced-motion: no-preference`, so the hero renders as the static version.
+- No horizontal scroll at 375 / 768 / 1280. **Pre-existing, not from the intro:** at exactly 1024 the page is 1113px wide. The diagram overflows (680 + 380 + padding), with or without `.intro`. Separate task.
+- Testing tip: the Chrome window couldn't be resized, so widths were tested in a same-origin `<iframe>` inside the dev page, with `getAnimations()` paused and seeked to sample times.
+- Build + lint pass.

@@ -26,10 +26,11 @@ const QuestionDiagram = ({
     how,
     coreLabel,
     coreIcon = "deployed_code",
+    intro = false,
     className,
     ...divProps
 }: QuestionDiagramProps) => {
-    const classes = [styles.diagram, styles[theme], className].filter(Boolean).join(" ");
+    const classes = [styles.diagram, styles[theme], intro && styles.intro, className].filter(Boolean).join(" ");
 
     return (
         <div {...divProps} className={classes}>

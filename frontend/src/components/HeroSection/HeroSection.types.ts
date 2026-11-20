@@ -12,4 +12,6 @@ export type HeroSectionProps = Omit<HTMLAttributes<HTMLElement>, "children"> & {
     processHref?: string;
     /** Secondary CTA "See selected work" — anchors to the Project section. */
     workHref?: string;
+    /** Plays the intro animation (see docs/intro-animation-plan.md). */
+    intro?: boolean;
 };

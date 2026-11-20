@@ -170,6 +170,80 @@
     padding-bottom: 4px;
 }
 
+/* Hero intro animation (docs/intro-animation-plan.md, steps 05–08).
+   Uses the individual scale / translate properties so the circle's transform spin keeps running.
+   Hover only changes the description and border/shadow, so fill-mode both doesn't block it. */
+
+@media (prefers-reduced-motion: no-preference) {
+    .intro .circle {
+        animation:
+            intro-pop 500ms ease-out 1900ms both,
+            spin 40s linear infinite;
+    }
+
+    .intro .core {
+        animation: intro-pop 500ms ease-out 1900ms both;
+    }
+
+    .intro .why {
+        animation: intro-rise 300ms ease-out 2400ms both;
+    }
+
+    .intro .what {
+        animation: intro-rise 300ms ease-out 2700ms both;
+    }
+
+    .intro .how {
+        animation: intro-rise 300ms ease-out 3000ms both;
+    }
+}
+
+/* Stacked hero (below 1024): the subheadline comes before the diagram, so the diagram starts earlier
+   (no divider step). Order stays circle → Why → What → How. */
+@media (prefers-reduced-motion: no-preference) and (max-width: 1023px) {
+    .intro .circle {
+        animation-delay: 1700ms, 0s;
+    }
+
+    .intro .core {
+        animation-delay: 1700ms;
+    }
+
+    .intro .why {
+        animation-delay: 2200ms;
+    }
+
+    .intro .what {
+        animation-delay: 2500ms;
+    }
+
+    .intro .how {
+        animation-delay: 2800ms;
+    }
+}
+
+@keyframes intro-pop {
+    from {
+        opacity: 0;
+        scale: 0.9;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes intro-rise {
+    from {
+        opacity: 0;
+        translate: 0 12px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
 /* Themes */
 
 .light {
