@@ -5,7 +5,7 @@
     align-items: flex-start;
     gap: 12px;
     box-sizing: border-box;
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
 }
 
 .icon {
@@ -18,12 +18,12 @@
 .text {
     margin: 0;
     font-size: var(--font-size-14);
-    font-weight: var(--font-weight-400);
+    font-weight: var(--font-weight-300);
     line-height: var(--font-line-height-22);
 }
 
 .text strong {
-    font-weight: var(--font-weight-700);
+    font-weight: var(--font-weight-600);
 }
 
 .nda {

@@ -8,7 +8,7 @@
     border: 1px solid var(--color-border-subtle);
     border-radius: 12px;
     background-color: var(--color-surface-card);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
 }
 
 .page {
@@ -102,7 +102,7 @@
     align-items: center;
     gap: 6px;
     color: var(--color-accent-text);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     font-size: var(--font-size-14);
     font-weight: var(--font-weight-600);
     line-height: var(--font-line-height-22);

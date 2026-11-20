@@ -17,7 +17,7 @@
     border: 1px solid var(--color-border-subtle);
     border-radius: 12px;
     background-color: var(--color-surface-card);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
 }
 
 .steps {

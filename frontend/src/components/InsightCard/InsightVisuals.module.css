@@ -39,7 +39,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     font-size: var(--font-size-20);
     font-weight: var(--font-weight-700);
     line-height: var(--font-line-height-32);
@@ -98,7 +98,7 @@
     border-radius: 999px;
     background-color: var(--color-accent-fill);
     color: var(--color-text-on-accent);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     font-size: var(--font-size-14);
     font-weight: var(--font-weight-700);
     line-height: var(--font-line-height-22);
@@ -187,7 +187,7 @@
     align-items: center;
     gap: 8px;
     color: var(--color-text-secondary);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     font-size: var(--font-size-14);
     font-weight: var(--font-weight-500);
     line-height: var(--font-line-height-22);
@@ -213,7 +213,7 @@
     position: absolute;
     top: 132px;
     color: var(--color-text-secondary);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     font-size: var(--font-size-14);
     font-weight: var(--font-weight-600);
     line-height: var(--font-line-height-22);

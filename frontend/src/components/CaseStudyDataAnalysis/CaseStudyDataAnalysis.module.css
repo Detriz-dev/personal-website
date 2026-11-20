@@ -5,7 +5,7 @@
     flex-direction: column;
     gap: 56px;
     color: var(--color-text-primary);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
 }
 
 /* Header chips (Figma 134:39534): 8px apart, arrows between the timeline steps */
@@ -138,12 +138,12 @@
 .loopBody {
     margin: 0;
     font-size: var(--font-size-16);
-    font-weight: var(--font-weight-400);
+    font-weight: var(--font-weight-300);
     line-height: var(--font-line-height-24);
 }
 
 .loopBody strong {
-    font-weight: var(--font-weight-700);
+    font-weight: var(--font-weight-600);
 }
 
 @media (min-width: 768px) {

@@ -6,7 +6,7 @@
     --marker: 48px;
 
     position: relative;
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
 }
 
 .line {

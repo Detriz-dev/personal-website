@@ -10,7 +10,7 @@
     border: 1px solid var(--color-border-subtle);
     border-radius: 24px;
     background-color: var(--color-surface-card);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
 }
 
 .visual {

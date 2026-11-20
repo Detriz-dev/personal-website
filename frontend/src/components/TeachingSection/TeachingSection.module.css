@@ -33,7 +33,7 @@
     background-color: var(--teaching-card-bg);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
     color: var(--teaching-text);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     letter-spacing: var(--font-letter-spacing-default);
 }
 
@@ -93,12 +93,12 @@
 .copy {
     margin: 0;
     font-size: var(--font-size-16);
-    font-weight: var(--font-weight-400);
+    font-weight: var(--font-weight-300);
     line-height: var(--font-line-height-24);
 }
 
 .copy strong {
-    font-weight: var(--font-weight-700);
+    font-weight: var(--font-weight-600);
 }
 
 /* Desktop: one row per workshop */

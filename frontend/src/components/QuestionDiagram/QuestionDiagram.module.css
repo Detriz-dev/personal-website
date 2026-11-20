@@ -5,7 +5,7 @@
     position: relative;
     width: 380px;
     height: 292px;
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
 }
 
 /* Dashed circle — rotates clockwise */

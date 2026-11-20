@@ -9,7 +9,7 @@
     border-radius: 5px;
     background-color: var(--tag-bg);
     color: var(--tag-text);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     font-size: var(--font-size-14);
     font-weight: var(--font-weight-500);
     line-height: var(--font-line-height-24);

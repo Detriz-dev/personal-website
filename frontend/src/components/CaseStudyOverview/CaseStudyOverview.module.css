@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     gap: 80px;
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     color: var(--color-text-primary);
 }
 
@@ -34,7 +34,7 @@
 .responsibilityText {
     margin: 0;
     font-size: var(--font-size-18);
-    font-weight: var(--font-weight-400);
+    font-weight: var(--font-weight-300);
     line-height: var(--font-line-height-30);
 }
 

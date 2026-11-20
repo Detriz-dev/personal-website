@@ -55,12 +55,15 @@ const CaseStudyOverview = () => (
             <div className={styles.responsibilities}>
                 <h3 className={styles.subheading}>My responsibilities</h3>
                 <p className={styles.responsibilityText}>
-                    I led the UX design of this initiative end-to-end—taking the documentation platform from early
-                    organizational discovery all the way through post-launch analytics. Working closely with platform
-                    leadership, technical writers, and engineering teams, I owned every stage of the product
-                    lifecycle: uncovering systemic bottlenecks through discovery and developer interviews, defining
-                    the information architecture, customizing the interface and search experience, validating
-                    decisions through usability testing, and tracking real-world adoption with behavioral data.
+                    I <strong>led the UX design of this initiative end-to-end</strong>—taking the documentation
+                    platform from early organizational discovery all the way through post-launch analytics. Working
+                    closely with platform leadership, technical writers, and engineering teams, I owned every stage of
+                    the product lifecycle: uncovering systemic bottlenecks through{" "}
+                    <strong>discovery and developer interviews</strong>, defining the{" "}
+                    <strong>information architecture</strong>, customizing the{" "}
+                    <strong>interface and search experience</strong>, validating decisions through{" "}
+                    <strong>usability testing</strong>, and tracking real-world adoption with{" "}
+                    <strong>behavioral data</strong>.
                 </p>
             </div>
         </div>

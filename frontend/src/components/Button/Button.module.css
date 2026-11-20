@@ -8,7 +8,7 @@
     border-radius: 8px;
     background-color: var(--btn-bg);
     color: var(--btn-text);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     font-size: var(--font-size-18);
     font-weight: var(--font-weight-700);
     line-height: var(--font-line-height-24);

@@ -8,7 +8,7 @@
     flex-direction: column;
     width: 100%;
     max-width: 1120px;
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     color: var(--section-header-text);
 }
 
@@ -33,15 +33,15 @@
 }
 
 .description {
-    max-width: 736px;
+    max-width: 640px;
     margin: 24px 0 0;
     font-size: var(--font-size-18);
-    font-weight: var(--font-weight-400);
+    font-weight: var(--font-weight-300);
     line-height: var(--font-line-height-30);
 }
 
 .description strong {
-    font-weight: var(--font-weight-700);
+    font-weight: var(--font-weight-600);
 }
 
 /* Desktop (Figma): heading in a 384px left column, description to its right, tops aligned */
@@ -57,6 +57,8 @@
 
     .description {
         margin-top: 96px;
+        justify-self: end;
+        text-align: left;
     }
 }
 
