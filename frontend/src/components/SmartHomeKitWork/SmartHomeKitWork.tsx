@@ -37,8 +37,8 @@ const SmartHomeKitWork = ({ theme = "light", projectHref, className, ...articleP
                 </h3>
 
                 <p className={styles.description}>
-                    A domain-driven UI kit bridging Figma and React—engineered to handle real-world IoT states like
-                    live telemetry, device pairing, and critical fault alerts
+                    A domain-driven Figma and React UI kit for rapidly prototyping smart home apps, pre-structured with
+                    real-world IoT states and naming conventions so you can skip the setup and start building.
                 </p>
 
                 <div className={styles.deliverables}>
