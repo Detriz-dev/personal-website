@@ -75,9 +75,7 @@ const CaseStudyPage = () => {
                         title="documentation platform"
                         note={
                             <>
-                                <strong>Note on confidentiality:</strong> Due to strict NDA agreements, I can only
-                                share a few screens from this project. Instead, this case study pulls back
-                                the curtain on my practical process, research insights, and architectural decisions.
+                                <strong>Note on confidentiality:</strong> Due to strict NDA agreements, publication of artifacts is limited.
                             </>
                         }
                     />

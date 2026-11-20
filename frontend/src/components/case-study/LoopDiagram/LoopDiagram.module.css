@@ -3,7 +3,7 @@
 
 .loop {
     container-type: inline-size;
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
 }
 
 .steps {

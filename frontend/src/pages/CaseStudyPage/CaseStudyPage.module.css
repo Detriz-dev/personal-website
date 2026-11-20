@@ -19,6 +19,11 @@
     margin: 80px -16px -80px;
 }
 
+/* Readable line length for all body text on the case study */
+.main p {
+    max-width: 640px;
+}
+
 .intro {
     display: flex;
     flex-direction: column;

@@ -8,7 +8,7 @@
     border-top: 1px solid var(--contact-border);
     background-color: var(--contact-bg);
     color: var(--contact-text);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     letter-spacing: var(--font-letter-spacing-default);
 }
 
@@ -53,12 +53,12 @@
     max-width: 736px;
     margin: 12px 0 0;
     font-size: var(--font-size-20);
-    font-weight: var(--font-weight-400);
+    font-weight: var(--font-weight-300);
     line-height: var(--font-line-height-32);
 }
 
 .subheadline strong {
-    font-weight: var(--font-weight-700);
+    font-weight: var(--font-weight-600);
 }
 
 .contacts,

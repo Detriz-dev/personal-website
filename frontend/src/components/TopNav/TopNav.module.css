@@ -19,7 +19,7 @@
     border-radius: 8px;
     background-color: var(--top-nav-bg);
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
 }
 
 /* Slid up out of view; visibility removes it from the tab order and screen readers */
