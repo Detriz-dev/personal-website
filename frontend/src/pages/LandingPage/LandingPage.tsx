@@ -10,6 +10,7 @@ import ContactSection from "../../components/ContactSection/ContactSection.tsx";
 import useDocumentTitle from "../../hooks/useDocumentTitle.ts";
 import useActiveSection from "../../hooks/useActiveSection.ts";
 import useHasScrolled from "../../hooks/useHasScrolled.ts";
+import useIntro from "../../hooks/useIntro.ts";
 import PageLayout from "../../components/PageLayout/PageLayout.tsx";
 import type { TopNavLink } from "../../components/TopNav/TopNav.types.ts";
 import { useTheme } from "../../theme/ThemeContext.tsx";
@@ -33,6 +34,7 @@ const LandingPage = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const activeHref = useActiveSection(NAV_LINKS, NAV_OFFSET);
     const navVisible = useHasScrolled();
+    const intro = useIntro();
 
     return (<PageLayout>
         <TopNav
@@ -48,7 +50,7 @@ const LandingPage = () => {
             visible={navVisible}
         />
 
-        <HeroSection className={style.hero} theme={theme} processHref="#skills" />
+        <HeroSection className={style.hero} theme={theme} intro={intro} processHref="#skills" />
 
         <SkillSection id="skills" theme={theme} />
 

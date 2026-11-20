@@ -161,6 +161,105 @@
     }
 }
 
+/* Intro animation (docs/intro-animation-plan.md). Only with .intro and when motion is allowed;
+   fill-mode both keeps elements hidden from the first paint until their delay. */
+
+@media (prefers-reduced-motion: no-preference) {
+    .intro .lead,
+    .intro .word {
+        display: inline-block; /* translate needs a box */
+    }
+
+    .intro .lead {
+        animation: intro-rise 500ms ease-out both;
+    }
+
+    .intro .word {
+        animation: intro-rise 400ms ease-out calc(500ms + var(--i) * 80ms) both;
+    }
+
+    /* Keeps the dashes flowing while the line draws in */
+    .intro .divider {
+        animation:
+            intro-draw 600ms ease-out 1300ms both,
+            flow 30s linear infinite;
+    }
+
+    .intro .subheadline,
+    .intro .actions {
+        animation: intro-rise-16 500ms ease-out 3600ms both;
+    }
+}
+
+/* Step 09, desktop only: headline, divider and diagram start centred in the section
+   (--intro-shift is measured in HeroSection.tsx), then move up into place.
+   Uses translate on these elements; their own fades run on their children / other properties. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
+    .intro .headline,
+    .intro .diagram {
+        animation: intro-shift 500ms ease-in-out 3300ms both;
+    }
+
+    .intro .divider {
+        animation:
+            intro-draw 600ms ease-out 1300ms both,
+            intro-shift 500ms ease-in-out 3300ms both,
+            flow 30s linear infinite;
+    }
+}
+
+/* Stacked layout (below 1024): no shift and no divider, so content arrives top to bottom:
+   headline → subheadline (1300ms) → diagram (QuestionDiagram.module.css) → buttons (3100ms). */
+@media (prefers-reduced-motion: no-preference) and (max-width: 1023px) {
+    .intro .subheadline {
+        animation-delay: 1300ms;
+    }
+
+    .intro .actions {
+        animation-delay: 3100ms;
+    }
+}
+
+@keyframes intro-rise {
+    from {
+        opacity: 0;
+        translate: 0 12px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes intro-rise-16 {
+    from {
+        opacity: 0;
+        translate: 0 16px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes intro-shift {
+    from {
+        translate: 0 var(--intro-shift, 0px);
+    }
+    to {
+        translate: 0 0;
+    }
+}
+
+@keyframes intro-draw {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        clip-path: inset(0);
+    }
+}
+
 /* Themes */
 
 .light {
