@@ -32,7 +32,7 @@ const PlatformDocumentationProject = ({
 
     return (
         <article {...articleProps} className={classes}>
-            <div className={styles.intro}>
+            <div className={styles.intro} data-reveal="rise">
                 <h3 className={styles.title}>
                     OCADO Technology
                     <br />
@@ -75,7 +75,7 @@ const PlatformDocumentationProject = ({
                 )}
             </div>
 
-            <div className={styles.screens} aria-hidden="true">
+            <div className={styles.screens} aria-hidden="true" data-reveal="rise">
                 <img className={`${styles.screen} ${styles.screenBack}`} src={SCREENS.portalHome[theme]} width={1280} height={755} alt="" />
                 <img className={`${styles.screen} ${styles.screenFront}`} src={SCREENS.docsPage[theme]} width={1280} height={751} alt="" />
             </div>

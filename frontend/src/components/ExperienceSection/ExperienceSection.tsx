@@ -22,6 +22,7 @@ const ExperienceSection = ({ theme = "light", className, ...sectionProps }: Expe
             <div className={styles.inner}>
                 <SectionHeader
                     theme={theme}
+                    reveal
                     accent="10+ years"
                     title="of experience"
                     description={

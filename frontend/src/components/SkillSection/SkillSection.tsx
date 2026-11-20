@@ -12,6 +12,7 @@ const SkillSection = ({ theme = "light", className, ...sectionProps }: SkillSect
             <div className={styles.inner}>
                 <SectionHeader
                     theme={theme}
+                    reveal
                     accent="End-to-end"
                     title="design process"
                     description={
@@ -24,7 +25,7 @@ const SkillSection = ({ theme = "light", className, ...sectionProps }: SkillSect
                         </>
                     }
                 />
-                <SkillDiagram theme={theme} className={styles.diagram} />
+                <SkillDiagram theme={theme} reveal className={styles.diagram} />
             </div>
         </section>
     );

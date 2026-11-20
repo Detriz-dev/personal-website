@@ -37,7 +37,7 @@ const STATS = [
     { value: "100+", label: "engineering teams" },
     { value: "~10", label: "in-depth interviews" },
     { value: "3", label: "platform experts in card sorting" },
-    { value: "Ongoing", label: "usability tests throughout", icon: "cycle" },
+    { value: "Ongoing", label: "Continuous usability testing", icon: "cycle" },
 ] as const;
 
 // Phase content by anchor; phases without an entry render as empty anchors until their step is built

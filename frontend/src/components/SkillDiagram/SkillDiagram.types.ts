@@ -10,4 +10,6 @@ export type SkillDiagramTheme = "light" | "dark";
  */
 export type SkillDiagramProps = Omit<HTMLAttributes<HTMLDivElement>, "children"> & {
     theme?: SkillDiagramTheme;
+    /** Mark cards, then connectors, as `data-reveal` targets for useReveal. Default false. */
+    reveal?: boolean;
 };

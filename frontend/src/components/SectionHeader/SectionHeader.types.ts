@@ -17,4 +17,6 @@ export type SectionHeaderProps = Omit<HTMLAttributes<HTMLElement>, "title" | "ch
     description?: ReactNode;
     /** Show the divider line on top. Default true; turn off when the section above already ends with a border. */
     divider?: boolean;
+    /** Mark divider, heading and description as `data-reveal` targets for useReveal. Default false. */
+    reveal?: boolean;
 };

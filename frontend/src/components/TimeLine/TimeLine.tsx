@@ -7,11 +7,11 @@ const TimeLine = ({ theme = "light", items, className, ...divProps }: TimeLinePr
     return (
         <div {...divProps} className={classes}>
             <div className={styles.track}>
-                <span className={styles.line} aria-hidden="true" />
+                <span className={styles.line} aria-hidden="true" data-reveal="draw" />
 
                 <ol className={styles.list}>
                     {items.map((item) => (
-                        <li key={item.company} className={styles.item}>
+                        <li key={item.company} className={styles.item} data-reveal="rise">
                             <span className={styles.marker} aria-hidden="true">
                                 <span className={`material-symbols-rounded ${styles.icon}`}>{item.icon}</span>
                             </span>
