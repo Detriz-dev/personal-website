@@ -1,11 +1,15 @@
-import type { ReactNode } from "react";
+import type { ComponentType, ReactNode, SVGProps } from "react";
 import SectionHeader from "../SectionHeader/SectionHeader.tsx";
 import styles from "./TeachingSection.module.css";
 import type { TeachingSectionProps } from "./TeachingSection.types.ts";
+import {
+    PenciltivityIllustration,
+    ProductStackIllustration,
+    ScrumLegoIllustration,
+} from "./WorkshopIllustrations.tsx";
 
 type Workshop = {
-    /** Material Symbols Rounded icon name. */
-    icon: string;
+    Illustration: ComponentType<SVGProps<SVGSVGElement>>;
     title: string;
     activity: ReactNode;
     outcome: ReactNode;
@@ -14,7 +18,7 @@ type Workshop = {
 // Layout from Figma (TeachingRow 116:3190, sections 115:3101 / 116:3191)
 const WORKSHOPS: Workshop[] = [
     {
-        icon: "stacks",
+        Illustration: ProductStackIllustration,
         title: "Product design stack",
         activity: (
             <>
@@ -30,7 +34,7 @@ const WORKSHOPS: Workshop[] = [
         ),
     },
     {
-        icon: "brick",
+        Illustration: ScrumLegoIllustration,
         title: "Scrum LEGO",
         activity: (
             <>
@@ -46,7 +50,7 @@ const WORKSHOPS: Workshop[] = [
         ),
     },
     {
-        icon: "stylus_note",
+        Illustration: PenciltivityIllustration,
         title: "Penciltivity",
         activity: (
             <>
@@ -89,7 +93,7 @@ const TeachingSection = ({ theme = "light", className, ...sectionProps }: Teachi
                         <li key={workshop.title} className={styles.row} data-reveal="rise">
                             <header className={styles.identity}>
                                 <span className={styles.iconTile} aria-hidden="true">
-                                    <span className={`material-symbols-rounded ${styles.icon}`}>{workshop.icon}</span>
+                                    <workshop.Illustration className={styles.illustration} />
                                 </span>
                                 <h3 className={styles.title}>{workshop.title}</h3>
                             </header>
