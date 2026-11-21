@@ -1,3 +1,4 @@
+import { ROUTES } from "../../routes.ts";
 import SectionHeader from "../SectionHeader/SectionHeader.tsx";
 import TimeLine from "../TimeLine/TimeLine.tsx";
 import type { TimeLineItem } from "../TimeLine/TimeLine.types.ts";
@@ -6,7 +7,47 @@ import type { ExperienceSectionProps } from "./ExperienceSection.types.ts";
 
 // Icons from Figma (66:46392). Most recent first.
 const DOMAINS: TimeLineItem[] = [
-    { icon: "terminal", title: "Developer tools", company: "OCADO Technology" },
+    {
+        icon: "terminal",
+        title: "Developer tools",
+        company: "OCADO Technology",
+        // Copy from Figma (163:8590)
+        details: {
+            intro: (
+                <>
+                    Improved the developer experience (DX) for engineering teams using Ocado’s internal developer
+                    platform, which supports the delivery of solutions for Ocado’s partner. Key projects:
+                </>
+            ),
+            projects: [
+                {
+                    name: "Platform Documentation",
+                    description: "Removed friction and improved workflow for engineers.",
+                    caseStudyHref: ROUTES.platformDocumentation,
+                },
+                {
+                    name: "API Lifecycle Management",
+                    description: "Improved documentation quality and discoverability.",
+                },
+                {
+                    name: "Platform Change Tracker (AI)",
+                    description: "Designed AI-assisted incident change tracking interface.",
+                },
+            ],
+            responsibilities: [
+                { icon: "content_paste_search", label: "Conduct user interviews", kind: "research" },
+                { icon: "edit_note", label: "Map domain knowledge", kind: "research" },
+                { icon: "map", label: "Map customer journey", kind: "research" },
+                { icon: "content_paste_search", label: "Analyse external tools", kind: "research" },
+                { icon: "account_tree", label: "Design information architecture", kind: "design" },
+                { icon: "dashboard", label: "Design UI and prototyping", kind: "design" },
+                { icon: "fact_check", label: "Conduct user tests", kind: "design" },
+                { icon: "content_paste_search", label: "Conduct workshops", kind: "design" },
+                { icon: "data_object", label: "Support frontend dev. (REACT)", kind: "development" },
+                { icon: "description", label: "Write documentation", kind: "development" },
+            ],
+        },
+    },
     { icon: "coronavirus", title: "Medical instrument", company: "QIAGEN" },
     { icon: "person_search", title: "B2B HR platform", company: "eWork Group" },
     { icon: "currency_exchange", title: "B2B loan system", company: "Santander Bank" },

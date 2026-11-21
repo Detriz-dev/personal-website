@@ -2,10 +2,15 @@
    331px cards keep each title on one line, so the row is wider than the column and scrolls horizontally.
    The scroller is full-bleed (viewport width); the first card lines up with the 1120px column and
    later cards run off the right edge as a cue to scroll. The dashed line spans the whole scroll width.
-   Icon circles (39px) sit centered on the line, overlapping the top of each card by 7px. */
+   Icon circles (39px) sit centered on the line, overlapping the top of each card by 7px.
+   Open card (Figma 163:7974): widens to 837px, "+" turns into "×", details window expands below it
+   and pushes the content under the timeline down. Window content is a placeholder in Figma (pasted
+   screenshot), so its styling uses the card tokens. */
 
 .timeLine {
     --gutter: max(16px, 50vw - 560px); /* left edge of the 1120px column */
+    --open-width: min(837px, 100vw - 2 * var(--gutter));
+    --expand: 350ms cubic-bezier(0.2, 0, 0, 1);
 
     width: 100vw;
     margin-inline: calc(50% - 50vw);
@@ -97,18 +102,26 @@
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: minmax(331px, max-content);
+    align-items: start; /* an open card's window must not stretch the closed cards */
     gap: 20px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
+/* Widening animates min-width (the grid column follows it); width itself stays content-sized */
 .item {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 331px;
     scroll-snap-align: start;
+    transition: min-width var(--expand);
+}
+
+.item[data-open] {
+    min-width: var(--open-width);
 }
 
 .marker {
@@ -147,6 +160,21 @@
     border-radius: 8px;
     background-color: var(--timeline-card-bg);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    transition:
+        border-color 150ms ease,
+        border-radius var(--expand),
+        box-shadow var(--expand);
+}
+
+.item:not([data-open]) .card:has(.more):hover {
+    border-color: var(--timeline-accent);
+}
+
+/* Open: card and details window form one box. The card's bottom border becomes the divider;
+   the window below carries the shadow. */
+.item[data-open] .card {
+    border-radius: 8px 8px 0 0;
+    box-shadow: none;
 }
 
 .title {
@@ -167,8 +195,35 @@
     white-space: nowrap;
 }
 
-/* "+" opens the details window (behaviour comes later). Visual only for now. */
+/* "+" toggles the details window. The button is unpositioned so its ::after covers the whole card
+   (tap anywhere on the card); the icon is placed on its own. Open: rotates 45° into "×". */
 .more {
+    position: static;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--timeline-accent);
+    cursor: pointer;
+}
+
+.more::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 8px;
+}
+
+.more:focus-visible {
+    outline: none;
+}
+
+.more:focus-visible::after {
+    outline: 2px solid var(--timeline-accent);
+    outline-offset: 2px;
+}
+
+/* Closed: top-right (Figma 3px / 4px). Open: vertically centered (Figma 163:8596). */
+.moreIcon {
     position: absolute;
     top: 3px;
     right: 4px;
@@ -177,15 +232,154 @@
     justify-content: center;
     width: 35px;
     height: 34px;
-    border-radius: 8px;
-    color: var(--timeline-accent);
-}
-
-.moreIcon {
     font-size: 24px;
     font-weight: 600;
     line-height: 24px;
     font-variation-settings: "FILL" 0, "GRAD" 0;
+    transition:
+        rotate var(--expand),
+        top var(--expand),
+        right var(--expand);
+}
+
+.item[data-open] .moreIcon {
+    top: calc(50% - 17px);
+    right: 23px;
+    rotate: 45deg;
+}
+
+/* Details window: grid rows 0fr → 1fr animates to the content's real height */
+.panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    width: 100%;
+    contain: inline-size; /* long copy must not widen the grid column */
+    transition: grid-template-rows var(--expand);
+}
+
+.item[data-open] .panel {
+    grid-template-rows: 1fr;
+}
+
+.panelInner {
+    min-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity var(--expand);
+}
+
+.item[data-open] .panelInner {
+    opacity: 1;
+}
+
+.details {
+    box-sizing: border-box;
+    margin: 0 0 4px; /* bottom: room for the shadow inside the clipping wrapper */
+    padding: 20px;
+    border: 1px solid var(--timeline-card-border);
+    border-top: 0;
+    border-radius: 0 0 8px 8px;
+    background-color: var(--timeline-card-bg);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    color: var(--timeline-text);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-300);
+    line-height: var(--font-line-height-24);
+}
+
+/* Reading text in Source Sans 3; headings keep Urbanist (h1–h6 default, index.css) */
+.details {
+    font-family: var(--font-family-secondary);
+}
+
+.intro {
+    margin: 0;
+}
+
+.label {
+    margin: 16px 0 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--timeline-card-border);
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+.projects,
+.groupList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.projects {
+    display: grid;
+    gap: 4px;
+}
+
+.caseStudy {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: inherit;
+    font-weight: var(--font-weight-600);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.caseStudyText {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.caseStudyIcon {
+    color: var(--timeline-accent);
+    font-size: 16px;
+}
+
+.responsibilities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px 24px;
+}
+
+.group {
+    display: grid;
+    align-content: start;
+    gap: 8px;
+}
+
+.groupHeading {
+    margin: 0;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-600);
+    line-height: var(--font-line-height-24);
+}
+
+.groupList {
+    display: grid;
+    gap: 8px;
+}
+
+.responsibility {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.responsibilityIcon {
+    flex-shrink: 0;
+    color: var(--timeline-accent);
+    font-size: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .item,
+    .moreIcon,
+    .panel,
+    .panelInner {
+        transition: none;
+    }
 }
 
 /* Themes */
