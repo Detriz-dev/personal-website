@@ -6,15 +6,16 @@ export type TimeLineTheme = "light" | "dark";
 export interface TimeLineItem {
     /** Material Symbols (Rounded) icon in the circle, e.g. "terminal". */
     icon: string;
-    /** Domain, e.g. "Developer tools". Use <br /> to control line breaks as in Figma. */
+    /** Domain, e.g. "Developer tools". Shown on one line. */
     title: ReactNode;
     /** Company, shown in the accent color, e.g. "OCADO Technology". */
     company: string;
 }
 
 /**
- * Figma "TimeLine" (Personal Site, 66:46393 — light 66:46392 / dark 66:46391).
- * Dashed accent line with an icon circle above each card (domain + company).
+ * Figma "history" (Personal Site, 163:3298).
+ * Dashed accent line with an icon circle above each card (domain + company + "+").
+ * Cards keep titles on one line; the row scrolls horizontally when wider than the viewport.
  * Copy is passed in by the section.
  */
 export type TimeLineProps = Omit<HTMLAttributes<HTMLElement>, "children"> & {

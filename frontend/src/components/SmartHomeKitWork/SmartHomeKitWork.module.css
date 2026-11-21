@@ -29,6 +29,7 @@
     padding: 14px max(26px, calc((100% - 1280px) / 2 + 26px)) 78px max(86px, calc((100% - 1280px) / 2 + 86px));
     overflow: hidden;
     border-top: 1px solid var(--shk-border); /* same as the footer's top border */
+    border-bottom: 1px solid var(--shk-border);
     background-color: var(--shk-canvas);
     color: var(--shk-text-primary);
 }

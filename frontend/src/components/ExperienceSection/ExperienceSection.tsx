@@ -4,13 +4,13 @@ import type { TimeLineItem } from "../TimeLine/TimeLine.types.ts";
 import styles from "./ExperienceSection.module.css";
 import type { ExperienceSectionProps } from "./ExperienceSection.types.ts";
 
-// Icons and line breaks from Figma (66:46392)
+// Icons from Figma (66:46392). Most recent first.
 const DOMAINS: TimeLineItem[] = [
-    { icon: "developer_guide", title: <>Career development<br />platform</>, company: "DOOS.pro" },
-    { icon: "currency_exchange", title: <>B2B loan<br />system</>, company: "Santander Bank" },
-    { icon: "person_search", title: <>B2B HR<br />platform</>, company: "eWork Group" },
-    { icon: "coronavirus", title: <>Medical<br />instrument</>, company: "QIAGEN" },
-    { icon: "terminal", title: <>Developer<br />tools</>, company: "OCADO Technology" },
+    { icon: "terminal", title: "Developer tools", company: "OCADO Technology" },
+    { icon: "coronavirus", title: "Medical instrument", company: "QIAGEN" },
+    { icon: "person_search", title: "B2B HR platform", company: "eWork Group" },
+    { icon: "currency_exchange", title: "B2B loan system", company: "Santander Bank" },
+    { icon: "developer_guide", title: "Career development platform", company: "DOOS.pro" },
 ];
 
 // Emphasis as in Figma (66:46398)
