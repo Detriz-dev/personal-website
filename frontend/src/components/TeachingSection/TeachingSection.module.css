@@ -48,16 +48,24 @@
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
+    width: 80px;
+    aspect-ratio: 112 / 88;
+    border-radius: 10px;
     background-color: var(--teaching-accent-subtle);
+    overflow: hidden;
 }
 
-.icon {
-    font-size: 28px;
-    line-height: 28px;
-    color: var(--teaching-accent);
+.illustration {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    .iconTile {
+        width: 112px;
+        border-radius: 14px;
+    }
 }
 
 .title {
@@ -134,6 +142,18 @@
     --teaching-text-secondary: var(--light-text-secondary);
     --teaching-accent-subtle: var(--light-accent-subtle);
     --teaching-accent: var(--light-accent-text);
+
+    --ill-ink: var(--light-text-primary);
+    --ill-accent: var(--light-accent-text);
+    --ill-accent-soft: #ffe6a8;
+    --ill-tint: #fff0c9;
+    --ill-paper: var(--light-surface-cards);
+    --ill-pencil: #ffc94d;
+    --ill-wood: var(--light-accent-subtle);
+    --ill-graphite: var(--light-text-primary);
+    --ill-eraser: #f3b5a0;
+    --ill-ferrule: var(--light-accent-text);
+    --ill-accent-outline: var(--light-text-primary);
 }
 
 .dark {
@@ -143,4 +163,16 @@
     --teaching-text-secondary: var(--dark-text-secondary);
     --teaching-accent-subtle: var(--dark-accent-subtle);
     --teaching-accent: var(--light-accent-fill);
+
+    --ill-ink: var(--dark-text-primary);
+    --ill-accent: var(--light-accent-fill);
+    --ill-accent-soft: #4a3a17;
+    --ill-tint: #3a2f15;
+    --ill-paper: #2a2e37;
+    --ill-pencil: #ffc94d;
+    --ill-wood: #f1dfb4;
+    --ill-graphite: #4b5260;
+    --ill-eraser: #f0a891;
+    --ill-ferrule: #b4bac4;
+    --ill-accent-outline: #3d2c05;
 }
