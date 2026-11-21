@@ -24,7 +24,8 @@ export interface TimeLineResponsibility {
 /** Content of the details window that opens below a card. */
 export interface TimeLineDetails {
     intro: ReactNode;
-    projects: TimeLineProject[];
+    /** Key projects; the "Projects" block is left out when empty. */
+    projects?: TimeLineProject[];
     responsibilities: TimeLineResponsibility[];
 }
 

@@ -17,9 +17,11 @@ const Details = ({ details }: { details: TimeLineDetails }) => (
     <div className={styles.details}>
         <p className={styles.intro}>{details.intro}</p>
 
-        <h4 className={styles.label}>Projects</h4>
-        <ul className={styles.projects}>
-            {details.projects.map((project) => (
+        {details.projects && details.projects.length > 0 && (
+            <>
+                <h4 className={styles.label}>Projects</h4>
+                <ul className={styles.projects}>
+                    {details.projects.map((project) => (
                 <li key={project.name}>
                     <strong>{project.name}:</strong> {project.description}
                     {project.caseStudyHref && (
@@ -34,8 +36,10 @@ const Details = ({ details }: { details: TimeLineDetails }) => (
                         </>
                     )}
                 </li>
-            ))}
-        </ul>
+                    ))}
+                </ul>
+            </>
+        )}
 
         <h4 className={styles.label}>Responsibilities</h4>
         {/* One column per group, each with its heading */}
@@ -103,6 +107,16 @@ const TimeLine = ({ theme = "light", items, className, onScroll, ...divProps }: 
             if (openIndex !== null && openIndex < index && previous) {
                 target -= previous.offsetWidth - (closedWidths.current[openIndex] ?? previous.offsetWidth);
             }
+
+            // Snap points still reflect the current (pre-animation) layout and would pull the target
+            // to the wrong card, so snapping is off until this scroll ends.
+            row.style.scrollSnapType = "none";
+            const restoreSnap = () => {
+                row.style.scrollSnapType = "";
+                row.removeEventListener("scrollend", restoreSnap);
+            };
+            row.addEventListener("scrollend", restoreSnap);
+            window.setTimeout(restoreSnap, 1000); // browsers without scrollend
 
             const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
             row.scrollTo({ left: target, behavior: reduceMotion ? "auto" : "smooth" });
