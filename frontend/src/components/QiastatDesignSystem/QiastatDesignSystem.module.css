@@ -1,0 +1,9 @@
+/* Values from Figma (QIAstat-Dx Rise / 04 Design system 185:3371): 72px between header and decisions. */
+
+.designSystem {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-secondary);
+}

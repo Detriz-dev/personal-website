@@ -6,10 +6,10 @@ const ICONS: Record<CalloutVariant, string> = {
     bridge: "arrow_downward",
 };
 
-const Callout = ({ variant = "nda", children, className }: CalloutProps) => (
+const Callout = ({ variant = "nda", icon, children, className }: CalloutProps) => (
     <aside className={[styles.callout, styles[variant], className].filter(Boolean).join(" ")}>
         <span className={`material-symbols-rounded ${styles.icon}`} aria-hidden="true">
-            {ICONS[variant]}
+            {icon ?? ICONS[variant]}
         </span>
         <p className={styles.text}>{children}</p>
     </aside>

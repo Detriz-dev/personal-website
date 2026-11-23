@@ -8,6 +8,8 @@ export type CalloutVariant = "nda" | "bridge";
 
 export type CalloutProps = {
     variant?: CalloutVariant;
+    /** Material Symbols name; overrides the variant's default icon. */
+    icon?: string;
     children: ReactNode;
     className?: string;
 };

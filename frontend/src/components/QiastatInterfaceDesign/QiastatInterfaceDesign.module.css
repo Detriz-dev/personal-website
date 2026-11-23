@@ -1,0 +1,102 @@
+/* Values from Figma (QIAstat-Dx Rise / 03 UI design 181:4625, PrincipleCard 194:3389). */
+
+.design {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-secondary);
+}
+
+.cards {
+    display: grid;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+    padding: 24px 24px 32px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 24px;
+    background-color: var(--color-surface-card);
+}
+
+.visual {
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-28);
+}
+
+.pin {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background-color: var(--color-accent-subtle);
+    color: var(--color-accent-text);
+    font-size: 15px; /* Figma value; no token */
+    font-weight: var(--font-weight-700);
+    line-height: 1;
+}
+
+.body {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-300);
+    line-height: var(--font-line-height-24);
+}
+
+.body strong {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-600);
+}
+
+@media (min-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Last card spans the row */
+    .card:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Last card: illustration (560px) beside the text */
+    .card:last-child {
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .card:last-child .visual {
+        flex: none;
+        width: 560px;
+    }
+}

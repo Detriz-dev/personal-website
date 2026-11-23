@@ -2,4 +2,5 @@
 export const ROUTES = {
     home: "/",
     platformDocumentation: "/projects/platform-documentation",
+    qiastatDxRise: "/projects/qiastat-dx-rise",
 } as const;

@@ -1,0 +1,28 @@
+/* Values from Figma (QIAstat-Dx Rise / 05 Usability tests 181:4800). */
+
+.tests {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-secondary);
+}
+
+.cards {
+    display: grid;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (min-width: 1024px) {
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Featured card (first item) spans the row */
+    .cards > :first-child {
+        grid-column: 1 / -1;
+    }
+}

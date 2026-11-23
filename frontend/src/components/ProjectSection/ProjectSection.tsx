@@ -1,4 +1,5 @@
 import SmartHomeKitWork from "../SmartHomeKitWork/SmartHomeKitWork.tsx";
+import QiastatProject from "../QiastatProject/QiastatProject.tsx";
 import PlatformDocumentationProject from "../PlatformDocumentationProject/PlatformDocumentationProject.tsx";
 import styles from "./ProjectSection.module.css";
 import type { ProjectSectionProps } from "./ProjectSection.types.ts";
@@ -10,6 +11,7 @@ const ProjectSection = ({ theme = "light", className, ...sectionProps }: Project
     return (
         <section {...sectionProps} className={classes} aria-label="Projects">
             <PlatformDocumentationProject theme={theme} projectHref={ROUTES.platformDocumentation} />
+            <QiastatProject theme={theme} projectHref={ROUTES.qiastatDxRise} />
             <SmartHomeKitWork theme={theme} projectHref="https://smart-home-kit.detriz.com/" />
         </section>
     );

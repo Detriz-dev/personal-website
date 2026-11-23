@@ -54,3 +54,8 @@
     font-weight: var(--font-weight-300);
     line-height: var(--font-line-height-24);
 }
+
+.body strong {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-600);
+}

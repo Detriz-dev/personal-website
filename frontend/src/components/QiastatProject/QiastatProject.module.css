@@ -1,0 +1,160 @@
+/* Figma "figma-cover / QIAstat-Dx Rise": 1280 × 702 — light 187:3298. Same layout as the OCADO card.
+   Dark values derived (no dark frame in Figma yet). */
+
+.light {
+    /* QIAGEN brand colors from Figma 187:3298 */
+    --qp-canvas: #ffffff;
+    --qp-brand: #1667a9;
+    --qp-icon-bg: #c72552;
+    --qp-on-icon: #f3fafe;
+    --qp-video: #007ba9;
+    --qp-text-primary: var(--light-text-primary);
+    --qp-text-secondary: var(--light-text-secondary);
+    --qp-border: var(--light-border-subtle);
+}
+
+.dark {
+    --qp-canvas: #0f1522;
+    --qp-brand: #6aaee8;
+    --qp-icon-bg: #e35d82;
+    --qp-on-icon: #0f1522;
+    --qp-video: #4fb6dc;
+    --qp-text-primary: var(--dark-text-primary);
+    --qp-text-secondary: var(--dark-text-secondary);
+    --qp-border: var(--dark-border-subtle);
+}
+
+.qiastatProject {
+    display: grid;
+    grid-template-columns: minmax(0, 440px) minmax(0, 620px);
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+    /* Background spans the full width; content stays in the centered 1280px Figma frame */
+    padding: 80px max(60px, calc((100% - 1280px) / 2 + 60px)) 80px max(86px, calc((100% - 1280px) / 2 + 86px));
+    overflow: hidden;
+    border-bottom: 1px solid var(--qp-border);
+    background-color: var(--qp-canvas);
+    color: var(--qp-text-primary);
+}
+
+/* ---------- Intro ---------- */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.title {
+    margin: 0;
+    font-size: var(--font-size-40);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-48);
+}
+
+.accent {
+    color: var(--qp-brand);
+}
+
+.description {
+    max-width: 428px;
+    margin: 18px 0 0;
+    color: var(--qp-text-secondary);
+    font-size: var(--font-size-18);
+    line-height: var(--font-line-height-28);
+}
+
+.responsibilities {
+    width: 100%;
+    max-width: 357px;
+    margin-top: 21px;
+}
+
+.responsibilitiesHeading {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 36px;
+    margin: 0;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--qp-border);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+.headingIcon {
+    font-size: 24px;
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.list {
+    margin: 0;
+    padding: 8px 8px 0 16px;
+    list-style: none;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    font-size: var(--font-size-16);
+    line-height: var(--font-line-height-24);
+}
+
+.itemIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: var(--qp-icon-bg);
+    color: var(--qp-on-icon);
+}
+
+.itemIcon > span {
+    font-size: 18px;
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
+}
+
+.cta {
+    margin: 29px 0 0 13px;
+}
+
+/* ---------- Video ---------- */
+
+.video {
+    --video-play-bg: #007ba9; /* QIAGEN blue (Figma play button); white icon in both themes */
+    --video-play-fg: #ffffff;
+    --video-caption-icon: var(--qp-video);
+}
+
+.video figcaption {
+    color: var(--qp-video);
+}
+
+/* ---------- Narrow screens: intro on top, video below ---------- */
+
+@media (max-width: 1100px) {
+    .qiastatProject {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 40px;
+        padding: 40px 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .qiastatProject {
+        padding: 32px 16px;
+    }
+
+    .title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
