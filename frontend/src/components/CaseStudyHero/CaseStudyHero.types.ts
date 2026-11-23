@@ -8,6 +8,8 @@ export type CaseStudyHeroProps = {
     title?: string;
     /** Content of the NDA note. Omit to hide the note. */
     note?: ReactNode;
+    /** Where the NDA note sits relative to the title. Defaults to `above`. */
+    notePosition?: "above" | "below";
     /** Content beside the title from 1024px (below it on smaller screens), e.g. a video. */
     aside?: ReactNode;
 };

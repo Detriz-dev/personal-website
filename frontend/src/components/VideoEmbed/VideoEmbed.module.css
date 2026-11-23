@@ -1,5 +1,6 @@
 /* Based on Figma "Video card" (QIAstat-Dx Rise landing cover 187:3552). */
 
+/* Override per placement: --video-play-bg, --video-play-fg, --video-caption-icon */
 .video {
     display: flex;
     flex-direction: column;
@@ -55,8 +56,8 @@
     width: 72px;
     height: 72px;
     border-radius: 999px;
-    background-color: var(--color-accent-fill);
-    color: var(--color-text-on-accent);
+    background-color: var(--video-play-bg, var(--color-accent-fill));
+    color: var(--video-play-fg, var(--color-text-on-accent));
     transform: translate(-50%, -50%);
     transition: transform 0.2s ease-out;
 }
@@ -100,7 +101,7 @@
 }
 
 .caption :global(.material-symbols-rounded) {
-    color: var(--color-accent-text);
+    color: var(--video-caption-icon, var(--color-accent-text));
     font-size: 18px;
 }
 

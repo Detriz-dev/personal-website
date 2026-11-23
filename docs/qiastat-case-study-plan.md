@@ -11,7 +11,7 @@ One step per session. Read only the step's **Context** files and Figma nodes. At
 - [x] 5. 03 UI design
 - [x] 6. 04 Design system + 05 Usability tests
 - [x] 7. What I learned
-- [ ] 8. Landing project card (blocked: description copy)
+- [x] 8. Landing project card
 - [ ] 9. Responsive + QA (overflow checked at 375/768/1024/1280; light + dark checked at 1280)
 
 ## Design reference
@@ -87,3 +87,5 @@ Already on `42-case-study-qiagen`. `copy/` is untracked — leave it alone unles
 - Shared component changes (no visual change for Ocado): `InsightCard` got `fit="fluid"` and a featured fallback that shows the icon box when there's no `lead`; `InsightCard`/`InsightText` `body` accepts `ReactNode` with `<strong>` styling; `Callout` got an `icon` override; `CaseStudyHero` `title`/`note` are optional.
 - Page chunk is ~150 kB gzip (mostly outlined text paths in the SVGs). Lazy-loaded on this route only.
 - Open: step 8 needs landing description copy. Step 9 still needs a pass on real devices; illustration labels are small at 375px (decorative, aria-hidden).
+- Step 8 done: `components/QiastatProject` (after the OCADO card), reuses `VideoEmbed` with QIAGEN blue play button. Description (2 sentences) written by Claude at the user's request — user to review. Hero NDA note moved below the title (`notePosition="below"`).
+- Pre-existing, not from this work: at 1024px the landing hero diagram (`QuestionDiagram`) overflows to 1113px.

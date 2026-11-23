@@ -64,6 +64,7 @@ const QiastatCaseStudyPage = () => {
                 <div className={styles.intro} data-reveal>
                     <CaseStudyHero
                         titleAccent="QIAstat-Dx Rise"
+                        notePosition="below"
                         note={
                             <>
                                 <strong>Note on confidentiality:</strong> Due to strict NDA agreements, I can’t showcase

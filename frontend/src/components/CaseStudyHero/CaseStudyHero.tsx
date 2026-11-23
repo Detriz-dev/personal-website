@@ -2,14 +2,15 @@ import styles from "./CaseStudyHero.module.css";
 import type { CaseStudyHeroProps } from "./CaseStudyHero.types.ts";
 import Callout from "../Callout/Callout.tsx";
 
-const CaseStudyHero = ({ titleAccent, title, note, aside }: CaseStudyHeroProps) => {
+const CaseStudyHero = ({ titleAccent, title, note, notePosition = "above", aside }: CaseStudyHeroProps) => {
     const text = (
         <>
-            {note && <Callout variant="nda">{note}</Callout>}
+            {note && notePosition === "above" && <Callout variant="nda">{note}</Callout>}
             <h1 className={styles.title}>
                 <span className={styles.accent}>{titleAccent}</span>
                 {title && ` ${title}`}
             </h1>
+            {note && notePosition === "below" && <Callout variant="nda">{note}</Callout>}
         </>
     );
 
