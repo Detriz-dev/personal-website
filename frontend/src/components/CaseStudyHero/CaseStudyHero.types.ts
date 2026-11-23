@@ -4,8 +4,10 @@ import type { ReactNode } from "react";
 export type CaseStudyHeroProps = {
     /** First title line, in the accent color. */
     titleAccent: string;
-    /** Second title line. */
-    title: string;
-    /** Content of the NDA note. */
-    note: ReactNode;
+    /** Second title line. Omit for a one-line, all-accent title. */
+    title?: string;
+    /** Content of the NDA note. Omit to hide the note. */
+    note?: ReactNode;
+    /** Content beside the title from 1024px (below it on smaller screens), e.g. a video. */
+    aside?: ReactNode;
 };

@@ -21,6 +21,31 @@
     color: var(--color-accent-text);
 }
 
+/* With aside: text column + aside (e.g. video); stacked below 1024px */
+.withAside {
+    align-items: stretch;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.aside {
+    min-width: 0;
+}
+
+@media (min-width: 1024px) {
+    .withAside {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 56px;
+    }
+}
+
 @media (min-width: 768px) {
     .title {
         font-size: var(--font-size-56);

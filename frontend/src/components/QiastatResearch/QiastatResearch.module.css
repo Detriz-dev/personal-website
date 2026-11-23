@@ -1,0 +1,54 @@
+/* Values from Figma (QIAstat-Dx Rise / 01 Research 181:4273): 56px between blocks, 20px label → cards. */
+
+.research {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-secondary);
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.label {
+    margin: 0;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    line-height: var(--font-line-height-24);
+}
+
+.goals,
+.findings {
+    display: grid;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.goal {
+    padding: 24px 24px 32px;
+    border-radius: 24px;
+    background-color: var(--color-surface-raised);
+}
+
+@media (min-width: 768px) {
+    .goals {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .findings {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Featured card (first item) spans the row */
+    .findings > :first-child {
+        grid-column: 1 / -1;
+    }
+}

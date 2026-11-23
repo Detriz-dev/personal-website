@@ -1,0 +1,28 @@
+/* Values from Figma (QIAstat-Dx Rise / What I learned 186:3471): 56px below the header, 3 columns × 40px gap. */
+
+.learnings {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.list {
+    display: grid;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (min-width: 768px) {
+    .list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 40px;
+    }
+}

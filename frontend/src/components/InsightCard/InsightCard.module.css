@@ -81,6 +81,18 @@
     }
 }
 
+/* fluid: the visual sets its own height (overrides the stage scaling above) */
+.fluid .frame {
+    height: auto;
+}
+
+.fluid .stage {
+    position: static;
+    width: 100%;
+    height: auto;
+    transform: none;
+}
+
 /* featured text column */
 
 .text {
@@ -109,6 +121,11 @@
     font-size: var(--font-size-16);
     font-weight: var(--font-weight-300);
     line-height: var(--font-line-height-24);
+}
+
+.body strong {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-600);
 }
 
 @media (min-width: 1024px) {

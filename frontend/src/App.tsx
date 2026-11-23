@@ -7,6 +7,7 @@ import { ThemeProvider } from "./theme/ThemeContext.tsx";
 
 // Lazy so the case study's visuals stay out of the landing-page bundle
 const CaseStudyPage = lazy(() => import("./pages/CaseStudyPage/CaseStudyPage.tsx"));
+const QiastatCaseStudyPage = lazy(() => import("./pages/QiastatCaseStudyPage/QiastatCaseStudyPage.tsx"));
 
 const App = () => (
     <ThemeProvider>
@@ -16,6 +17,7 @@ const App = () => (
                 <Routes>
                     <Route path={ROUTES.home} element={<LandingPage />} />
                     <Route path={ROUTES.platformDocumentation} element={<CaseStudyPage />} />
+                    <Route path={ROUTES.qiastatDxRise} element={<QiastatCaseStudyPage />} />
                     <Route path="*" element={<Navigate to={ROUTES.home} replace />} />
                 </Routes>
             </Suspense>
